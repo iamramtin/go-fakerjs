@@ -1,0 +1,24 @@
+# Downloaded toolchains and build outputs; `make tools` and `make snapshot` recreate them.
+/tools/
+/build/
+node_modules/
+
+# Scratch output of tests and benchmarks. Curated, committed copies live in results/.
+/reports/
+
+# Local editor, OS and assistant files. Root dotfiles are per-machine configuration.
+.DS_Store
+.idea/
+.vscode/
+/.claude/
+/.*
+!/.gitignore
+!/.github/
+!/.editorconfig
+!/.golangci.yaml
+
+# Faker bundles are rebuilt from the pinned npm package by `make bundle`.
+/bundle/faker.*.min.js
+
+# Python bytecode from the helper scripts.
+__pycache__/

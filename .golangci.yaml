@@ -1,0 +1,110 @@
+version: "2"
+
+run:
+  tests: true
+
+linters:
+  # Explicit allowlist; nothing runs unless enabled here.
+  default: none
+
+  enable:
+    # --- Correctness ---
+    - govet # standard vet analyzers (all, minus noisy ones below)
+    - errcheck # unchecked errors
+    - staticcheck # bug-prone patterns, deprecations
+    - ineffassign # assignments never read
+    - unused # dead identifiers
+    - errorlint # %w wrapping, errors.Is/As instead of == / type assert
+    - exhaustive # enum switches must cover all cases
+    - bodyclose # unclosed HTTP response bodies
+    - copyloopvar # redundant loop-var copies (obsolete since Go 1.22)
+
+    # --- Idiomatic style ---
+    - revive # configurable idiomatic-Go rules (see settings)
+    - modernize # suggest modern stdlib replacements
+    - unconvert # unnecessary type conversions
+    - perfsprint # a constant-message fmt.Errorf is errors.New
+
+    # --- Hygiene ---
+    - misspell # common English misspellings
+    - asciicheck # non-ASCII identifiers
+    - bidichk # trojan-source bidirectional unicode
+
+    # --- Whitespace discipline ---
+    - nlreturn # blank line before return/branch keywords
+    - wsl_v5 # cuddling rules: blank lines separate logical blocks
+
+  settings:
+    perfsprint:
+      # Only the errors.New rule; the formatting rewrites are churn.
+      errorf: true
+      sprintf1: false
+      strconcat: false
+      integer-format: false
+      error-format: true
+      err-error: false
+      bool-format: false
+      hex-format: false
+      string-format: false
+    govet:
+      enable-all: true
+      disable:
+        - shadow # legitimate shadowing (err) too common
+        - fieldalignment # struct-order churn, no readability gain
+
+    exhaustive:
+      # A default case counts as covering the remaining enum values.
+      default-signifies-exhaustive: true
+
+    nlreturn:
+      # Returns directly after a 1-2 line block need no blank line.
+      block-size: 2
+
+    wsl_v5:
+      allow-first-in-block: true
+      branch-max-lines: 2
+
+    revive:
+      rules:
+        - name: argument-limit # max params per function
+          arguments:
+            - 5
+        - name: context-as-argument # ctx first param
+        - name: error-return # error as last return value
+        - name: error-strings # lowercase, no punctuation
+        - name: error-naming # errFoo / ErrFoo
+        - name: if-return # no redundant if-err-return-err
+        - name: receiver-naming # short, consistent receivers
+        - name: superfluous-else # no else after terminating if
+        - name: unreachable-code
+
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+
+issues:
+  # Never truncate results; show every finding.
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+formatters:
+  enable:
+    - gofmt
+    - gofumpt # stricter gofmt superset
+    - goimports # import grouping + cleanup
+
+  settings:
+    goimports:
+      # Local imports grouped last.
+      local-prefixes:
+        - github.com/iamramtin/go-fakerjs
+
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$

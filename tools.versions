@@ -1,0 +1,7 @@
+go                     go1.27.1
+clang                  clang version 23.1.0-wasi-sdk (https://github.com/llvm/llvm-project 895aa2c896ada719451be2e3673c83da8ddf1141)
+wizer                  wizer (pinned 11.0.3)
+wasm-opt               wasm-opt version 132 (version_132)
+wasm2go                wasm2go v0.4.12
+faker                  @faker-js/faker 10.6.0 (pinned)
+quickjs-ng             quickjs-ng v0.17.0 6d46d07d04041b40f4f49eaa7fdebe44c314c699
