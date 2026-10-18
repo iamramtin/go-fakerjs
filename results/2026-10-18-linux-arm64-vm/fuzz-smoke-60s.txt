@@ -1,0 +1,52 @@
+go test -count=1 -timeout 30m -run '^$' -fuzz FuzzGenerate -fuzztime 60s ./stress
+fuzz: elapsed: 0s, gathering baseline coverage: 0/1303 completed
+fuzz: elapsed: 3s, gathering baseline coverage: 801/1303 completed
+fuzz: elapsed: 6s, gathering baseline coverage: 1200/1303 completed
+fuzz: elapsed: 8s, gathering baseline coverage: 1303/1303 completed, now fuzzing with 4 workers
+fuzz: elapsed: 9s, execs: 47536 (15454/sec), new interesting: 3 (total: 1306)
+fuzz: elapsed: 12s, execs: 135621 (29362/sec), new interesting: 9 (total: 1312)
+fuzz: elapsed: 15s, execs: 153993 (6124/sec), new interesting: 12 (total: 1315)
+fuzz: elapsed: 18s, execs: 197046 (14350/sec), new interesting: 12 (total: 1315)
+fuzz: elapsed: 21s, execs: 201221 (1391/sec), new interesting: 12 (total: 1315)
+fuzz: elapsed: 24s, execs: 228670 (9156/sec), new interesting: 14 (total: 1317)
+fuzz: elapsed: 27s, execs: 279032 (16783/sec), new interesting: 18 (total: 1321)
+fuzz: elapsed: 30s, execs: 321051 (14007/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 33s, execs: 355070 (11341/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 36s, execs: 363074 (2668/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 39s, execs: 363074 (0/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 42s, execs: 363074 (0/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 45s, execs: 363074 (0/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 48s, execs: 373395 (3439/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 51s, execs: 403092 (9900/sec), new interesting: 20 (total: 1323)
+fuzz: elapsed: 54s, execs: 427104 (8005/sec), new interesting: 21 (total: 1324)
+fuzz: elapsed: 57s, execs: 434567 (2487/sec), new interesting: 22 (total: 1325)
+fuzz: elapsed: 1m0s, execs: 463122 (9521/sec), new interesting: 23 (total: 1326)
+fuzz: elapsed: 1m2s, execs: 463122 (0/sec), new interesting: 23 (total: 1326)
+PASS
+ok  	github.com/iamramtin/go-fakerjs/stress	62.032s
+go test -count=1 -timeout 30m -run '^$' -fuzz FuzzGuestArgs -fuzztime 1m .
+fuzz: elapsed: 0s, gathering baseline coverage: 0/256 completed
+fuzz: elapsed: 0s, gathering baseline coverage: 256/256 completed, now fuzzing with 4 workers
+fuzz: elapsed: 3s, execs: 78030 (26008/sec), new interesting: 17 (total: 273)
+fuzz: elapsed: 6s, execs: 119267 (13746/sec), new interesting: 23 (total: 279)
+fuzz: elapsed: 9s, execs: 243210 (41317/sec), new interesting: 23 (total: 279)
+fuzz: elapsed: 12s, execs: 243210 (0/sec), new interesting: 23 (total: 279)
+fuzz: elapsed: 15s, execs: 304136 (20317/sec), new interesting: 37 (total: 293)
+fuzz: elapsed: 18s, execs: 378859 (24900/sec), new interesting: 54 (total: 310)
+fuzz: elapsed: 21s, execs: 455131 (25428/sec), new interesting: 65 (total: 321)
+fuzz: elapsed: 24s, execs: 460766 (1878/sec), new interesting: 66 (total: 322)
+fuzz: elapsed: 27s, execs: 460766 (0/sec), new interesting: 66 (total: 322)
+fuzz: elapsed: 30s, execs: 460766 (0/sec), new interesting: 66 (total: 322)
+fuzz: elapsed: 33s, execs: 460945 (60/sec), new interesting: 67 (total: 323)
+fuzz: elapsed: 36s, execs: 460945 (0/sec), new interesting: 67 (total: 323)
+fuzz: elapsed: 39s, execs: 480012 (6359/sec), new interesting: 82 (total: 338)
+fuzz: elapsed: 42s, execs: 487794 (2595/sec), new interesting: 87 (total: 343)
+fuzz: elapsed: 45s, execs: 487815 (7/sec), new interesting: 87 (total: 343)
+fuzz: elapsed: 48s, execs: 490579 (921/sec), new interesting: 89 (total: 345)
+fuzz: elapsed: 51s, execs: 515220 (8213/sec), new interesting: 106 (total: 362)
+fuzz: elapsed: 54s, execs: 552373 (12384/sec), new interesting: 110 (total: 366)
+fuzz: elapsed: 57s, execs: 554431 (686/sec), new interesting: 111 (total: 367)
+fuzz: elapsed: 1m0s, execs: 554431 (0/sec), new interesting: 111 (total: 367)
+fuzz: elapsed: 1m2s, execs: 554431 (0/sec), new interesting: 111 (total: 367)
+PASS
+ok  	github.com/iamramtin/go-fakerjs	62.017s

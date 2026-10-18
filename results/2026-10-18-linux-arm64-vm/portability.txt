@@ -1,0 +1,17 @@
+BUILD ok   darwin/arm64 (0s, test binary 19M)
+build/portability/contract-darwin-arm64: Mach-O, 2 dynamic libraries [/usr/lib/libSystem.B.dylib /usr/lib/libresolv.9.dylib]
+BUILD ok   darwin/amd64 (1s, test binary 20M)
+build/portability/contract-darwin-amd64: Mach-O, 2 dynamic libraries [/usr/lib/libSystem.B.dylib /usr/lib/libresolv.9.dylib]
+BUILD ok   linux/amd64 (0s, test binary 21M)
+build/portability/contract-linux-amd64: ELF, 0 dynamic libraries []
+BUILD ok   linux/arm64 (1s, test binary 19M)
+build/portability/contract-linux-arm64: ELF, 0 dynamic libraries []
+BUILD ok   windows/amd64 (0s, test binary 21M)
+build/portability/contract-windows-amd64.exe: PE, 0 dynamic libraries []
+--- host tests (linux/arm64)
+ok  	github.com/iamramtin/go-fakerjs/conformance	7.476s
+ok  	github.com/iamramtin/go-fakerjs/contract	0.041s
+SKIP docker: not installed, so linux/amd64 and linux/arm64 container runs did not happen
+--- golden dump hashes by architecture (reports/golden-dump-*.sha256)
+5c49fd041c8230fe2181e72807bbf961561bdedaf2ed8210a4f813b892bd58c4  golden-dump-en-arm64.sha256
+dumps identical across: arm64 

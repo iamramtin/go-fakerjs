@@ -1,0 +1,298 @@
+=== RUN   TestResourceBombs
+=== RUN   TestResourceBombs/string.alpha_length_2^30
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.005s peakRSS=531MB (+280MB) usable=true
+=== RUN   TestResourceBombs/string.alpha_length_2^24
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.005s peakRSS=705MB (+174MB) usable=true
+=== RUN   TestResourceBombs/string.numeric_length_1e9
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.005s peakRSS=727MB (+22MB) usable=true
+=== RUN   TestResourceBombs/lorem.paragraphs_1e8
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.003s peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/lorem.words_1e9
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.001s peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/lorem.text_via_GenerateN_1e8
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.002s peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/person.firstName_GenerateN_1e9
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5s peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fromRegExp_a{1e8}
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded the guest memory limit duration=213ms peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fromRegExp_nested_quantifiers
+    bombs_test.go:131: outcome=ok duration=1ms peakRSS=727MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.arrayElements_giant_count
+    bombs_test.go:131: outcome=ok duration=656ms peakRSS=741MB (+13MB) usable=true
+=== RUN   TestResourceBombs/helpers.shuffle_2^20_elements
+    bombs_test.go:131: outcome=ok duration=1.751s peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.slugify_3_MiB
+    bombs_test.go:131: outcome=ok duration=180ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/nested_options_JSON_depth_10000
+    bombs_test.go:131: outcome=ok duration=6ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/nested_options_JSON_depth_100000
+    bombs_test.go:131: outcome=invalid-argument:exceeded max depth duration=3ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/50_MB_args_(default_cap)
+    bombs_test.go:131: outcome=invalid-argument:faker call argument exceeds the size limit duration=22ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/50_MB_args_(cap_lifted)
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded the guest memory limit duration=108ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/50_MB_method_string
+    bombs_test.go:131: outcome=invalid-method duration=187ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fake_escaped_nesting_depth_14
+    bombs_test.go:131: outcome=js-exception duration=1ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fake_braces_nested_500
+    bombs_test.go:131: outcome=ok duration=0s peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fake_braces_nested_100000
+    bombs_test.go:131: outcome=ok duration=9ms peakRSS=741MB (+0MB) usable=true
+=== RUN   TestResourceBombs/helpers.fake_template_3_MiB
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded the guest memory limit duration=105ms peakRSS=897MB (+155MB) usable=true
+=== RUN   TestResourceBombs/string.nanoid_runaway_loop
+    bombs_test.go:131: outcome=resource-limit:faker call exceeded its deadline duration=5.001s peakRSS=902MB (+5MB) usable=true
+--- PASS: TestResourceBombs (43.34s)
+    --- PASS: TestResourceBombs/string.alpha_length_2^30 (5.01s)
+    --- PASS: TestResourceBombs/string.alpha_length_2^24 (5.00s)
+    --- PASS: TestResourceBombs/string.numeric_length_1e9 (5.00s)
+    --- PASS: TestResourceBombs/lorem.paragraphs_1e8 (5.00s)
+    --- PASS: TestResourceBombs/lorem.words_1e9 (5.00s)
+    --- PASS: TestResourceBombs/lorem.text_via_GenerateN_1e8 (5.00s)
+    --- PASS: TestResourceBombs/person.firstName_GenerateN_1e9 (5.00s)
+    --- PASS: TestResourceBombs/helpers.fromRegExp_a{1e8} (0.21s)
+    --- PASS: TestResourceBombs/helpers.fromRegExp_nested_quantifiers (0.00s)
+    --- PASS: TestResourceBombs/helpers.arrayElements_giant_count (0.66s)
+    --- PASS: TestResourceBombs/helpers.shuffle_2^20_elements (1.75s)
+    --- PASS: TestResourceBombs/helpers.slugify_3_MiB (0.18s)
+    --- PASS: TestResourceBombs/nested_options_JSON_depth_10000 (0.01s)
+    --- PASS: TestResourceBombs/nested_options_JSON_depth_100000 (0.00s)
+    --- PASS: TestResourceBombs/50_MB_args_(default_cap) (0.02s)
+    --- PASS: TestResourceBombs/50_MB_args_(cap_lifted) (0.11s)
+    --- PASS: TestResourceBombs/50_MB_method_string (0.19s)
+    --- PASS: TestResourceBombs/helpers.fake_escaped_nesting_depth_14 (0.00s)
+    --- PASS: TestResourceBombs/helpers.fake_braces_nested_500 (0.00s)
+    --- PASS: TestResourceBombs/helpers.fake_braces_nested_100000 (0.01s)
+    --- PASS: TestResourceBombs/helpers.fake_template_3_MiB (0.11s)
+    --- PASS: TestResourceBombs/string.nanoid_runaway_loop (5.00s)
+=== RUN   TestPoolRecoversFromBomb
+--- PASS: TestPoolRecoversFromBomb (8.01s)
+=== RUN   TestDeadline
+    bombs_test.go:178: timeout 100ms -> ErrDeadline after 100ms
+    bombs_test.go:178: timeout 500ms -> ErrDeadline after 500ms
+    bombs_test.go:178: timeout 2s -> ErrDeadline after 2s
+--- PASS: TestDeadline (2.60s)
+=== RUN   TestGCStress
+    robust_test.go:63: 235000 calls verified against golden across 271 forced GCs
+--- PASS: TestGCStress (2.08s)
+=== RUN   TestLeak
+    robust_test.go:100: RSS after warm-up 20 MB, at end 20 MB
+--- PASS: TestLeak (43.31s)
+=== RUN   TestInstanceChurn
+    robust_test.go:137: baseline 16 MB, after 2000 engines 20 MB
+--- PASS: TestInstanceChurn (0.81s)
+=== RUN   TestIsolation
+--- PASS: TestIsolation (0.28s)
+=== RUN   FuzzGenerate
+=== RUN   FuzzGenerate/seed#0
+=== RUN   FuzzGenerate/seed#1
+=== RUN   FuzzGenerate/seed#2
+=== RUN   FuzzGenerate/seed#3
+=== RUN   FuzzGenerate/seed#4
+=== RUN   FuzzGenerate/seed#5
+=== RUN   FuzzGenerate/seed#6
+=== RUN   FuzzGenerate/seed#7
+=== RUN   FuzzGenerate/seed#8
+=== RUN   FuzzGenerate/seed#9
+=== RUN   FuzzGenerate/seed#10
+=== RUN   FuzzGenerate/seed#11
+=== RUN   FuzzGenerate/seed#12
+=== RUN   FuzzGenerate/seed#13
+=== RUN   FuzzGenerate/seed#14
+=== RUN   FuzzGenerate/seed#15
+=== RUN   FuzzGenerate/seed#16
+=== RUN   FuzzGenerate/seed#17
+=== RUN   FuzzGenerate/seed#18
+=== RUN   FuzzGenerate/seed#19
+=== RUN   FuzzGenerate/seed#20
+=== RUN   FuzzGenerate/seed#21
+=== RUN   FuzzGenerate/seed#22
+=== RUN   FuzzGenerate/seed#23
+=== RUN   FuzzGenerate/seed#24
+=== RUN   FuzzGenerate/seed#25
+=== RUN   FuzzGenerate/seed#26
+=== RUN   FuzzGenerate/seed#27
+=== RUN   FuzzGenerate/seed#28
+=== RUN   FuzzGenerate/seed#29
+=== RUN   FuzzGenerate/seed#30
+=== RUN   FuzzGenerate/seed#31
+=== RUN   FuzzGenerate/seed#32
+=== RUN   FuzzGenerate/seed#33
+=== RUN   FuzzGenerate/seed#34
+=== RUN   FuzzGenerate/seed#35
+=== RUN   FuzzGenerate/seed#36
+=== RUN   FuzzGenerate/seed#37
+=== RUN   FuzzGenerate/seed#38
+=== RUN   FuzzGenerate/seed#39
+=== RUN   FuzzGenerate/seed#40
+=== RUN   FuzzGenerate/seed#41
+=== RUN   FuzzGenerate/seed#42
+=== RUN   FuzzGenerate/seed#43
+=== RUN   FuzzGenerate/seed#44
+=== RUN   FuzzGenerate/seed#45
+=== RUN   FuzzGenerate/seed#46
+=== RUN   FuzzGenerate/seed#47
+=== RUN   FuzzGenerate/seed#48
+=== RUN   FuzzGenerate/seed#49
+=== RUN   FuzzGenerate/seed#50
+=== RUN   FuzzGenerate/seed#51
+=== RUN   FuzzGenerate/seed#52
+=== RUN   FuzzGenerate/seed#53
+=== RUN   FuzzGenerate/seed#54
+=== RUN   FuzzGenerate/seed#55
+=== RUN   FuzzGenerate/seed#56
+=== RUN   FuzzGenerate/seed#57
+=== RUN   FuzzGenerate/seed#58
+=== RUN   FuzzGenerate/seed#59
+=== RUN   FuzzGenerate/seed#60
+=== RUN   FuzzGenerate/seed#61
+=== RUN   FuzzGenerate/seed#62
+=== RUN   FuzzGenerate/seed#63
+=== RUN   FuzzGenerate/seed#64
+=== RUN   FuzzGenerate/seed#65
+=== RUN   FuzzGenerate/seed#66
+=== RUN   FuzzGenerate/seed#67
+=== RUN   FuzzGenerate/seed#68
+=== RUN   FuzzGenerate/seed#69
+=== RUN   FuzzGenerate/seed#70
+=== RUN   FuzzGenerate/seed#71
+=== RUN   FuzzGenerate/seed#72
+=== RUN   FuzzGenerate/seed#73
+=== RUN   FuzzGenerate/seed#74
+=== RUN   FuzzGenerate/seed#75
+=== RUN   FuzzGenerate/seed#76
+=== RUN   FuzzGenerate/seed#77
+=== RUN   FuzzGenerate/seed#78
+=== RUN   FuzzGenerate/seed#79
+=== RUN   FuzzGenerate/seed#80
+=== RUN   FuzzGenerate/seed#81
+=== RUN   FuzzGenerate/seed#82
+=== RUN   FuzzGenerate/seed#83
+=== RUN   FuzzGenerate/seed#84
+=== RUN   FuzzGenerate/seed#85
+=== RUN   FuzzGenerate/seed#86
+=== RUN   FuzzGenerate/seed#87
+=== RUN   FuzzGenerate/seed#88
+=== RUN   FuzzGenerate/seed#89
+=== RUN   FuzzGenerate/seed#90
+=== RUN   FuzzGenerate/seed#91
+=== RUN   FuzzGenerate/seed#92
+=== RUN   FuzzGenerate/seed#93
+=== RUN   FuzzGenerate/seed#94
+=== RUN   FuzzGenerate/seed#95
+=== RUN   FuzzGenerate/seed#96
+=== RUN   FuzzGenerate/seed#97
+=== RUN   FuzzGenerate/seed#98
+=== RUN   FuzzGenerate/seed#99
+=== RUN   FuzzGenerate/seed#100
+=== RUN   FuzzGenerate/seed#101
+--- PASS: FuzzGenerate (2.01s)
+    --- PASS: FuzzGenerate/seed#0 (0.00s)
+    --- PASS: FuzzGenerate/seed#1 (0.00s)
+    --- PASS: FuzzGenerate/seed#2 (0.00s)
+    --- PASS: FuzzGenerate/seed#3 (0.00s)
+    --- PASS: FuzzGenerate/seed#4 (0.00s)
+    --- PASS: FuzzGenerate/seed#5 (0.00s)
+    --- PASS: FuzzGenerate/seed#6 (0.00s)
+    --- PASS: FuzzGenerate/seed#7 (0.00s)
+    --- PASS: FuzzGenerate/seed#8 (0.00s)
+    --- PASS: FuzzGenerate/seed#9 (0.00s)
+    --- PASS: FuzzGenerate/seed#10 (0.00s)
+    --- PASS: FuzzGenerate/seed#11 (0.00s)
+    --- PASS: FuzzGenerate/seed#12 (0.00s)
+    --- PASS: FuzzGenerate/seed#13 (0.00s)
+    --- PASS: FuzzGenerate/seed#14 (0.00s)
+    --- PASS: FuzzGenerate/seed#15 (0.00s)
+    --- PASS: FuzzGenerate/seed#16 (0.00s)
+    --- PASS: FuzzGenerate/seed#17 (0.00s)
+    --- PASS: FuzzGenerate/seed#18 (0.00s)
+    --- PASS: FuzzGenerate/seed#19 (0.00s)
+    --- PASS: FuzzGenerate/seed#20 (0.00s)
+    --- PASS: FuzzGenerate/seed#21 (0.00s)
+    --- PASS: FuzzGenerate/seed#22 (0.00s)
+    --- PASS: FuzzGenerate/seed#23 (0.00s)
+    --- PASS: FuzzGenerate/seed#24 (0.00s)
+    --- PASS: FuzzGenerate/seed#25 (0.00s)
+    --- PASS: FuzzGenerate/seed#26 (0.00s)
+    --- PASS: FuzzGenerate/seed#27 (0.00s)
+    --- PASS: FuzzGenerate/seed#28 (0.00s)
+    --- PASS: FuzzGenerate/seed#29 (0.00s)
+    --- PASS: FuzzGenerate/seed#30 (0.00s)
+    --- PASS: FuzzGenerate/seed#31 (0.00s)
+    --- PASS: FuzzGenerate/seed#32 (0.00s)
+    --- PASS: FuzzGenerate/seed#33 (0.00s)
+    --- PASS: FuzzGenerate/seed#34 (0.00s)
+    --- PASS: FuzzGenerate/seed#35 (0.00s)
+    --- PASS: FuzzGenerate/seed#36 (0.00s)
+    --- PASS: FuzzGenerate/seed#37 (0.00s)
+    --- PASS: FuzzGenerate/seed#38 (0.00s)
+    --- PASS: FuzzGenerate/seed#39 (0.00s)
+    --- PASS: FuzzGenerate/seed#40 (0.00s)
+    --- PASS: FuzzGenerate/seed#41 (0.00s)
+    --- PASS: FuzzGenerate/seed#42 (0.00s)
+    --- PASS: FuzzGenerate/seed#43 (0.00s)
+    --- PASS: FuzzGenerate/seed#44 (0.00s)
+    --- PASS: FuzzGenerate/seed#45 (0.00s)
+    --- PASS: FuzzGenerate/seed#46 (0.00s)
+    --- PASS: FuzzGenerate/seed#47 (0.00s)
+    --- PASS: FuzzGenerate/seed#48 (0.00s)
+    --- PASS: FuzzGenerate/seed#49 (0.00s)
+    --- PASS: FuzzGenerate/seed#50 (0.00s)
+    --- PASS: FuzzGenerate/seed#51 (0.00s)
+    --- PASS: FuzzGenerate/seed#52 (0.00s)
+    --- PASS: FuzzGenerate/seed#53 (0.00s)
+    --- PASS: FuzzGenerate/seed#54 (0.00s)
+    --- PASS: FuzzGenerate/seed#55 (0.00s)
+    --- PASS: FuzzGenerate/seed#56 (0.00s)
+    --- PASS: FuzzGenerate/seed#57 (0.00s)
+    --- PASS: FuzzGenerate/seed#58 (0.00s)
+    --- PASS: FuzzGenerate/seed#59 (0.00s)
+    --- PASS: FuzzGenerate/seed#60 (0.00s)
+    --- PASS: FuzzGenerate/seed#61 (0.00s)
+    --- PASS: FuzzGenerate/seed#62 (0.00s)
+    --- PASS: FuzzGenerate/seed#63 (0.00s)
+    --- PASS: FuzzGenerate/seed#64 (0.00s)
+    --- PASS: FuzzGenerate/seed#65 (0.00s)
+    --- PASS: FuzzGenerate/seed#66 (0.00s)
+    --- PASS: FuzzGenerate/seed#67 (0.00s)
+    --- PASS: FuzzGenerate/seed#68 (0.00s)
+    --- PASS: FuzzGenerate/seed#69 (0.00s)
+    --- PASS: FuzzGenerate/seed#70 (0.00s)
+    --- PASS: FuzzGenerate/seed#71 (0.00s)
+    --- PASS: FuzzGenerate/seed#72 (0.00s)
+    --- PASS: FuzzGenerate/seed#73 (0.00s)
+    --- PASS: FuzzGenerate/seed#74 (0.00s)
+    --- PASS: FuzzGenerate/seed#75 (0.00s)
+    --- PASS: FuzzGenerate/seed#76 (0.00s)
+    --- PASS: FuzzGenerate/seed#77 (0.00s)
+    --- PASS: FuzzGenerate/seed#78 (0.00s)
+    --- PASS: FuzzGenerate/seed#79 (0.00s)
+    --- PASS: FuzzGenerate/seed#80 (0.00s)
+    --- PASS: FuzzGenerate/seed#81 (0.00s)
+    --- PASS: FuzzGenerate/seed#82 (0.00s)
+    --- PASS: FuzzGenerate/seed#83 (0.00s)
+    --- PASS: FuzzGenerate/seed#84 (0.00s)
+    --- PASS: FuzzGenerate/seed#85 (0.00s)
+    --- PASS: FuzzGenerate/seed#86 (0.00s)
+    --- PASS: FuzzGenerate/seed#87 (0.00s)
+    --- PASS: FuzzGenerate/seed#88 (0.00s)
+    --- PASS: FuzzGenerate/seed#89 (0.00s)
+    --- PASS: FuzzGenerate/seed#90 (0.00s)
+    --- PASS: FuzzGenerate/seed#91 (0.00s)
+    --- PASS: FuzzGenerate/seed#92 (0.00s)
+    --- PASS: FuzzGenerate/seed#93 (0.00s)
+    --- PASS: FuzzGenerate/seed#94 (0.00s)
+    --- PASS: FuzzGenerate/seed#95 (0.00s)
+    --- PASS: FuzzGenerate/seed#96 (0.00s)
+    --- PASS: FuzzGenerate/seed#97 (0.00s)
+    --- PASS: FuzzGenerate/seed#98 (0.00s)
+    --- PASS: FuzzGenerate/seed#99 (0.00s)
+    --- PASS: FuzzGenerate/seed#100 (0.00s)
+    --- PASS: FuzzGenerate/seed#101 (2.00s)
+PASS
+ok  	github.com/iamramtin/go-fakerjs/stress	102.451s
+
+real	1m39.712s
+user	1m44.725s
+sys	0m1.215s

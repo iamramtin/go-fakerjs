@@ -1,0 +1,3 @@
+ok  	github.com/iamramtin/go-fakerjs/contract	128.408s
+ok  	github.com/iamramtin/go-fakerjs/conformance	860.940s
+ok  	github.com/iamramtin/go-fakerjs	3.156s

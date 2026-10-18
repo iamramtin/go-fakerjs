@@ -1,0 +1,4 @@
+target                  bytes    build_s       rss_MB
+empty                 1245344        1.0          284
+native-en            11468960        8.9         1950
+baseline-qjs          7012615        3.7          277

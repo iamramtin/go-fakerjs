@@ -1,0 +1,156 @@
+[
+ {
+  "name": "string.alpha length 2^30",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5005,
+  "peakRssMB": 531,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "string.alpha length 2^24",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5004,
+  "peakRssMB": 705,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "string.numeric length 1e9",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5004,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "lorem.paragraphs 1e8",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5003,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "lorem.words 1e9",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5001,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "lorem.text via GenerateN 1e8",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5002,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "person.firstName GenerateN 1e9",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5000,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fromRegExp a{1e8}",
+  "outcome": "resource-limit:faker call exceeded the guest memory limit",
+  "durationMs": 213,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fromRegExp nested quantifiers",
+  "outcome": "ok",
+  "durationMs": 0,
+  "peakRssMB": 727,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.arrayElements giant count",
+  "outcome": "ok",
+  "durationMs": 656,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.shuffle 2^20 elements",
+  "outcome": "ok",
+  "durationMs": 1751,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.slugify 3 MiB",
+  "outcome": "ok",
+  "durationMs": 180,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "nested options JSON depth 10000",
+  "outcome": "ok",
+  "durationMs": 6,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "nested options JSON depth 100000",
+  "outcome": "invalid-argument:exceeded max depth",
+  "durationMs": 3,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "50 MB args (default cap)",
+  "outcome": "invalid-argument:faker call argument exceeds the size limit",
+  "durationMs": 22,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "50 MB args (cap lifted)",
+  "outcome": "resource-limit:faker call exceeded the guest memory limit",
+  "durationMs": 108,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "50 MB method string",
+  "outcome": "invalid-method",
+  "durationMs": 186,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fake escaped nesting depth 14",
+  "outcome": "js-exception",
+  "durationMs": 0,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fake braces nested 500",
+  "outcome": "ok",
+  "durationMs": 0,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fake braces nested 100000",
+  "outcome": "ok",
+  "durationMs": 9,
+  "peakRssMB": 741,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "helpers.fake template 3 MiB",
+  "outcome": "resource-limit:faker call exceeded the guest memory limit",
+  "durationMs": 105,
+  "peakRssMB": 897,
+  "engineUsableAfter": true
+ },
+ {
+  "name": "string.nanoid runaway loop",
+  "outcome": "resource-limit:faker call exceeded its deadline",
+  "durationMs": 5001,
+  "peakRssMB": 902,
+  "engineUsableAfter": true
+ }
+]

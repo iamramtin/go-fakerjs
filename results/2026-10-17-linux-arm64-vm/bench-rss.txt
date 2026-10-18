@@ -1,0 +1,2 @@
+    bench_test.go:265: RESULT native         pool(8) RSS   36.7 MB, per engine    4.6 MB
+    bench_test.go:265: RESULT baseline-qjs   pool(8) RSS   55.0 MB, per engine    6.9 MB

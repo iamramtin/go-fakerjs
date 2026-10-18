@@ -1,0 +1,1 @@
+ok  	github.com/iamramtin/go-fakerjs/stress	2648.658s

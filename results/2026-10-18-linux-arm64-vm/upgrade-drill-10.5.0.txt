@@ -1,0 +1,18 @@
+Upgrade drill: Faker.js 10.6.0 -> 10.5.0, linux/arm64 VM (4 vCPU), 2026-10-18.
+The steps of scripts/faker-upgrade.sh replayed in a scratch copy (git writes were unavailable in the session,
+so the script's worktree could not be created). Step, outcome, wall time:
+
+ok   pin 0s
+ok   bundle 0s
+ok   golden 5s
+ok   guest 11s
+ok   vet 10s
+ok   test 18s
+ok   stress 61s
+ok   fuzz 144s
+ok   repro 18s
+total 267s
+
+bundle: faker.en.min.js raw=415672 gzip=152188
+golden: methods=262 variants=448; O1==O2: true (0 case mismatches)  O3 sample: 162 cases, 0 mismatches
+guest:  en raw=1373991 opt=1373819 wizened=4235621 go=6395703 dat=3466793

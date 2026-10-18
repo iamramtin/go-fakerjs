@@ -1,0 +1,846 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/iamramtin/go-fakerjs/bench
+cpu: Apple M5
+BenchmarkNewEngine/native-10  	    3957	    306565 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    3802	    294635 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4041	    303578 ns/op	 6056668 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4056	    301605 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    3775	    300094 ns/op	 6056666 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4107	    297720 ns/op	 6056666 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4069	    297632 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4072	    296937 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    3912	    301001 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10  	    4010	    298166 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  22834560 ns/op	21788889 B/op	    1751 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  23000544 ns/op	21788389 B/op	    1749 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  22793650 ns/op	21788396 B/op	    1749 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  22889271 ns/op	21788482 B/op	    1749 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  22968699 ns/op	21789136 B/op	    1751 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  22966697 ns/op	21787541 B/op	    1748 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  22888607 ns/op	21787142 B/op	    1747 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  22844230 ns/op	21788319 B/op	    1747 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      52	  22758502 ns/op	21788350 B/op	    1746 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  22873439 ns/op	21786356 B/op	    1746 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     250	   4746964 ns/op	  836846 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     243	   4753411 ns/op	  836844 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     248	   4759820 ns/op	  836852 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     253	   4718146 ns/op	  836849 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     252	   4754582 ns/op	  836842 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     252	   4912179 ns/op	  836851 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     249	   4755125 ns/op	  836854 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     252	   4766208 ns/op	  836849 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     253	   4847823 ns/op	  836853 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-script-per-call-10 	     234	   4806238 ns/op	  836847 B/op	      31 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     252	   4746422 ns/op	  837132 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     252	   4764202 ns/op	  837135 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     250	   4780056 ns/op	  837134 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     249	   4842439 ns/op	  837132 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     244	   4905016 ns/op	  837135 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     249	   4807622 ns/op	  837136 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     250	   4804247 ns/op	  837137 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     249	   4853042 ns/op	  837138 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     252	   4800823 ns/op	  837135 B/op	      35 allocs/op
+BenchmarkNewEngine/v8go-precompiled-10     	     249	   4769728 ns/op	  837139 B/op	      35 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  194812	      6152 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  194587	      6115 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  195230	      6170 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  193332	      6181 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192250	      6223 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192151	      6198 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  194166	      6205 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192788	      6174 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  193333	      6280 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  194302	      6164 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32703	     36936 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32331	     38065 ns/op	     230 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32515	     36718 ns/op	     229 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32990	     36525 ns/op	     226 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32817	     36550 ns/op	     227 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32212	     36951 ns/op	     231 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32360	     37069 ns/op	     230 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32671	     36647 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   33002	     36744 ns/op	     226 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32145	     37002 ns/op	     231 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24604	     48418 ns/op	     283 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24925	     48274 ns/op	     280 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24996	     48406 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24730	     48532 ns/op	     282 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24819	     48570 ns/op	     281 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24376	     48706 ns/op	     286 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   25063	     48211 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24948	     48667 ns/op	     280 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24734	     48326 ns/op	     282 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   25000	     47845 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112684 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    113406 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    115098 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112602 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112443 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112359 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112299 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112268 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112324 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112203 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24388	     49351 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24488	     49400 ns/op	     311 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24198	     49523 ns/op	     314 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24158	     49298 ns/op	     314 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24260	     49166 ns/op	     313 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24241	     49460 ns/op	     313 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24066	     49295 ns/op	     315 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24423	     49477 ns/op	     311 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24550	     49196 ns/op	     310 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24535	     49568 ns/op	     310 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  792685	      1467 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  803164	      1478 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  795344	      1501 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  791972	      1507 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  807592	      1483 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  772216	      1485 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  768981	      1481 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  793636	      1477 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  790893	      1498 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  791911	      1481 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   33626	     35843 ns/op	  412164 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   32924	     36418 ns/op	  412182 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   33294	     35770 ns/op	  412172 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   33748	     34677 ns/op	  412163 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34215	     34485 ns/op	  412168 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34494	     34282 ns/op	  412158 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34422	     34397 ns/op	  412160 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34100	     34613 ns/op	  412163 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34263	     34496 ns/op	  412161 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34562	     34336 ns/op	  412163 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9793	    110790 ns/op	  674154 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9916	    110823 ns/op	  674151 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9603	    110642 ns/op	  674142 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9864	    110959 ns/op	  674153 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	   10000	    110933 ns/op	  674160 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9747	    109929 ns/op	  674138 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9160	    110871 ns/op	  674148 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9234	    113706 ns/op	  674151 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9030	    114614 ns/op	  674160 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9129	    115251 ns/op	  674147 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7372	    141178 ns/op	  657732 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7654	    141511 ns/op	  657730 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7849	    138958 ns/op	  657757 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7782	    138774 ns/op	  657741 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7483	    140365 ns/op	  657730 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7984	    139116 ns/op	  657729 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7981	    139638 ns/op	  657719 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7822	    138700 ns/op	  657717 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7726	    136878 ns/op	  657743 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7856	    136662 ns/op	  657735 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5691	    202614 ns/op	  625037 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5491	    207383 ns/op	  625051 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5608	    205733 ns/op	  625024 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5624	    206893 ns/op	  625048 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5418	    208105 ns/op	  625045 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5592	    204754 ns/op	  625038 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5689	    208011 ns/op	  625036 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5431	    209776 ns/op	  625026 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5613	    205182 ns/op	  625054 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5564	    203788 ns/op	  625010 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9471	    115558 ns/op	  411892 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9670	    116291 ns/op	  411880 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9519	    114195 ns/op	  411889 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9572	    114048 ns/op	  411902 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9511	    114573 ns/op	  411887 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9385	    114520 ns/op	  411896 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9565	    114192 ns/op	  411880 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9771	    114498 ns/op	  411888 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9354	    113699 ns/op	  411882 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9579	    114984 ns/op	  411893 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58342	     20291 ns/op	  281473 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57609	     20139 ns/op	  281476 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58874	     20123 ns/op	  281461 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58819	     20115 ns/op	  281466 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58434	     20195 ns/op	  281469 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58611	     20218 ns/op	  281460 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58137	     20197 ns/op	  281460 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58550	     20382 ns/op	  281465 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58474	     20291 ns/op	  281463 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57825	     20335 ns/op	  281468 B/op	     109 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1119150	      1079 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1116460	      1080 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1140398	      1063 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1125590	      1128 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	  899290	      1155 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1134646	      1122 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1114208	      1071 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1135387	      1054 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	  881013	      1180 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/person.firstName-10       	 1119752	      1172 ns/op	      63 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  318184	      3472 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  327892	      3425 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  406707	      3001 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  407233	      2950 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  402020	      3480 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  322752	      3522 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  401371	      3593 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  405649	      2950 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  400983	      2960 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/internet.email-10         	  400616	      2996 ns/op	      83 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  261570	      4791 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  353199	      3401 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  353079	      3382 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  353366	      3342 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  271776	      3905 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  267406	      3970 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  268567	      4792 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  359324	      3356 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  353632	      4549 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/location.streetAddress-10 	  356577	      3364 ns/op	      85 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  517255	      2068 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  519277	      2044 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  512708	      2035 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  520045	      2057 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  521865	      2049 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  525432	      2103 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  497077	      2036 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  525336	      2047 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  503191	      2063 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/lorem.sentence-10         	  506028	      2066 ns/op	     111 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  362101	      3059 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  329818	      3181 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  358898	      3103 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  362721	      3126 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  364495	      3089 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  367142	      3084 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  363802	      3460 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  362828	      3093 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  355906	      3060 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/string.uuid-10            	  360469	      3093 ns/op	     104 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1000000	      1318 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1208764	       992.8 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1201976	      1182 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	  953625	      1278 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	  942932	      1294 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1000000	      1007 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1000000	      1015 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1182536	      1017 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1187508	      1192 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-script-per-call/number.int-10             	 1173919	      1100 ns/op	      72 B/op	       4 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1463913	       891.7 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1415960	       900.8 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1462059	       834.5 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1402009	       823.2 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1377550	       901.6 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1383847	       881.8 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1500134	       798.1 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1488711	       806.4 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1284344	       824.2 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/person.firstName-10           	 1439082	       817.5 ns/op	      23 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  344028	      3157 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  354962	      3106 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  453321	      3112 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  445822	      3138 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  438810	      2661 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  450038	      2657 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  354121	      3095 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  352713	      3091 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  455409	      2638 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/internet.email-10             	  455876	      3190 ns/op	      43 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  321708	      3127 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  386883	      3121 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  245178	      4462 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  386388	      3113 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  389761	      3102 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  379333	      4381 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  388762	      3095 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  385417	      3062 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  391627	      3048 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/location.streetAddress-10     	  388603	      3095 ns/op	      37 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  587258	      1845 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  580584	      1834 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  551718	      1829 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  583092	      1818 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  572336	      1838 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  572988	      1869 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  575851	      1817 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  569594	      1786 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  580126	      1814 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/lorem.sentence-10             	  566550	      1808 ns/op	      71 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  400004	      2824 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  371486	      2824 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  395572	      2822 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  398564	      2835 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  390634	      2805 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  399726	      2886 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  352609	      2846 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  392138	      2828 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  390778	      2842 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/string.uuid-10                	  417421	      2901 ns/op	      64 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1300177	       976.7 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1583342	       962.3 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1670353	      1009 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1450642	       967.0 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1258440	       827.6 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1457572	       984.0 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1000000	      1002 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1649416	       815.9 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1444348	       898.2 ns/op	      32 B/op	       2 allocs/op
+BenchmarkGenerateSingle/v8go-precompiled/number.int-10                 	 1700766	       738.3 ns/op	      32 B/op	       2 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2299	    489871 ns/op	      2041 rows/s	    4487 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2407	    479374 ns/op	      2086 rows/s	    4369 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2408	    477838 ns/op	      2093 rows/s	    4368 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2420	    475995 ns/op	      2101 rows/s	    4355 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2426	    476291 ns/op	      2100 rows/s	    4349 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2415	    495141 ns/op	      2020 rows/s	    4360 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2359	    485690 ns/op	      2059 rows/s	    4421 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2430	    478355 ns/op	      2090 rows/s	    4345 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2426	    476162 ns/op	      2100 rows/s	    4349 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2440	    474583 ns/op	      2107 rows/s	    4335 B/op	      45 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2650	    452117 ns/op	      2212 rows/s	    4145 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2650	    452539 ns/op	      2210 rows/s	    4145 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2652	    453278 ns/op	      2206 rows/s	    4141 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2653	    451982 ns/op	      2212 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2653	    452923 ns/op	      2208 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2660	    453140 ns/op	      2207 rows/s	    4133 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2637	    452556 ns/op	      2210 rows/s	    4151 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2648	    452604 ns/op	      2209 rows/s	    4148 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2658	    465996 ns/op	      2146 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2636	    464882 ns/op	      2151 rows/s	    4152 B/op	      25 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     760	   1536255 ns/op	       651.2 rows/s	 9973074 B/op	    2218 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     759	   1535303 ns/op	       651.6 rows/s	 9972036 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     738	   1477682 ns/op	       677.0 rows/s	 9964955 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     744	   1558885 ns/op	       641.7 rows/s	 9964703 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     786	   1474383 ns/op	       678.5 rows/s	 9973443 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     802	   1527386 ns/op	       654.9 rows/s	 9973784 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     800	   1496562 ns/op	       668.4 rows/s	 9973799 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     792	   1491799 ns/op	       670.6 rows/s	 9974002 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     798	   1517597 ns/op	       659.2 rows/s	 9973420 B/op	    2217 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     801	   1510178 ns/op	       662.4 rows/s	 9974196 B/op	    2218 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1384	    843785 ns/op	      1186 rows/s	   17806 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1381	    833243 ns/op	      1201 rows/s	   17832 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1413	    837984 ns/op	      1194 rows/s	   17669 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1394	    830498 ns/op	      1205 rows/s	   17690 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1408	    835186 ns/op	      1198 rows/s	   17715 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1401	    830797 ns/op	      1204 rows/s	   17797 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1405	    833723 ns/op	      1200 rows/s	   17574 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1411	    843613 ns/op	      1186 rows/s	   17494 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1416	    835436 ns/op	      1197 rows/s	   17451 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1386	    848750 ns/op	      1179 rows/s	   17776 B/op	      23 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   29576	     41231 ns/op	     24484 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   28939	     38923 ns/op	     25953 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   26462	     38954 ns/op	     25940 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   28245	     39059 ns/op	     25868 rows/s	    2640 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   29494	     38024 ns/op	     26585 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   29833	     41110 ns/op	     24568 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   29896	     38731 ns/op	     26100 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   28848	     38517 ns/op	     26225 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   28393	     39145 ns/op	     25826 rows/s	    2640 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/percall-10                         	   25626	     40325 ns/op	     25050 rows/s	    2641 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   31627	     36083 ns/op	     28023 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   29431	     35992 ns/op	     28095 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   30324	     37205 ns/op	     27166 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   32301	     35091 ns/op	     28821 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   32827	     34952 ns/op	     28953 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   31350	     35646 ns/op	     28377 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   30880	     35019 ns/op	     28895 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   30127	     35223 ns/op	     28715 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   32061	     35486 ns/op	     28498 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-script-per-call/batched-10                         	   32353	     35175 ns/op	     28770 rows/s	    2967 B/op	      85 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   33879	     34925 ns/op	     28982 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   32954	     34159 ns/op	     29628 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   33415	     34239 ns/op	     29580 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   33504	     33062 ns/op	     30606 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   33477	     33684 ns/op	     30021 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   32378	     34321 ns/op	     29479 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   33822	     33587 ns/op	     30117 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   34816	     33339 ns/op	     30361 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   31904	     33903 ns/op	     29875 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/percall-10                             	   35164	     35115 ns/op	     28810 rows/s	    1777 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37927	     29535 ns/op	     34307 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37299	     30377 ns/op	     33378 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37768	     30211 ns/op	     33540 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   35794	     29814 ns/op	     34037 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37736	     30501 ns/op	     33223 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   35414	     29451 ns/op	     34409 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37632	     29585 ns/op	     34287 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   35443	     30106 ns/op	     33659 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   38649	     29921 ns/op	     33881 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20/v8go-precompiled/batched-10                             	   37695	     29742 ns/op	     34084 rows/s	    2103 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2254	    509131 ns/op	      1964 rows/s	    4532 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2511	    475408 ns/op	      2103 rows/s	    4255 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2500	    490459 ns/op	      2039 rows/s	    4265 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2431	    482407 ns/op	      2073 rows/s	    4335 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2515	    481205 ns/op	      2078 rows/s	    4251 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2511	    502638 ns/op	      1990 rows/s	    4255 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2316	    479632 ns/op	      2085 rows/s	    4459 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2524	    483299 ns/op	      2069 rows/s	    4242 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2500	    480245 ns/op	      2082 rows/s	    4265 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2515	    480179 ns/op	      2083 rows/s	    4251 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4195	    255866 ns/op	      3908 rows/s	    4734 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4138	    252811 ns/op	      3956 rows/s	    4774 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4166	    261096 ns/op	      3830 rows/s	    4755 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4182	    276198 ns/op	      3621 rows/s	    4743 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    3990	    251999 ns/op	      3968 rows/s	    4882 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    3981	    276506 ns/op	      3617 rows/s	    4889 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4095	    273932 ns/op	      3651 rows/s	    4804 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4116	    257097 ns/op	      3890 rows/s	    4790 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4096	    255689 ns/op	      3911 rows/s	    4804 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4150	    258896 ns/op	      3863 rows/s	    4765 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5486	    193559 ns/op	      5166 rows/s	    6263 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5688	    187422 ns/op	      5336 rows/s	    6107 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5616	    187651 ns/op	      5329 rows/s	    6161 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5668	    187655 ns/op	      5329 rows/s	    6123 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5516	    195896 ns/op	      5105 rows/s	    6239 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5596	    189602 ns/op	      5274 rows/s	    6177 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5551	    190286 ns/op	      5255 rows/s	    6211 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5588	    192431 ns/op	      5197 rows/s	    6183 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5532	    192669 ns/op	      5190 rows/s	    6227 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5324	    200899 ns/op	      4978 rows/s	    6397 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	   10246	    127916 ns/op	      7818 rows/s	    6573 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9784	    133882 ns/op	      7469 rows/s	    6796 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9067	    143139 ns/op	      6986 rows/s	    7188 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9966	    133547 ns/op	      7488 rows/s	    6707 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9457	    146542 ns/op	      6824 rows/s	    6968 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9495	    143199 ns/op	      6983 rows/s	    6948 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    8754	    135611 ns/op	      7374 rows/s	    7379 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9364	    138662 ns/op	      7212 rows/s	    7019 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9466	    141864 ns/op	      7049 rows/s	    6963 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9451	    142062 ns/op	      7039 rows/s	    6972 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12117	    118610 ns/op	      8431 rows/s	    6845 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12403	    117137 ns/op	      8537 rows/s	    6731 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12015	    122695 ns/op	      8150 rows/s	    6889 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12178	    116271 ns/op	      8601 rows/s	    6821 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12110	    120220 ns/op	      8318 rows/s	    6848 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12186	    120426 ns/op	      8304 rows/s	    6818 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12244	    115424 ns/op	      8664 rows/s	    6794 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   11863	    117678 ns/op	      8498 rows/s	    6952 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   11846	    116843 ns/op	      8559 rows/s	    6958 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12105	    122692 ns/op	      8150 rows/s	    6849 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2398	    480813 ns/op	      2080 rows/s	    4380 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2551	    489480 ns/op	      2043 rows/s	    4230 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2506	    493097 ns/op	      2028 rows/s	    4264 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2446	    486771 ns/op	      2054 rows/s	    4334 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2499	    479486 ns/op	      2086 rows/s	    4273 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2589	    480751 ns/op	      2080 rows/s	    4188 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2492	    478892 ns/op	      2088 rows/s	    4281 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2617	    466766 ns/op	      2142 rows/s	    4170 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2662	    473141 ns/op	      2114 rows/s	    4127 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2608	    475003 ns/op	      2105 rows/s	    4174 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4880	    281325 ns/op	      3555 rows/s	    4332 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4059	    250140 ns/op	      3998 rows/s	    4836 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4125	    250657 ns/op	      3990 rows/s	    4789 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4094	    248854 ns/op	      4018 rows/s	    4810 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4110	    248236 ns/op	      4028 rows/s	    4800 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4113	    252757 ns/op	      3956 rows/s	    4798 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4131	    252048 ns/op	      3968 rows/s	    4785 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4052	    248004 ns/op	      4032 rows/s	    4842 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4080	    248156 ns/op	      4030 rows/s	    4821 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4507	    271360 ns/op	      3685 rows/s	    4539 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5982	    171265 ns/op	      5839 rows/s	    5908 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5876	    174894 ns/op	      5718 rows/s	    5981 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5866	    177012 ns/op	      5649 rows/s	    5988 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5835	    177518 ns/op	      5633 rows/s	    6009 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5842	    177739 ns/op	      5626 rows/s	    6005 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5798	    183503 ns/op	      5450 rows/s	    6038 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5000	    204065 ns/op	      4900 rows/s	    6705 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6110	    171286 ns/op	      5838 rows/s	    5823 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5782	    178732 ns/op	      5595 rows/s	    6051 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5839	    189474 ns/op	      5278 rows/s	    6008 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10142	    125149 ns/op	      7990 rows/s	    6634 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9567	    132400 ns/op	      7553 rows/s	    6920 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10623	    121546 ns/op	      8227 rows/s	    6416 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9728	    130404 ns/op	      7668 rows/s	    6837 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9938	    127089 ns/op	      7869 rows/s	    6735 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9838	    131255 ns/op	      7619 rows/s	    6782 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9739	    134408 ns/op	      7440 rows/s	    6832 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9643	    134118 ns/op	      7456 rows/s	    6882 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9710	    133450 ns/op	      7493 rows/s	    6847 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	    9490	    137270 ns/op	      7285 rows/s	    6964 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12739	    113110 ns/op	      8841 rows/s	    6613 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   13041	    110827 ns/op	      9023 rows/s	    6502 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   13441	    108294 ns/op	      9234 rows/s	    6366 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12874	    111535 ns/op	      8966 rows/s	    6563 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12946	    109686 ns/op	      9117 rows/s	    6538 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12841	    110509 ns/op	      9049 rows/s	    6576 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12867	    107378 ns/op	      9313 rows/s	    6567 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   13359	    105971 ns/op	      9437 rows/s	    6393 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   13428	    105865 ns/op	      9446 rows/s	    6368 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   13500	    105091 ns/op	      9516 rows/s	    6346 B/op	      25 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     741	   1476443 ns/op	       677.6 rows/s	 9965640 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     795	   1537056 ns/op	       650.8 rows/s	 9974416 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     738	   1518950 ns/op	       658.6 rows/s	 9965255 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     789	   1515559 ns/op	       660.0 rows/s	 9974232 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     745	   1516210 ns/op	       659.8 rows/s	 9964984 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     796	   1539904 ns/op	       649.6 rows/s	 9974222 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     810	   1495505 ns/op	       668.9 rows/s	 9974506 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     769	   1528612 ns/op	       654.5 rows/s	 9974209 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     794	   1632876 ns/op	       612.6 rows/s	 9974458 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     789	   1523100 ns/op	       656.8 rows/s	 9974296 B/op	    2217 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     727	   1494995 ns/op	       669.4 rows/s	 9968635 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     775	   1503367 ns/op	       665.7 rows/s	 9978062 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     769	   1484146 ns/op	       674.3 rows/s	 9977858 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     752	   1476057 ns/op	       678.1 rows/s	 9969820 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     808	   1494841 ns/op	       669.5 rows/s	 9978288 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     786	   1502767 ns/op	       665.9 rows/s	 9978224 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     789	   1511318 ns/op	       662.1 rows/s	 9978051 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     806	   1555418 ns/op	       643.3 rows/s	 9977976 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     781	   1459403 ns/op	       685.7 rows/s	 9977970 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     776	   1489958 ns/op	       671.6 rows/s	 9977944 B/op	    2216 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     770	   1464925 ns/op	       683.6 rows/s	 9969538 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     807	   1445747 ns/op	       692.6 rows/s	 9970875 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     818	   1474830 ns/op	       679.0 rows/s	 9971056 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     811	   1433442 ns/op	       698.6 rows/s	 9970724 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     813	   1471905 ns/op	       680.3 rows/s	 9970879 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     805	   1472938 ns/op	       679.8 rows/s	 9970594 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     801	   1443148 ns/op	       693.9 rows/s	 9970195 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     819	   1433556 ns/op	       698.5 rows/s	 9971164 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     772	   1515267 ns/op	       660.9 rows/s	 9969546 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     822	   1448443 ns/op	       691.3 rows/s	 9971137 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     800	   1513268 ns/op	       662.5 rows/s	 9971924 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     793	   1401893 ns/op	       715.4 rows/s	 9972329 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     810	   1411035 ns/op	       710.6 rows/s	 9971876 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     819	   3734386 ns/op	       268.5 rows/s	 9972841 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     838	   1484286 ns/op	       675.4 rows/s	 9973192 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     807	   1383509 ns/op	       724.8 rows/s	 9971566 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     850	   1615897 ns/op	       620.4 rows/s	 9972713 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     831	   1436413 ns/op	       698.3 rows/s	 9972540 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     820	   1435947 ns/op	       698.5 rows/s	 9972273 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     813	   1435074 ns/op	       698.7 rows/s	 9971953 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     781	   1430800 ns/op	       701.4 rows/s	 9974943 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     835	   1404143 ns/op	       714.6 rows/s	 9975970 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     816	   1463933 ns/op	       685.4 rows/s	 9975772 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     848	   1395262 ns/op	       719.1 rows/s	 9973228 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     780	   1424548 ns/op	       704.6 rows/s	 9974678 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     853	   1403629 ns/op	       714.7 rows/s	 9975712 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     826	   1425316 ns/op	       704.1 rows/s	 9977163 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     829	   1398806 ns/op	       717.6 rows/s	 9972645 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     804	   1517573 ns/op	       661.1 rows/s	 9975494 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     813	   1425257 ns/op	       704.0 rows/s	 9971938 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1327	    885591 ns/op	      1130 rows/s	   18861 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1288	    873726 ns/op	      1145 rows/s	   19016 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1347	    864883 ns/op	      1157 rows/s	   18612 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1238	    872639 ns/op	      1146 rows/s	   19906 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1388	    850942 ns/op	      1176 rows/s	   17942 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1352	    854485 ns/op	      1171 rows/s	   18358 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1376	    879421 ns/op	      1138 rows/s	   18086 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1276	   5132773 ns/op	       194.8 rows/s	   19383 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	     548	   2828935 ns/op	       353.6 rows/s	   22112 B/op	      24 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1220	    989838 ns/op	      1011 rows/s	   20178 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2008	    505360 ns/op	      1981 rows/s	   18232 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2538	    706595 ns/op	      1416 rows/s	   15235 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2589	    561156 ns/op	      1783 rows/s	   14877 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2340	    510876 ns/op	      1959 rows/s	   16222 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2455	    534894 ns/op	      1871 rows/s	   15677 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2467	    536779 ns/op	      1864 rows/s	   15611 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2320	    519271 ns/op	      1927 rows/s	   16348 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2419	    527916 ns/op	      1896 rows/s	   15767 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2340	    520110 ns/op	      1924 rows/s	   16222 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2337	    519160 ns/op	      1928 rows/s	   16241 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    1784	    568243 ns/op	      1763 rows/s	   14797 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3837	    288352 ns/op	      3473 rows/s	   13841 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    4618	    336833 ns/op	      2972 rows/s	   14241 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3703	    274975 ns/op	      3643 rows/s	   14259 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3718	    291176 ns/op	      3440 rows/s	   14213 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    1611	    645207 ns/op	      1553 rows/s	   16158 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    4074	    277376 ns/op	      3611 rows/s	   15762 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3367	    299501 ns/op	      3345 rows/s	   15368 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    1794	    557919 ns/op	      1795 rows/s	   14593 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    2820	    398760 ns/op	      2512 rows/s	   14062 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4638	    235479 ns/op	      4261 rows/s	   14141 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    3626	    315506 ns/op	      3180 rows/s	   14442 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    1800	    556763 ns/op	      1803 rows/s	   14588 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    1678	    612250 ns/op	      1639 rows/s	   15323 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    2878	    365944 ns/op	      2742 rows/s	   13741 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    2269	    464364 ns/op	      2160 rows/s	   16614 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    3561	    285284 ns/op	      3518 rows/s	   14662 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    2774	    407360 ns/op	      2462 rows/s	   14179 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    3669	    336446 ns/op	      2980 rows/s	   14382 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    3787	    273866 ns/op	      3664 rows/s	   13869 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4768	    227593 ns/op	      4412 rows/s	   13822 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    1795	    577760 ns/op	      1737 rows/s	   14783 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3236	    324536 ns/op	      3094 rows/s	   15792 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3144	    324124 ns/op	      3098 rows/s	   16350 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4038	    258402 ns/op	      3887 rows/s	   15771 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    2878	    409507 ns/op	      2451 rows/s	   13759 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    2149	    474914 ns/op	      2115 rows/s	   17687 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3003	    375614 ns/op	      2672 rows/s	   16618 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3081	    363755 ns/op	      2759 rows/s	   16364 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3176	    362455 ns/op	      2768 rows/s	   16043 B/op	      22 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   27609	     39267 ns/op	     25746 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   29515	     39750 ns/op	     25405 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   28374	     39926 ns/op	     25311 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   26799	     39634 ns/op	     25497 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   29217	     39918 ns/op	     25304 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   29816	     39513 ns/op	     25558 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   26302	     39152 ns/op	     25808 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   28201	     39393 ns/op	     25664 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   29797	     39386 ns/op	     25653 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=1-10          	   28681	     40684 ns/op	     24831 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   50605	     22464 ns/op	     45378 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   46972	     24563 ns/op	     41470 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   48884	     23434 ns/op	     43514 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   47635	     23196 ns/op	     43917 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   47026	     23124 ns/op	     44126 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   46520	     24107 ns/op	     42294 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   46767	     24544 ns/op	     41500 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   44962	     24748 ns/op	     41131 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   48895	     24192 ns/op	     42104 rows/s	    2644 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=2-10          	   45889	     24399 ns/op	     41755 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   89337	     12823 ns/op	     80878 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   89456	     13136 ns/op	     78898 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   86115	     14158 ns/op	     73043 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   85849	     13834 ns/op	     75107 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   85534	     13977 ns/op	     74035 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   72960	     13890 ns/op	     74611 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   84991	     13924 ns/op	     74343 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   87332	     13803 ns/op	     74947 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   85705	     15202 ns/op	     67822 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=4-10          	   88677	     13192 ns/op	     78498 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  116396	     10063 ns/op	    104230 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  116222	     10108 ns/op	    103602 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  117748	     10285 ns/op	    101864 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  115993	     10086 ns/op	    104010 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  114979	     10122 ns/op	    103531 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  115810	     10076 ns/op	    104055 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  112420	     10359 ns/op	    100986 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  120087	     10084 ns/op	    103960 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  118354	      9964 ns/op	    105235 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=8-10          	  114481	      9877 ns/op	    106424 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  123028	      9575 ns/op	    109831 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  124015	      9708 ns/op	    108212 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  125131	      9673 ns/op	    108798 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  120093	     12137 ns/op	     85771 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  114289	     11015 ns/op	     94970 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  109936	     10096 ns/op	    104050 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  123178	      9570 ns/op	    110003 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  124754	      9852 ns/op	    106697 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  118909	      9908 ns/op	    105907 rows/s	    2643 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/percall/pool=10-10         	  118458	      9809 ns/op	    107148 rows/s	    2642 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   31345	     36409 ns/op	     27797 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   32876	     36848 ns/op	     27448 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   29966	     37729 ns/op	     26819 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   29893	     38548 ns/op	     26237 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   28842	     37880 ns/op	     26704 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   30769	     37485 ns/op	     26963 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   30883	     37425 ns/op	     27036 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   28989	     37572 ns/op	     26922 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   28360	     38188 ns/op	     26476 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=1-10          	   30762	     37685 ns/op	     26825 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   49767	     20971 ns/op	     48719 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   50715	     20806 ns/op	     49109 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   51111	     20143 ns/op	     50674 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   52890	     19725 ns/op	     51901 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   48644	     20960 ns/op	     48741 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   49195	     21490 ns/op	     47530 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   48538	     21523 ns/op	     47487 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   47260	     21460 ns/op	     47587 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   50647	     20252 ns/op	     50429 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=2-10          	   55468	     19364 ns/op	     52749 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  106717	     11051 ns/op	     94108 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  107182	     10943 ns/op	     95146 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  105014	     11000 ns/op	     94541 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  106976	     11065 ns/op	     94083 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  107516	     11103 ns/op	     93786 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  107821	     10933 ns/op	     95113 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  108520	     10923 ns/op	     95366 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  107893	     11122 ns/op	     93513 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  107751	     11040 ns/op	     94191 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=4-10          	  108402	     11004 ns/op	     94548 rows/s	    2970 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  135391	      8746 ns/op	    120152 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  133822	      8666 ns/op	    121337 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  135408	      8756 ns/op	    120506 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  135361	      8775 ns/op	    119803 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  133845	      8859 ns/op	    118651 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  131936	      8819 ns/op	    119158 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  134070	      8894 ns/op	    118169 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  134590	      8801 ns/op	    119447 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  133177	      8790 ns/op	    119562 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=8-10          	  134631	      8723 ns/op	    120563 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  136270	      8472 ns/op	    124449 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  141645	      8434 ns/op	    124958 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  141763	      8399 ns/op	    125512 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  137034	      8352 ns/op	    126298 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  139268	      8393 ns/op	    126036 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  138236	      8489 ns/op	    124494 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  134370	      8374 ns/op	    125830 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	   96972	     10509 ns/op	     99221 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  140384	     11233 ns/op	     92588 rows/s	    2968 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-script-per-call/batched/pool=10-10         	  131138	      8858 ns/op	    118777 rows/s	    2969 B/op	      85 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   34419	     33754 ns/op	     29998 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   34335	     34616 ns/op	     29226 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   32510	     34666 ns/op	     29185 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   33457	     33811 ns/op	     29944 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   32343	     34431 ns/op	     29380 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   32449	     34539 ns/op	     29305 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   33612	     34448 ns/op	     29386 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   33043	     34334 ns/op	     29481 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   32944	     34909 ns/op	     28994 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=1-10              	   32409	     33066 ns/op	     30621 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   56920	     18950 ns/op	     53987 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   56306	     18282 ns/op	     56082 rows/s	    1780 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   56251	     18680 ns/op	     54792 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   58309	     18417 ns/op	     55521 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   60858	     18356 ns/op	     55772 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   56318	     18335 ns/op	     55752 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   61740	     18359 ns/op	     55684 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   60878	     18181 ns/op	     56319 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   56247	     18323 ns/op	     55901 rows/s	    1780 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=2-10              	   57838	     18749 ns/op	     54505 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  112593	     10351 ns/op	    100911 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  111853	     11068 ns/op	     94036 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  110193	     10693 ns/op	     97506 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  112786	     10721 ns/op	     97278 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  109108	     10923 ns/op	     95363 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  108699	     10932 ns/op	     95365 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  110734	     11000 ns/op	     94827 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  107077	     10833 ns/op	     96281 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  107630	     10797 ns/op	     96585 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=4-10              	  107510	     10733 ns/op	     97317 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  137523	      8303 ns/op	    127434 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  135937	      8270 ns/op	    128133 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  123603	      9225 ns/op	    114215 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  134696	      8337 ns/op	    126901 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  138418	      8250 ns/op	    128390 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  139107	      8559 ns/op	    123254 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  140082	      8211 ns/op	    129089 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  140096	      8233 ns/op	    128631 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  133532	      9184 ns/op	    115055 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=8-10              	  129602	      8506 ns/op	    124228 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  142966	      8917 ns/op	    118400 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  135513	      8929 ns/op	    118094 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  136244	      8110 ns/op	    130746 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  149240	      7943 ns/op	    133510 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  147658	      8023 ns/op	    132111 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  144832	      8049 ns/op	    131577 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  142156	      7950 ns/op	    133541 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  146562	      7966 ns/op	    132970 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  147522	      7996 ns/op	    132664 rows/s	    1778 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/percall/pool=10-10             	  149179	      8165 ns/op	    129510 rows/s	    1779 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   34382	     30890 ns/op	     32792 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   37084	     29829 ns/op	     33980 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   35728	     29713 ns/op	     34115 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   38193	     30575 ns/op	     33133 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   38242	     30108 ns/op	     33670 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   37515	     29969 ns/op	     33820 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   40369	     29860 ns/op	     33940 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   36859	     29994 ns/op	     33799 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   38671	     29981 ns/op	     33796 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=1-10              	   38115	     29444 ns/op	     34430 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   63804	     15865 ns/op	     64693 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   68203	     15635 ns/op	     65623 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   67770	     15714 ns/op	     65238 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   67338	     15807 ns/op	     64901 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   68539	     15598 ns/op	     65792 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   67495	     15714 ns/op	     65252 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   68706	     15743 ns/op	     65194 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   66136	     15739 ns/op	     65200 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   64708	     15673 ns/op	     65449 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=2-10              	   63835	     15886 ns/op	     64570 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  124269	      9300 ns/op	    112508 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  127554	      9661 ns/op	    108391 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  116900	     10081 ns/op	    103748 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  115886	      9886 ns/op	    105837 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  122490	      9599 ns/op	    109009 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  121423	      9698 ns/op	    107780 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  117282	     10073 ns/op	    103750 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  118392	     10067 ns/op	    103866 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  122986	      9464 ns/op	    110676 rows/s	    2106 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=4-10              	  123906	      9510 ns/op	    110139 rows/s	    2107 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  159225	      7510 ns/op	    141340 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  156330	      7640 ns/op	    138789 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  155181	      7513 ns/op	    141734 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  158384	      7439 ns/op	    142932 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  147583	      7947 ns/op	    133526 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  147319	      7545 ns/op	    141106 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  154758	      7621 ns/op	    139428 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  158226	      7474 ns/op	    142366 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  156582	      7455 ns/op	    142581 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=8-10              	  156310	      7958 ns/op	    133264 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  147829	      7797 ns/op	    136373 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  138074	      7935 ns/op	    133680 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  140614	      7886 ns/op	    135063 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  163285	      7535 ns/op	    141191 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  153144	      7695 ns/op	    138282 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  154153	      7845 ns/op	    135291 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  149436	      7829 ns/op	    135815 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  149054	      7802 ns/op	    136501 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  151226	      7806 ns/op	    135986 rows/s	    2105 B/op	      45 allocs/op
+BenchmarkRow20Parallel/v8go-precompiled/batched/pool=10-10             	  147259	      7535 ns/op	    141176 rows/s	    2104 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2212	    499868 ns/op	      2001 rows/s	    4591 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2223	    493588 ns/op	      2026 rows/s	    4577 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2410	    481250 ns/op	      2078 rows/s	    4366 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2394	    485141 ns/op	      2061 rows/s	    4383 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2391	    483481 ns/op	      2068 rows/s	    4386 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2421	    477495 ns/op	      2094 rows/s	    4354 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2396	    484735 ns/op	      2063 rows/s	    4381 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2407	    483380 ns/op	      2069 rows/s	    4369 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2395	    485609 ns/op	      2059 rows/s	    4382 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2388	    482590 ns/op	      2072 rows/s	    4390 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4299	    255501 ns/op	      3914 rows/s	    4670 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4284	    254927 ns/op	      3923 rows/s	    4680 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4296	    255177 ns/op	      3919 rows/s	    4672 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4260	    254164 ns/op	      3934 rows/s	    4695 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4254	    258324 ns/op	      3871 rows/s	    4699 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4220	    257283 ns/op	      3887 rows/s	    4722 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4261	    256068 ns/op	      3905 rows/s	    4695 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4228	    259963 ns/op	      3847 rows/s	    4716 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4281	    258415 ns/op	      3870 rows/s	    4682 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4278	    259886 ns/op	      3848 rows/s	    4683 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5685	    181685 ns/op	      5504 rows/s	    6110 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5694	    181632 ns/op	      5506 rows/s	    6102 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5707	    180833 ns/op	      5530 rows/s	    6091 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5564	    183526 ns/op	      5449 rows/s	    6202 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5632	    179343 ns/op	      5576 rows/s	    6149 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5559	    188745 ns/op	      5298 rows/s	    6205 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5703	    178678 ns/op	      5597 rows/s	    6096 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5718	    177740 ns/op	      5626 rows/s	    6083 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5742	    177379 ns/op	      5638 rows/s	    6067 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5720	    178382 ns/op	      5606 rows/s	    6083 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10518	    120134 ns/op	      8324 rows/s	    6456 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10214	    124524 ns/op	      8031 rows/s	    6593 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10094	    126033 ns/op	      7934 rows/s	    6649 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10326	    122621 ns/op	      8155 rows/s	    6542 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10215	    123285 ns/op	      8111 rows/s	    6593 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10207	    123674 ns/op	      8086 rows/s	    6596 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10297	    123747 ns/op	      8081 rows/s	    6554 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10176	    124616 ns/op	      8025 rows/s	    6610 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10180	    124238 ns/op	      8049 rows/s	    6610 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10088	    125358 ns/op	      7977 rows/s	    6652 B/op	      45 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2524	    453865 ns/op	      2203 rows/s	    4259 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2664	    451071 ns/op	      2217 rows/s	    4127 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2660	    454323 ns/op	      2201 rows/s	    4133 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2662	    453055 ns/op	      2207 rows/s	    4131 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2659	    452640 ns/op	      2209 rows/s	    4139 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2622	    453192 ns/op	      2207 rows/s	    4167 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2670	    451656 ns/op	      2214 rows/s	    4123 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2667	    452624 ns/op	      2209 rows/s	    4126 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2676	    451056 ns/op	      2217 rows/s	    4114 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2658	    451949 ns/op	      2213 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4216	    241374 ns/op	      4143 rows/s	    4732 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4215	    242290 ns/op	      4127 rows/s	    4729 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4243	    245726 ns/op	      4070 rows/s	    4714 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4149	    241724 ns/op	      4137 rows/s	    4778 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4200	    249301 ns/op	      4011 rows/s	    4741 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4236	    246426 ns/op	      4058 rows/s	    4715 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4213	    251557 ns/op	      3975 rows/s	    4731 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4266	    250830 ns/op	      3987 rows/s	    4697 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4144	    247702 ns/op	      4037 rows/s	    4781 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4090	    245090 ns/op	      4080 rows/s	    4818 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6393	    157832 ns/op	      6336 rows/s	    5645 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6247	    163639 ns/op	      6111 rows/s	    5733 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6184	    164094 ns/op	      6094 rows/s	    5777 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6106	    166549 ns/op	      6004 rows/s	    5828 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6102	    168983 ns/op	      5918 rows/s	    5831 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6021	    172456 ns/op	      5799 rows/s	    5881 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6003	    173232 ns/op	      5773 rows/s	    5895 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    5888	    176630 ns/op	      5662 rows/s	    5971 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    5994	    173753 ns/op	      5755 rows/s	    5901 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6026	    173995 ns/op	      5747 rows/s	    5880 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10587	    118701 ns/op	      8425 rows/s	    6432 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10786	    116295 ns/op	      8599 rows/s	    6349 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10694	    116561 ns/op	      8579 rows/s	    6386 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10539	    118430 ns/op	      8444 rows/s	    6454 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10216	    125390 ns/op	      7975 rows/s	    6601 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10080	    126255 ns/op	      7920 rows/s	    6664 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10204	    126257 ns/op	      7920 rows/s	    6602 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10621	    119229 ns/op	      8387 rows/s	    6417 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10540	    119199 ns/op	      8389 rows/s	    6453 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10542	    122209 ns/op	      8183 rows/s	    6454 B/op	      25 allocs/op
+PASS
+ok  	github.com/iamramtin/go-fakerjs/bench	1614.886s

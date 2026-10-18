@@ -1,0 +1,9 @@
+=== RUN   TestGuestGCStress
+    gcstress_test.go:49: 1760 golden calls reproduced with a full GC before every guest allocation
+--- PASS: TestGuestGCStress (7.81s)
+PASS
+ok  	github.com/iamramtin/go-fakerjs	7.816s
+
+real	0m26.154s
+user	0m37.391s
+sys	0m0.843s

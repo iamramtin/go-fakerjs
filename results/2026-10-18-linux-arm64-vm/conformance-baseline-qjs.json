@@ -1,0 +1,181 @@
+{
+ "engine": "baseline-qjs",
+ "byCategory": {
+  "coercion": {
+   "Exact": 40,
+   "Normalized": 12,
+   "Divergent": 0
+  },
+  "errors": {
+   "Exact": 37,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "interleaved": {
+   "Exact": 0,
+   "Normalized": 3,
+   "Divergent": 0
+  },
+  "per-method": {
+   "Exact": 2135,
+   "Normalized": 100,
+   "Divergent": 5
+  },
+  "seed-edge": {
+   "Exact": 16,
+   "Normalized": 4,
+   "Divergent": 0
+  },
+  "workload-22": {
+   "Exact": 210,
+   "Normalized": 10,
+   "Divergent": 0
+  }
+ },
+ "byModule": {
+  "airline": {
+   "Exact": 55,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "animal": {
+   "Exact": 80,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "book": {
+   "Exact": 30,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "color": {
+   "Exact": 105,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "commerce": {
+   "Exact": 65,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "company": {
+   "Exact": 45,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "database": {
+   "Exact": 25,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "datatype": {
+   "Exact": 15,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "date": {
+   "Exact": 35,
+   "Normalized": 100,
+   "Divergent": 0
+  },
+  "finance": {
+   "Exact": 145,
+   "Normalized": 0,
+   "Divergent": 5
+  },
+  "food": {
+   "Exact": 45,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "git": {
+   "Exact": 40,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "hacker": {
+   "Exact": 30,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "helpers": {
+   "Exact": 195,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "image": {
+   "Exact": 65,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "internet": {
+   "Exact": 175,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "location": {
+   "Exact": 160,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "lorem": {
+   "Exact": 120,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "music": {
+   "Exact": 20,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "number": {
+   "Exact": 115,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "person": {
+   "Exact": 125,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "phone": {
+   "Exact": 25,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "science": {
+   "Exact": 10,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "string": {
+   "Exact": 165,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "system": {
+   "Exact": 85,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "vehicle": {
+   "Exact": 45,
+   "Normalized": 0,
+   "Divergent": 0
+  },
+  "word": {
+   "Exact": 115,
+   "Normalized": 0,
+   "Divergent": 0
+  }
+ },
+ "divergent": {
+  "per-method": [
+   "pm:finance.amount#1@1: call #7 expected \"$20.550\" got \"$20.55\"",
+   "pm:finance.amount#1@2147483647: call #1 expected \"$34.550\" got \"$34.55\"",
+   "pm:finance.amount#1@4294967296: call #3 expected \"$29.520\" got \"$29.52\"",
+   "pm:finance.amount#1@42: call #2 expected \"$37.940\" got \"$37.94\"",
+   "pm:finance.amount#1@9007199254740991: call #3 expected \"$40.100\" got \"$40.1\""
+  ]
+ }
+}

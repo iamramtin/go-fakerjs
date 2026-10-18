@@ -1,0 +1,9 @@
+Wall times, Linux VM (linux/arm64, 4 vCPU), 2026-10-18, idle machine. npm and Go caches warm except where noted.
+
+make tools (fresh download)  rc=0    121 s
+make bundle (npm ci)         rc=0      0 s
+make guest                   rc=0     10 s
+make golden                  rc=0      5 s
+make golden-verify           rc=0      6 s
+go test ./... (root)         rc=0    100 s
+make repro                   rc=0     21 s
