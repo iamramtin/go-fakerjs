@@ -1,0 +1,200 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Actions are pinned to commit SHAs; the trailing comment names the release.
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: gofmt
+        run: |
+          unformatted=$(git ls-files -z '*.go' | xargs -0 gofmt -l)
+          if [ -n "$unformatted" ]; then echo "$unformatted"; exit 1; fi
+      - name: go vet (every module)
+        run: |
+          go vet ./...
+          (cd bench && go vet ./...)
+      - name: staticcheck (every module)
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@v0.8.2
+          staticcheck ./...
+          (cd bench && staticcheck ./...)
+
+  govulncheck:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: govulncheck (every module)
+        run: make vuln
+
+  consistency:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: check-versions (every statement of the Faker.js version matches tools.versions)
+        run: make check-versions
+      - name: Link check (internal links, anchors, reachability from README)
+        run: make check-links
+      - name: actionlint
+        run: |
+          go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
+          actionlint
+
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Build the Faker bundle (conformance and the baseline read it)
+        run: make bundle
+      - name: Unit, conformance, contract and stress tests (root module)
+        run: go test -count=1 -timeout 30m ./...
+      - name: Tests of the bench module (benchmarks compile; memory test runs)
+        run: cd bench && go test -count=1 -timeout 30m ./...
+
+  race:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - run: make bundle
+      - name: Race detector on the package, conformance and contract
+        run: go test -race -count=1 -timeout 80m ./contract ./conformance .
+      - name: Race detector on stress (short budgets)
+        run: go test -race -count=1 -short -timeout 40m ./stress
+
+  fuzz:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Fuzz smoke test (FuzzGenerate 60 s, FuzzSnapshotArgs 1 min)
+        run: make test-fuzz FUZZTIME=60s
+
+  dump:
+    # The golden dump is a SHA-256 over the engine's output for the whole golden set; cross-arch compares them.
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            name: linux-amd64
+          - os: ubuntu-24.04-arm
+            name: linux-arm64
+          - os: macos-26
+            name: darwin-arm64
+          - os: windows-2025
+            name: windows-amd64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: Golden dump and workload conformance
+        shell: bash
+        run: go test -count=1 -run '^(TestWriteGoldenDump|TestWorkload22Exact)$' ./conformance
+      - name: Name the dump after the platform
+        shell: bash
+        run: mv reports/golden-dump-en-*.sha256 "reports/golden-dump-${{ matrix.name }}.sha256"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: golden-dump-${{ matrix.name }}
+          path: reports/golden-dump-${{ matrix.name }}.sha256
+          if-no-files-found: error
+
+  cross-arch:
+    needs: dump
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: golden-dump-*
+          path: dumps
+          merge-multiple: true
+      - name: All golden dump hashes must be equal
+        run: |
+          for f in dumps/*.sha256; do echo "$(cat "$f")  $(basename "$f")"; done
+          n=$(cat dumps/*.sha256 | sort -u | wc -l)
+          count=$(find dumps -name '*.sha256' | wc -l)
+          if [ "$count" != 4 ]; then echo "expected 4 dumps, found $count"; exit 1; fi
+          if [ "$n" != 1 ]; then echo "golden dumps differ across platforms"; exit 1; fi
+          echo "all $count dumps are equal"
+
+  regenerate:
+    # With the pinned toolchain cached, a rebuild must reproduce every committed generated file byte for byte.
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: tools
+          key: tools-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('scripts/pins.env', 'scripts/tools.sh') }}
+      - name: Toolchain
+        run: make tools doctor
+      - name: Rebuild the bundle, the snapshot and the golden data
+        run: make snapshot golden-update
+      - name: Committed generated files must be unchanged
+        run: git diff --exit-code -- internal/wasm golden/testdata golden/api.json tools.versions
+
+  bench:
+    # Manual only. CI runner numbers are not comparable with the published ones (scripts/host/bench-all.sh).
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - run: make bundle
+      - run: make bench
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: bench-raw-${{ github.run_id }}
+          path: reports/bench-all.txt
+          if-no-files-found: error

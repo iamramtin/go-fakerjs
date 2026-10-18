@@ -1,0 +1,118 @@
+name: faker-upgrade
+
+# Weekly: adopt the latest Faker.js minor or patch release through scripts/faker-upgrade.sh, and open a pull request
+# with auto-merge enabled. A failure or a new major release opens (or updates) one tracking issue instead, and
+# nothing is pushed.
+#
+# Secret FAKER_UPGRADE_TOKEN: a fine-grained personal access token (or GitHub App token) for this repository
+# with Contents, Pull requests and Issues set to read and write. It is needed because pull requests created
+# with the default GITHUB_TOKEN do not trigger other workflows, so the required CI checks would never run on
+# them and auto-merge would never complete. See CONTRIBUTING.md, "Faker.js upgrades".
+
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Try this Faker.js version as a dry run (nothing is pushed). Leave empty for the normal run.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: faker-upgrade
+  cancel-in-progress: false
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 120
+    env:
+      TARGET: ${{ inputs.target }}
+    steps:
+      - name: Require the upgrade token
+        env:
+          TOKEN: ${{ secrets.FAKER_UPGRADE_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Secret FAKER_UPGRADE_TOKEN is not set; see CONTRIBUTING.md, 'Faker.js upgrades'."
+            exit 1
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.FAKER_UPGRADE_TOKEN }}
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: tools
+          key: tools-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('scripts/pins.env', 'scripts/tools.sh') }}
+      - name: Toolchain
+        run: make tools doctor
+      - name: Commit identity and log directory
+        run: |
+          echo "TMPDIR=$RUNNER_TEMP" >> "$GITHUB_ENV"
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - name: Run the upgrade
+        id: run
+        run: |
+          set +e
+          if [ -n "$TARGET" ]; then
+            TARGET="$TARGET" scripts/faker-upgrade.sh --dry-run 2>&1 | tee upgrade.log
+          else
+            scripts/faker-upgrade.sh 2>&1 | tee upgrade.log
+          fi
+          rc=${PIPESTATUS[0]}
+          version=$(sed -n 's|^faker-upgrade: committed .* on branch faker-upgrade/\(.*\)$|\1|p' upgrade.log)
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: faker-upgrade-logs-${{ github.run_id }}
+          path: |
+            upgrade.log
+            ${{ runner.temp }}/faker-upgrade-*/*.log
+          if-no-files-found: warn
+      - name: Open the pull request
+        if: steps.run.outputs.rc == '0' && steps.run.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ secrets.FAKER_UPGRADE_TOKEN }}
+          VERSION: ${{ steps.run.outputs.version }}
+        run: |
+          branch="faker-upgrade/$VERSION"
+          git push origin "$branch"
+          git log -1 --format=%b "$branch" > body.md
+          gh pr create --head "$branch" --base main --title "chore: Upgrade Faker.js to $VERSION" --body-file body.md
+          gh pr merge "$branch" --auto --squash
+      - name: Open or update the tracking issue
+        if: steps.run.outputs.rc != '0'
+        env:
+          GH_TOKEN: ${{ secrets.FAKER_UPGRADE_TOKEN }}
+          RC: ${{ steps.run.outputs.rc }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Faker.js upgrade needs attention"
+          if [ "$RC" = 3 ]; then reason="A new major Faker.js release is available; major upgrades are done by hand."; else reason="The upgrade pipeline failed (exit $RC)."; fi
+          {
+            echo "$reason"
+            echo
+            echo "Run: $RUN_URL (logs are attached to the run as the faker-upgrade-logs artifact)."
+            echo
+            echo '```'
+            tail -60 upgrade.log
+            echo '```'
+          } > body.md
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -n "$num" ]; then gh issue comment "$num" --body-file body.md; else gh issue create --title "$title" --body-file body.md; fi
+          exit 1
