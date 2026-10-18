@@ -1,0 +1,9 @@
+{
+  "name": "fakerjs-bundle",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "@faker-js/faker": "10.6.0",
+    "esbuild": "0.25.10"
+  }
+}

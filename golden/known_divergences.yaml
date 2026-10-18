@@ -1,0 +1,8 @@
+# Divergences between the native engine and golden (O2, real V8) output. Each entry needs a root cause.
+# Entries are matched to per-method cases by method, variant index and seed ("*" = any).
+# Fields: method, variant, seed, reason, category
+- method: finance.amount
+  variant: 1
+  seed: "*"
+  category: intl
+  reason: "autoFormat:true formats with Number.prototype.toLocaleString(undefined, {minimumFractionDigits: dec}); QuickJS-NG has no Intl and its toLocaleString ignores the options, so '$20.550' becomes '$20.55'. Values are otherwise identical."
