@@ -25,3 +25,39 @@ func RSS() uint64 {
 
 	return 0
 }
+
+// Split is the resident memory of the process by kind, in bytes. Fields are zero where /proc does not report them.
+type Split struct {
+	Anon, File uint64 // RssAnon and RssFile from /proc/self/status
+}
+
+// ReadSplit reads the resident memory split. Anon is memory the process owns; File is file-backed pages, such as
+// the test binary's code and mapped data.
+func ReadSplit() Split {
+	var s Split
+
+	if b, err := os.ReadFile("/proc/self/status"); err == nil {
+		for line := range strings.SplitSeq(string(b), "\n") {
+			switch name, v, _ := strings.Cut(line, ":"); name {
+			case "RssAnon":
+				s.Anon = kibField(v)
+			case "RssFile":
+				s.File = kibField(v)
+			}
+		}
+	}
+
+	return s
+}
+
+// kibField parses a "  1234 kB" value into bytes.
+func kibField(v string) uint64 {
+	f := strings.Fields(v)
+	if len(f) == 0 {
+		return 0
+	}
+
+	kb, _ := strconv.ParseUint(f[0], 10, 64)
+
+	return kb * 1024
+}

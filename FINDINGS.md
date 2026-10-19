@@ -262,7 +262,7 @@ Linux VM, final build. Raw files in `results/2026-10-18-linux-arm64-vm/`.
 |---|---|---|
 | GC stress (`TestGCStress`) | 235,000 golden calls verified across 271 forced collections | `stress-verbose.txt` |
 | Module GC stress | 1,760 golden calls reproduced with a full QuickJS collection before every module allocation (`scripts/gcstress.sh`, default `GCSTRESS_CALLS=40`). No `JSValue` is dropped or double-freed, which is why `wasm-opt --spill-pointers` is not used. | `guest-gcstress.txt` |
-| Leak (`TestLeak`, 1,000,000 calls on one engine) | RSS 20 MB after warm-up, 20 MB at the end | `stress-verbose.txt` |
+| Leak (`TestLeak`, 1,000,000 calls on one engine) | post-GC heap 6,060 KiB after warm-up and at the end (limit +2 MB); Wasm linear memory 92 pages (5,888 KiB) at every call (`TestLeakWasmMemory`) | `go test -v -run 'TestLeak' .` on linux/arm64, not yet in `results/` |
 | Churn (`TestInstanceChurn`, 2,000 engines) | RSS 16 MB before, 20 MB after | `stress-verbose.txt` |
 | Isolation (`TestIsolation`) | engines with different seeds, interleaved call by call, each reproduce their own golden sequence | `stress-verbose.txt` |
 | Deadlines (`TestDeadline`) | `string.nanoid({length: 5})` never returns in Faker.js 10.6.0 itself. Timeouts of 100 ms, 500 ms and 2 s return `ErrDeadline` after 100 ms, 500 ms and 2 s, and the engine stays usable | `stress-verbose.txt` |

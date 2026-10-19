@@ -74,8 +74,12 @@ func TestGCStress(t *testing.T) {
 	}
 }
 
-// TestLeak is test C2: a million calls on one engine; RSS after warm-up vs the end within +10%, and no
-// goroutines left behind.
+// leakSlack is how far the post-GC heap may grow between the warm-up and the end of TestLeak.
+const leakSlack = 2 << 20
+
+// TestLeak is test C2: a million calls on one engine. A forced collection at the end must leave the Go heap no more
+// than leakSlack above its size after warm-up, and no goroutines may be left behind. The module's linear memory is
+// checked by TestLeakWasmMemory in the root package, which can reach it.
 func TestLeak(t *testing.T) {
 	calls := 1_000_000
 	if testing.Short() {
@@ -111,29 +115,50 @@ func TestLeak(t *testing.T) {
 			t.Fatal(err)
 		}
 
+		if i%100_000 == 0 {
+			logSample(t, i)
+		}
+
 		if i == calls/10 {
 			settle()
 
-			warm = RSS()
+			warm = heapAlloc()
 		}
 	}
 
 	settle()
 
-	end := RSS()
-	t.Logf("RSS after warm-up %d MB, at end %d MB", warm>>20, end>>20)
+	end := heapAlloc()
+	t.Logf("post-GC HeapAlloc %d KiB after warm-up, %d KiB at end", warm>>10, end>>10)
+	logSample(t, calls)
 
-	if warm == 0 {
-		t.Skip("RSS unavailable on this platform")
-	}
-
-	if float64(end) > float64(warm)*1.10 {
-		t.Errorf("RSS grew from %d MB to %d MB (> +10%%)", warm>>20, end>>20)
+	if end > warm+leakSlack {
+		t.Errorf("post-GC HeapAlloc grew from %d KiB to %d KiB (> +%d KiB)", warm>>10, end>>10, leakSlack>>10)
 	}
 
 	if g := runtime.NumGoroutine(); g != goroutines {
 		t.Errorf("goroutines: %d before, %d after", goroutines, g)
 	}
+}
+
+// heapAlloc returns the bytes of live and not-yet-swept heap objects. Call it after settle for the post-GC value.
+func heapAlloc() uint64 {
+	var ms runtime.MemStats
+	runtime.ReadMemStats(&ms)
+
+	return ms.HeapAlloc
+}
+
+// logSample records memory without forcing a collection, so the samples show the process as it runs.
+func logSample(t *testing.T, call int) {
+	var ms runtime.MemStats
+	runtime.ReadMemStats(&ms)
+
+	s := ReadSplit()
+
+	t.Logf("sample call=%7d rss=%5d KiB anon=%5d file=%5d (KiB) heapInuse=%5d heapAlloc=%5d GCSys=%4d OtherSys=%4d MSpanSys=%4d StackSys=%4d",
+		call, RSS()>>10, s.Anon>>10, s.File>>10, ms.HeapInuse>>10, ms.HeapAlloc>>10,
+		ms.GCSys>>10, ms.OtherSys>>10, ms.MSpanSys>>10, ms.StackSys>>10)
 }
 
 // TestInstanceChurn is test C3: creating and closing thousands of engines returns memory to the baseline.
