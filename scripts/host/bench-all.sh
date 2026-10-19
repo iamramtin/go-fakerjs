@@ -2,12 +2,13 @@
 # Runs the published benchmarks on the macOS host and writes everything to results/<today>-apple-m5/:
 # raw output (make bench, make bench-v8go; -count=10), hardware.txt, benchstat summaries, ratios.md and the
 # darwin/arm64 golden dump hash. Expect about an hour. Stops at the first failing step.
+# Usage: scripts/host/bench-all.sh [results-dir]    (default: results/<today>-apple-m5)
 set -euo pipefail
 cd -P -- "$(dirname -- "$0")/../.."
 [ "$(uname -s)/$(uname -m)" = Darwin/arm64 ] || { echo "bench-all.sh: refusing to run on $(uname -s)/$(uname -m); published numbers come from the darwin/arm64 host only" >&2; exit 1; }
 
 BENCHSTAT=golang.org/x/perf/cmd/benchstat@v0.0.0-20261009192801-be2c69fb417e
-dir=results/$(date +%F)-apple-m5
+dir=${1:-results/$(date +%F)-apple-m5}
 start=$(date +%s)
 step() { # name, command...
   local name=$1; shift
