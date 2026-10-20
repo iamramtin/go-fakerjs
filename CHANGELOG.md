@@ -2,7 +2,7 @@
 
 All notable changes are recorded here. Before v1.0.0, any minor release may change the API.
 
-## v0.1.0 (not yet tagged)
+## v0.1.0 (2026-10-20)
 
 First public release, experimental. Runs Faker.js 10.6.0, en locale.
 
@@ -36,5 +36,5 @@ First public release, experimental. Runs Faker.js 10.6.0, en locale.
 ### Known limitations
 
 - Output matches Faker.js on V8 for the tested surface only, under `TZ=UTC`.
-- Per call, the engine is 1.3× to 55× slower than v8go depending on the method, and 12.3× slower on a
-  20-column row (macOS host, [development build](README.md#performance)).
+- Per call, the engine is 1.3× to 55× slower than v8go depending on the method, and 12.1× slower on a
+  20-column row (macOS host, [performance figures](README.md#performance)).

@@ -10,7 +10,7 @@ is shown here. Two platforms appear, and every figure is labelled with one of th
 - **Linux VM**: linux/arm64, 4 vCPU, 7 GB RAM, a virtual machine on the macOS host. Tests, builds, robustness
   and conformance figures. Raw files: `results/2026-10-18-linux-arm64-vm/` and `results/2026-10-17-linux-arm64-vm/`.
 - **macOS host**: darwin/arm64, Apple M5. All published performance figures. Raw files:
-  `results/2026-10-17-apple-m5/`. They were measured on the [development build](#54-performance) that preceded v0.1.0.
+  `results/2026-10-20-apple-m5/`. They were measured on the [final build](#54-performance).
 
 ## Contents
 
@@ -39,8 +39,8 @@ On the tested surface the output is byte-identical to Faker.js on V8 under `TZ=U
 a 22-path workload match, and so do three 5,000-call interleaved sequences, which shows that the PRNG is consumed
 in Faker's order.
 
-Throughput is the cost. On the macOS host, one engine produces a 20-column row 12.3× more slowly than v8go
-building a script per call. Per method, the gap is 1.3× to 55×. Engine start-up is 15.9× faster than v8go's. The
+Throughput is the cost. On the macOS host, one engine produces a 20-column row 12.1× more slowly than v8go
+building a script per call. Per method, the gap is 1.3× to 55×. Engine start-up is 15.2× faster than v8go's. The
 gap comes mostly from [QuickJS's interpreter](#61-the-call-boundary-is-close-to-v8gos-the-gap-is-the-interpreter), not from the call boundary.
 
 ## 2. Motivation
@@ -83,8 +83,7 @@ version rather than asking the binary.
 - **wasm-opt -O2.** It shrinks the module from 1,374,819 to [1,374,647 bytes](#53-build-and-reproducibility). It is kept so the
   pipeline is unchanged from the build that was benchmarked.
 - **Wizer pre-initialisation.** Wizer runs the module's initialiser once, at build time, and saves the resulting
-  memory. The bundle is parsed and evaluated then, not on every engine start. This is why `NewEngine` costs 0.30
-  ms on the macOS host, against 22.9 ms for the wazero + QuickJS baseline, which loads the bundle at start-up.
+  memory. The bundle is parsed and evaluated then, not on every engine start. This is why `NewEngine` costs 0.31 ms on the macOS host, against 23.4 ms for the wazero + QuickJS baseline, which loads the bundle at start-up.
 - **wasm2go -embed.** Translates the image to Go, with no runtime dependency. The linear-memory data segments go
   to a `.dat` file embedded with `go:embed`; the code becomes Go functions over a byte slice.
 
@@ -382,156 +381,155 @@ data file is embedded raw.
 
 ### 5.4 Performance
 
-macOS host (Apple M5). Raw files: `results/2026-10-17-apple-m5/bench-all.txt` (`make bench`: native and the wazero
+macOS host (Apple M5). Raw files: `results/2026-10-20-apple-m5/bench-all.txt` (`make bench`: native and the wazero
 + QuickJS baseline) and `bench-v8go.txt` (`make bench-v8go`: tommie/v8go v0.34.0, script built per call and
 precompiled, plus native and baseline rows from the same run). `-count=10`; medians. Where a benchmark appears in
 both files, the v8go run's value is used, so every ratio compares rows from the same run.
 
-These figures come from the development build that preceded v0.1.0. It used the same pinned Faker.js 10.6.0 and
-toolchain, and its engine code and snapshot are the same as v0.1.0's (only comments, a constant and a build tag
-changed). `scripts/host/bench-all.sh` re-measures them on the final build.
+These figures come from the final build, measured by `scripts/host/bench-all.sh` on 2026-10-20 with the same pinned Faker.js 10.6.0 and toolchain as v0.1.0.
 
 Row20 is the first 20 of the 22 workload paths, one row per operation. "percall" is one `Generate` per cell,
 "batched" is one `GenerateN` per column. Row20 with k engines shares the rows between k goroutines; its rows/s is
 the aggregate.
 
+
 #### Cold start (Apple M5, median of 10)
 
 | benchmark | ns/op | B/op | allocs/op |
 |---|---|---|---|
-| NewEngine/baseline-qjs | 22,881,023 | 21,788,370 | 1,748 |
-| NewEngine/native | 299,130 | 6,056,667 | 509 |
-| NewEngine/v8go-precompiled | 4,802,535 | 837,135 | 35 |
-| NewEngine/v8go-script-per-call | 4,757,472 | 836,849 | 31 |
-| NewFromSnapshot | 368,276 | 6,056,449 | 503 |
+| NewEngine/baseline-qjs | 23,422,997 | 21,788,178 | 1,748 |
+| NewEngine/native | 311,624 | 6,056,667 | 509 |
+| NewEngine/v8go-precompiled | 4,743,776 | 837,144 | 35 |
+| NewEngine/v8go-script-per-call | 4,749,015 | 836,854 | 31 |
+| NewFromSnapshot | 337,848 | 6,056,448 | 503 |
 
 #### GenerateSingle (Apple M5, ns/op, median of 10)
 
 | method | native | baseline-qjs | v8go script per call | v8go precompiled | native / v8go script |
 |---|---|---|---|---|---|
-| person.firstName | 6,178 | 34,554 | 1,101 | 829 | 5.6x |
-| internet.email | 36,840 | 110,902 | 3,213 | 3,100 | 11.5x |
-| location.streetAddress | 48,412 | 139,037 | 3,653 | 3,108 | 13.3x |
-| lorem.sentence | 112,401 | 206,313 | 2,053 | 1,824 | 54.7x |
-| string.uuid | 49,376 | 114,509 | 3,093 | 2,832 | 16.0x |
-| number.int | 1,482 | 20,208 | 1,141 | 965 | 1.3x |
+| person.firstName | 6,138 | 34,040 | 1,071 | 816 | 5.7x |
+| internet.email | 36,423 | 110,830 | 3,402 | 2,646 | 10.7x |
+| location.streetAddress | 47,754 | 139,513 | 3,837 | 3,076 | 12.4x |
+| lorem.sentence | 112,520 | 205,390 | 2,052 | 1,779 | 54.8x |
+| string.uuid | 48,984 | 114,642 | 3,067 | 2,806 | 16.0x |
+| number.int | 1,474 | 20,178 | 1,154 | 926 | 1.3x |
 
 #### GenerateN amortised ns per value (Apple M5, median of 10)
 
 | method | n | native | baseline-qjs | qjs / native |
 |---|---|---|---|---|
-| person.firstName | 1 | 6,276 | 35,626 | 5.7x |
-| person.firstName | 10 | 6,033 | 14,177 | 2.3x |
-| person.firstName | 100 | 5,988 | 11,608 | 1.9x |
-| person.firstName | 1000 | 5,978 | 11,320 | 1.9x |
-| internet.email | 1 | 37,326 | 113,067 | 3.0x |
-| internet.email | 10 | 36,436 | 78,176 | 2.1x |
-| internet.email | 100 | 36,344 | 76,438 | 2.1x |
-| internet.email | 1000 | 36,502 | 73,711 | 2.0x |
-| location.streetAddress | 1 | 48,568 | 141,471 | 2.9x |
-| location.streetAddress | 10 | 48,210 | 105,948 | 2.2x |
-| location.streetAddress | 100 | 49,104 | 102,024 | 2.1x |
-| location.streetAddress | 1000 | 48,052 | 101,400 | 2.1x |
-| lorem.sentence | 1 | 113,077 | 209,364 | 1.9x |
-| lorem.sentence | 10 | 112,708 | 178,139 | 1.6x |
-| lorem.sentence | 100 | 111,926 | 177,791 | 1.6x |
-| lorem.sentence | 1000 | 112,534 | 175,166 | 1.6x |
-| string.uuid | 1 | 50,102 | 114,580 | 2.3x |
-| string.uuid | 10 | 51,422 | 95,280 | 1.9x |
-| string.uuid | 100 | 49,728 | 93,176 | 1.9x |
-| string.uuid | 1000 | 49,182 | 92,553 | 1.9x |
-| number.int | 1 | 1,476 | 21,036 | 14.2x |
-| number.int | 10 | 1,326 | 4,850 | 3.7x |
-| number.int | 100 | 1,298 | 3,083 | 2.4x |
-| number.int | 1000 | 1,300 | 2,898 | 2.2x |
+| person.firstName | 1 | 6,152 | 35,134 | 5.7x |
+| person.firstName | 10 | 5,971 | 13,908 | 2.3x |
+| person.firstName | 100 | 5,936 | 11,556 | 1.9x |
+| person.firstName | 1000 | 5,924 | 11,256 | 1.9x |
+| internet.email | 1 | 36,773 | 111,456 | 3.0x |
+| internet.email | 10 | 36,418 | 78,097 | 2.1x |
+| internet.email | 100 | 36,415 | 75,798 | 2.1x |
+| internet.email | 1000 | 36,258 | 73,972 | 2.0x |
+| location.streetAddress | 1 | 48,467 | 138,394 | 2.9x |
+| location.streetAddress | 10 | 48,148 | 104,087 | 2.2x |
+| location.streetAddress | 100 | 47,950 | 101,880 | 2.1x |
+| location.streetAddress | 1000 | 47,989 | 98,740 | 2.1x |
+| lorem.sentence | 1 | 112,430 | 204,002 | 1.8x |
+| lorem.sentence | 10 | 112,210 | 175,074 | 1.6x |
+| lorem.sentence | 100 | 111,787 | 175,004 | 1.6x |
+| lorem.sentence | 1000 | 111,934 | 172,575 | 1.5x |
+| string.uuid | 1 | 49,446 | 114,168 | 2.3x |
+| string.uuid | 10 | 49,194 | 94,932 | 1.9x |
+| string.uuid | 100 | 49,179 | 91,904 | 1.9x |
+| string.uuid | 1000 | 49,050 | 91,422 | 1.9x |
+| number.int | 1 | 1,483 | 20,222 | 13.6x |
+| number.int | 10 | 1,318 | 4,744 | 3.6x |
+| number.int | 100 | 1,298 | 3,048 | 2.3x |
+| number.int | 1000 | 1,295 | 2,860 | 2.2x |
 
 #### Row20 (Apple M5): one Generate per cell (percall) vs GenerateN per column (batched)
 
 | engine | mode | rows/s | ns/row | B/op | allocs/op |
 |---|---|---|---|---|---|
-| native | percall | 2,092 | 478,096 | 4,358 | 45 |
-| native | batched | 2,209 | 452,764 | 4,143 | 25 |
-| baseline-qjs | percall | 661 | 1,513,888 | 9,973,432 | 2,217 |
-| baseline-qjs | batched | 1,197 | 835,311 | 17,702 | 23 |
-| v8go-script-per-call | percall | 25,637 | 39,006 | 2,641 | 85 |
-| v8go-script-per-call | batched | 28,285 | 35,354 | 2,967 | 85 |
-| v8go-precompiled | percall | 29,385 | 34,031 | 1,777 | 45 |
-| v8go-precompiled | batched | 33,481 | 29,868 | 2,103 | 45 |
+| native | percall | 2,100 | 476,156 | 4,340 | 45 |
+| native | batched | 2,170 | 460,726 | 4,176 | 25 |
+| baseline-qjs | percall | 677 | 1,476,210 | 9,974,016 | 2,217 |
+| baseline-qjs | batched | 1,188 | 841,988 | 17,750 | 23 |
+| v8go-script-per-call | percall | 25,339 | 39,466 | 2,641 | 85 |
+| v8go-script-per-call | batched | 28,500 | 35,088 | 2,967 | 85 |
+| v8go-precompiled | percall | 29,984 | 33,351 | 1,777 | 45 |
+| v8go-precompiled | batched | 33,367 | 29,970 | 2,103 | 45 |
 
 #### Row20 with k engines on k goroutines (Apple M5, 10 cores, aggregate rows/s, median of 10)
 
 | engine | mode | engines | rows/s | speed-up vs 1 engine |
 |---|---|---|---|---|
-| native | percall | 1 | 2,076 | 1.00x |
-| native | percall | 2 | 3,876 | 1.87x |
-| native | percall | 4 | 5,226 | 2.52x |
-| native | percall | 8 | 7,130 | 3.44x |
-| native | percall | 10 | 8,464 | 4.08x |
-| native | batched | 1 | 2,083 | 1.00x |
-| native | batched | 2 | 3,994 | 1.92x |
-| native | batched | 4 | 5,630 | 2.70x |
-| native | batched | 8 | 7,586 | 3.64x |
-| native | batched | 10 | 9,176 | 4.40x |
-| baseline-qjs | percall | 1 | 658 | 1.00x |
-| baseline-qjs | percall | 2 | 669 | 1.02x |
-| baseline-qjs | percall | 4 | 687 | 1.05x |
-| baseline-qjs | percall | 8 | 698 | 1.06x |
-| baseline-qjs | percall | 10 | 704 | 1.07x |
-| baseline-qjs | batched | 1 | 1,142 | 1.00x |
-| baseline-qjs | batched | 2 | 1,910 | 1.67x |
-| baseline-qjs | batched | 4 | 3,158 | 2.77x |
-| baseline-qjs | batched | 8 | 2,861 | 2.51x |
-| baseline-qjs | batched | 10 | 2,764 | 2.42x |
-| v8go-script-per-call | percall | 1 | 25,528 | 1.00x |
-| v8go-script-per-call | percall | 2 | 42,199 | 1.65x |
-| v8go-script-per-call | percall | 4 | 74,779 | 2.93x |
-| v8go-script-per-call | percall | 8 | 103,985 | 4.07x |
-| v8go-script-per-call | percall | 10 | 106,922 | 4.19x |
-| v8go-script-per-call | batched | 1 | 26,874 | 1.00x |
-| v8go-script-per-call | batched | 2 | 48,925 | 1.82x |
-| v8go-script-per-call | batched | 4 | 94,366 | 3.51x |
-| v8go-script-per-call | batched | 8 | 119,682 | 4.45x |
-| v8go-script-per-call | batched | 10 | 124,726 | 4.64x |
-| v8go-precompiled | percall | 1 | 29,383 | 1.00x |
-| v8go-precompiled | percall | 2 | 55,718 | 1.90x |
-| v8go-precompiled | percall | 4 | 96,433 | 3.28x |
-| v8go-precompiled | percall | 8 | 127,168 | 4.33x |
-| v8go-precompiled | percall | 10 | 131,844 | 4.49x |
-| v8go-precompiled | batched | 1 | 33,810 | 1.00x |
-| v8go-precompiled | batched | 2 | 65,219 | 1.93x |
-| v8go-precompiled | batched | 4 | 108,086 | 3.20x |
-| v8go-precompiled | batched | 8 | 141,223 | 4.18x |
-| v8go-precompiled | batched | 10 | 136,180 | 4.03x |
+| native | percall | 1 | 2,128 | 1.00x |
+| native | percall | 2 | 3,959 | 1.86x |
+| native | percall | 4 | 5,653 | 2.66x |
+| native | percall | 8 | 8,013 | 3.77x |
+| native | percall | 10 | 9,652 | 4.54x |
+| native | batched | 1 | 2,212 | 1.00x |
+| native | batched | 2 | 4,083 | 1.85x |
+| native | batched | 4 | 6,136 | 2.77x |
+| native | batched | 8 | 8,696 | 3.93x |
+| native | batched | 10 | 8,918 | 4.03x |
+| baseline-qjs | percall | 1 | 680 | 1.00x |
+| baseline-qjs | percall | 2 | 691 | 1.02x |
+| baseline-qjs | percall | 4 | 704 | 1.04x |
+| baseline-qjs | percall | 8 | 730 | 1.07x |
+| baseline-qjs | percall | 10 | 727 | 1.07x |
+| baseline-qjs | batched | 1 | 1,192 | 1.00x |
+| baseline-qjs | batched | 2 | 1,842 | 1.55x |
+| baseline-qjs | batched | 4 | 3,238 | 2.72x |
+| baseline-qjs | batched | 8 | 4,100 | 3.44x |
+| baseline-qjs | batched | 10 | 3,733 | 3.13x |
+| v8go-script-per-call | percall | 1 | 25,630 | 1.00x |
+| v8go-script-per-call | percall | 2 | 45,650 | 1.78x |
+| v8go-script-per-call | percall | 4 | 85,902 | 3.35x |
+| v8go-script-per-call | percall | 8 | 107,114 | 4.18x |
+| v8go-script-per-call | percall | 10 | 111,128 | 4.34x |
+| v8go-script-per-call | batched | 1 | 28,666 | 1.00x |
+| v8go-script-per-call | batched | 2 | 54,587 | 1.90x |
+| v8go-script-per-call | batched | 4 | 93,371 | 3.26x |
+| v8go-script-per-call | batched | 8 | 117,280 | 4.09x |
+| v8go-script-per-call | batched | 10 | 122,448 | 4.27x |
+| v8go-precompiled | percall | 1 | 30,022 | 1.00x |
+| v8go-precompiled | percall | 2 | 57,606 | 1.92x |
+| v8go-precompiled | percall | 4 | 102,482 | 3.41x |
+| v8go-precompiled | percall | 8 | 131,054 | 4.37x |
+| v8go-precompiled | percall | 10 | 134,194 | 4.47x |
+| v8go-precompiled | batched | 1 | 33,624 | 1.00x |
+| v8go-precompiled | batched | 2 | 65,042 | 1.93x |
+| v8go-precompiled | batched | 4 | 114,092 | 3.39x |
+| v8go-precompiled | batched | 8 | 145,682 | 4.33x |
+| v8go-precompiled | batched | 10 | 149,154 | 4.44x |
 
 #### Row20 through the public Pool, native (Apple M5, aggregate rows/s, median of 10)
 
 | mode | pool | rows/s | speed-up vs pool of 1 |
 |---|---|---|---|
-| percall | 1 | 2,066 | 1.00x |
-| percall | 2 | 3,896 | 1.89x |
-| percall | 4 | 5,553 | 2.69x |
-| percall | 8 | 8,065 | 3.90x |
-| batched | 1 | 2,209 | 1.00x |
-| batched | 2 | 4,064 | 1.84x |
-| batched | 4 | 5,858 | 2.65x |
-| batched | 8 | 8,388 | 3.80x |
+| percall | 1 | 2,111 | 1.00x |
+| percall | 2 | 3,941 | 1.87x |
+| percall | 4 | 6,846 | 3.24x |
+| percall | 8 | 8,605 | 4.08x |
+| batched | 1 | 2,218 | 1.00x |
+| batched | 2 | 4,153 | 1.87x |
+| batched | 4 | 7,342 | 3.31x |
+| batched | 8 | 9,662 | 4.36x |
 
 **Ratios** (`scripts/bench-ratios.py`, raw file `ratios.md`):
 
 | benchmark | native | baseline-qjs | v8go script-per-call | v8go precompiled | native / v8go script |
 |---|---|---|---|---|---|
-| GenerateSingle person.firstName | 6.18 us | 34.55 us | 1.10 us | 0.83 us | 5.6x |
-| GenerateSingle internet.email | 36.84 us | 110.90 us | 3.21 us | 3.10 us | 11.5x |
-| GenerateSingle location.streetAddress | 48.41 us | 139.04 us | 3.65 us | 3.11 us | 13.3x |
-| GenerateSingle lorem.sentence | 112.40 us | 206.31 us | 2.05 us | 1.82 us | 54.7x |
-| GenerateSingle string.uuid | 49.38 us | 114.51 us | 3.09 us | 2.83 us | 16.0x |
-| GenerateSingle number.int | 1.48 us | 20.21 us | 1.14 us | 0.96 us | 1.3x |
-| Row20 percall | 478.1 us | 1513.9 us | 39.0 us | 34.0 us | 12.3x |
-| Row20 batched | 452.8 us | 835.3 us | 35.4 us | 29.9 us | 12.8x |
-| NewEngine | 299 us | 22881 us | 4757 us | 4803 us | 0.1x |
+| GenerateSingle person.firstName | 6.14 us | 34.04 us | 1.07 us | 0.82 us | 5.7x |
+| GenerateSingle internet.email | 36.42 us | 110.83 us | 3.40 us | 2.65 us | 10.7x |
+| GenerateSingle location.streetAddress | 47.75 us | 139.51 us | 3.84 us | 3.08 us | 12.4x |
+| GenerateSingle lorem.sentence | 112.52 us | 205.39 us | 2.05 us | 1.78 us | 54.8x |
+| GenerateSingle string.uuid | 48.98 us | 114.64 us | 3.07 us | 2.81 us | 16.0x |
+| GenerateSingle number.int | 1.47 us | 20.18 us | 1.15 us | 0.93 us | 1.3x |
+| Row20 percall | 476.2 us | 1476.2 us | 39.5 us | 33.4 us | 12.1x |
+| Row20 batched | 460.7 us | 842.0 us | 35.1 us | 30.0 us | 13.1x |
+| NewEngine | 312 us | 23423 us | 4749 us | 4744 us | 0.1x |
 
 Variance (`benchstat-all.txt`, `benchstat-v8go.txt`): most rows vary by a few percent. The v8go rows vary most,
-for example `GenerateSingle/v8go-script-per-call/location.streetAddress` at ±31 % and `number.int` at ±13 %.
+for example `GenerateSingle/v8go-script-per-call/location.streetAddress` at ±23 % and `number.int` at ±13 %.
 
 Memory (Linux VM, development build, raw file `results/2026-10-17-linux-arm64-vm/bench-rss.txt`): 4.6 MB resident
 per native engine and 36.7 MB for a pool of 8; 6.9 MB and 55.0 MB for the baseline.
@@ -540,11 +538,11 @@ per native engine and 36.7 MB for a pool of 8; 6.9 MB and 55.0 MB for the baseli
 
 ### 6.1 The call boundary is close to v8go's; the gap is the interpreter
 
-`number.int` costs 1.48 µs per call natively and 1.14 µs with v8go building a script per call: a ratio of 1.3. Native
+`number.int` costs 1.47 µs per call natively and 1.15 µs with v8go building a script per call: a ratio of 1.3. Native
 call overhead is therefore close to v8go's. Methods that do more work in JavaScript show large ratios
 (`lorem.sentence` 55×, `string.uuid` 16×). That work runs in QuickJS's bytecode interpreter, while V8 compiles it.
 The difference between interpreting and compiling is where the gap comes from. Parallel engines do not close it:
-with 10 engines v8go is still 12.6× ahead on Row20 (106,922 against 8,464 rows/s).
+with 10 engines v8go is still 11.5× ahead on Row20 (111,128 against 9,652 rows/s).
 
 ### 6.2 Per-method causes, profiled on V8
 
@@ -567,8 +565,8 @@ is profiled.
 
 ### 6.3 What this means
 
-Where generation dominates an application's runtime, go-fakerjs costs 12.3× more CPU per 20-column row than v8go.
-It starts 15.9× faster, needs no cgo or prebuilt library, has no third-party dependency, and reproduces Faker.js
+Where generation dominates an application's runtime, go-fakerjs costs 12.1× more CPU per 20-column row than v8go.
+It starts 15.2× faster, needs no cgo or prebuilt library, has no third-party dependency, and reproduces Faker.js
 exactly on the tested surface. Whether the trade is worth it depends on how much of the application's time goes to
 generating values.
 
@@ -677,8 +675,8 @@ start from, so it has not run yet.
 
 | path | contents |
 |---|---|
-| `results/2026-10-17-apple-m5/bench-all.txt`, `bench-v8go.txt` | benchmark output, macOS host, development build |
-| `results/2026-10-17-apple-m5/benchstat-all.txt`, `benchstat-v8go.txt`, `ratios.md` | summaries of the two files above |
+| `results/2026-10-20-apple-m5/bench-all.txt`, `bench-v8go.txt` | benchmark output, macOS host, final build |
+| `results/2026-10-20-apple-m5/benchstat-all.txt`, `benchstat-v8go.txt`, `ratios.md` | summaries of the two files above |
 | `results/2026-10-17-linux-arm64-vm/bench-rss.txt` | resident memory per engine, Linux VM, development build |
 | `results/2026-10-18-linux-arm64-vm/` | conformance (native and baseline), bombs, verbose stress, module GC stress, probes, repro, portability, binary size, golden dump, upgrade drill, race logs; Linux VM, final build |
 | `golden/testdata/`, `golden/api.json` | golden oracle data |
