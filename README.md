@@ -83,17 +83,16 @@ slower than on V8.
 | | v8go | go-fakerjs | wazero + QuickJS |
 |---|---|---|---|
 | How the JavaScript runs | V8 with its JIT, through cgo | QuickJS-NG bytecode interpreter, compiled to Wasm and translated to Go | QuickJS-NG compiled to Wasm, run by the wazero runtime |
-| Engine startup (first value included) | 4.76 ms | 0.299 ms | 22.9 ms |
-| Average time per fake value (20-column row, one call per value) | 1.95 µs | 23.9 µs | 75.7 µs |
-| Rows/s, 20 fake columns, 1 engine | 25,904 | 2,092 | 661 |
-| Rows/s, 20 fake columns, 10 engines | 106,922 | 8,464 | 704 |
+| Engine startup (first value included) | 4.75 ms | 0.31 ms | 23.4 ms |
+| Average time per fake value (20-column row, one call per value) | 1.97 µs | 23.8 µs | 73.8 µs |
+| Rows/s, 20 fake columns, 1 engine | 25,339 | 2,100 | 677 |
+| Rows/s, 20 fake columns, 10 engines | 111,128 | 9,652 | 727 |
 | Output identical to Faker.js | V8 itself; not run through the golden suite here | yes on the tested surface, 5 `Intl` divergences | 2,135 of 2,240 per-method cases exact; dates differ |
 | cgo / platform limits | cgo; prebuilt V8 for linux and darwin (amd64, arm64) and android | none: pure Go | none: pure Go |
 
 Apple M5, darwin/arm64, [medians of 10 runs](FINDINGS.md#54-performance); v8go builds a script per call. These
-figures come from the [development build](results/README.md) that preceded v0.1.0, which has the same pinned
-Faker.js and toolchain and the same engine code. Per call, go-fakerjs is 1.3× to 55× slower than v8go depending on
-the method, the 20-column row is 12.3× slower, and startup is 15.9× faster. Baseline conformance was measured on a
+figures come from the [final build](results/README.md), measured on 2026-10-20 with the same pinned Faker.js and toolchain as v0.1.0. Per call, go-fakerjs is 1.3× to 55× slower than v8go depending on
+the method, the 20-column row is 12.1× slower, and startup is 15.2× faster. Baseline conformance was measured on a
 Linux VM.
 
 **Use it** for tests, fixtures, and tools that need exact, reproducible Faker.js output, a cgo-free build, or many

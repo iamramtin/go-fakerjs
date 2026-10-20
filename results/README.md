@@ -18,7 +18,7 @@ local path, host or user (none did).
 
 ## `2026-10-17-apple-m5/`: macOS host, darwin/arm64, Apple M5
 
-**To be refreshed on the final build.** These runs used the development build that preceded v0.1.0, with the same
+**Superseded by `2026-10-20-apple-m5/`, the final build.** These runs used the development build that preceded v0.1.0, with the same
 pinned Faker.js 10.6.0 and toolchain; the engine code and the snapshot are the same as v0.1.0's apart from comments,
 a constant and a build tag. `scripts/host/bench-all.sh` repeats them on the final build into a new dated folder.
 
