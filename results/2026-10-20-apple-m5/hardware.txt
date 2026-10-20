@@ -1,0 +1,8 @@
+Mac17,2
+Apple M5
+10
+34359738368
+ProductName:		macOS
+ProductVersion:		26.5.1
+BuildVersion:		25F80
+go version go1.27.1 darwin/arm64

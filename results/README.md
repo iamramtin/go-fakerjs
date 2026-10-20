@@ -4,6 +4,18 @@ Raw output behind the figures in [README.md](../README.md) and [FINDINGS.md](../
 after the date and the machine. Files are copied unchanged from the run, except that nothing in them may name a
 local path, host or user (none did).
 
+## `2026-10-20-apple-m5/`: macOS host, darwin/arm64, Apple M5, final build
+
+| File | What it is | How it was produced |
+|---|---|---|
+| `bench-all.txt` | Native engine and the wazero + QuickJS baseline, `-count=10` | `scripts/host/bench-all.sh` (`make bench`) |
+| `bench-v8go.txt` | The same workload on tommie/v8go v0.34.0 | `scripts/host/bench-all.sh` (`make bench-v8go`) |
+| `benchstat-all.txt`, `benchstat-v8go.txt` | benchstat summaries over the runs above | `benchstat <file>` (`golang.org/x/perf`) |
+| `golden-dump-darwin-arm64.sha256` | The golden dump hash for darwin/arm64 | `scripts/host/golden-hash.sh` |
+| `hardware.txt` | Hardware of the machine that ran the benchmarks | `scripts/host/hardware.sh` |
+| [`tables.md`](2026-10-20-apple-m5/tables.md) | Tables generated from the run, for the README and FINDINGS | `python3 scripts/tables.py bench results/2026-10-20-apple-m5` |
+| [`ratios.md`](2026-10-20-apple-m5/ratios.md) | Medians and the native-to-v8go ratios | `scripts/bench-ratios.py bench-all.txt bench-v8go.txt` |
+
 ## `2026-10-17-apple-m5/`: macOS host, darwin/arm64, Apple M5
 
 **To be refreshed on the final build.** These runs used the development build that preceded v0.1.0, with the same
