@@ -1,0 +1,960 @@
+goos: darwin
+goarch: arm64
+pkg: github.com/iamramtin/go-fakerjs/bench
+cpu: Apple M5
+BenchmarkNewEngine/native-10   	    4098	    296978 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    3969	    299894 ns/op	 6056668 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    3963	    295812 ns/op	 6056668 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    3902	    296196 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    4114	    296502 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    4030	    297180 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    4027	    298754 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    4016	    298620 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    3999	    299777 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/native-10   	    3988	    298721 ns/op	 6056667 B/op	     509 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  22812451 ns/op	21788603 B/op	    1750 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      51	  22991150 ns/op	21788320 B/op	    1749 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  23152944 ns/op	21787956 B/op	    1748 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      49	  23168813 ns/op	21788661 B/op	    1749 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      49	  23304701 ns/op	21789515 B/op	    1751 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      49	  23100180 ns/op	21787454 B/op	    1748 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  23094533 ns/op	21786615 B/op	    1746 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  23154790 ns/op	21788963 B/op	    1748 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      49	  23108031 ns/op	21788867 B/op	    1747 allocs/op
+BenchmarkNewEngine/baseline-qjs-10         	      50	  23069568 ns/op	21783909 B/op	    1741 allocs/op
+BenchmarkNewFromSnapshot-10                	    3570	    339777 ns/op	 6056451 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3280	    341049 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3324	    338526 ns/op	 6056449 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3398	    337169 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3481	    340417 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3385	    336534 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3336	    339419 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    3360	    336563 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    6859	    186368 ns/op	 6056449 B/op	     503 allocs/op
+BenchmarkNewFromSnapshot-10                	    5744	    176061 ns/op	 6056448 B/op	     503 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  193748	      6140 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  191996	      6144 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  191520	      6156 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  193429	      6170 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192174	      6147 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192196	      6153 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  193467	      6146 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  192811	      6159 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  191558	      6156 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/person.firstName-10         	  191473	      6137 ns/op	      54 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32755	     36792 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32689	     36582 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32920	     36643 ns/op	     227 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32721	     36728 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32454	     36663 ns/op	     229 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32728	     36648 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32808	     36645 ns/op	     227 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32804	     36646 ns/op	     227 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32863	     36676 ns/op	     227 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/internet.email-10           	   32745	     36692 ns/op	     228 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24981	     48194 ns/op	     280 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24866	     49034 ns/op	     281 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24151	     48096 ns/op	     288 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24988	     48436 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   25047	     48185 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24998	     48214 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24981	     48067 ns/op	     280 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   25060	     48062 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   25044	     48081 ns/op	     279 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/location.streetAddress-10   	   24985	     48037 ns/op	     280 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112553 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112857 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112503 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112347 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    115755 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	    8820	    114966 ns/op	     758 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112449 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112647 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112718 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/lorem.sentence-10           	   10000	    112753 ns/op	     677 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24326	     49436 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24310	     49458 ns/op	     313 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24326	     49380 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24346	     49382 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24344	     49405 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24222	     49432 ns/op	     314 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24350	     49366 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24380	     49308 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24343	     49445 ns/op	     312 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/string.uuid-10              	   24309	     49467 ns/op	     313 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  788420	      1479 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  789483	      1474 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  787614	      1475 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  790250	      1479 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  787969	      1478 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  786484	      1478 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  785155	      1475 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  774230	      1479 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  790806	      1481 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/native/number.int-10               	  787640	      1481 ns/op	      39 B/op	       2 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34404	     34945 ns/op	  412156 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34630	     34551 ns/op	  412154 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34676	     34969 ns/op	  412160 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34521	     34664 ns/op	  412147 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34315	     34610 ns/op	  412154 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34837	     34609 ns/op	  412152 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34422	     34750 ns/op	  412153 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34413	     35009 ns/op	  412159 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34383	     35364 ns/op	  412155 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/person.firstName-10   	   34722	     34959 ns/op	  412154 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9583	    111429 ns/op	  674152 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9991	    113441 ns/op	  674174 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9754	    111945 ns/op	  674160 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9955	    111313 ns/op	  674174 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9530	    111935 ns/op	  674149 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9740	    110566 ns/op	  674141 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9798	    112033 ns/op	  674138 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9871	    111567 ns/op	  674145 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9546	    111304 ns/op	  674142 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/internet.email-10     	    9933	    111718 ns/op	  674154 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7879	    140418 ns/op	  657719 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7886	    139074 ns/op	  657749 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7629	    140611 ns/op	  657745 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7734	    147252 ns/op	  657732 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7924	    140788 ns/op	  657740 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7840	    139636 ns/op	  657739 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7969	    139081 ns/op	  657719 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7732	    139058 ns/op	  657745 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7972	    139656 ns/op	  657733 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/location.streetAddress-10         	    7546	    138629 ns/op	  657718 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5529	    204439 ns/op	  625029 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5569	    205279 ns/op	  625070 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5631	    205093 ns/op	  625029 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5596	    206102 ns/op	  625042 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5668	    206194 ns/op	  625043 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5558	    205669 ns/op	  625032 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5562	    206412 ns/op	  625054 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5494	    206306 ns/op	  625045 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5580	    205854 ns/op	  625030 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/lorem.sentence-10                 	    5666	    206751 ns/op	  625032 B/op	     111 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9675	    115482 ns/op	  411890 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9676	    114683 ns/op	  411881 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9728	    114566 ns/op	  411882 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9664	    114200 ns/op	  411881 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9675	    114824 ns/op	  411895 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9452	    114829 ns/op	  411879 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9640	    116038 ns/op	  411875 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9307	    115302 ns/op	  411884 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9426	    117073 ns/op	  411869 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/string.uuid-10                    	    9528	    116625 ns/op	  411893 B/op	     110 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   55470	     20953 ns/op	  281483 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58146	     20509 ns/op	  281464 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57272	     20588 ns/op	  281468 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   59300	     20503 ns/op	  281456 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57892	     20433 ns/op	  281463 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58051	     20452 ns/op	  281461 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57930	     21044 ns/op	  281464 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58237	     20687 ns/op	  281461 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   58065	     20589 ns/op	  281464 B/op	     109 allocs/op
+BenchmarkGenerateSingle/baseline-qjs/number.int-10                     	   57055	     20576 ns/op	  281467 B/op	     109 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  175664	      6158 ns/op	      6158 ns/value	      57 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  193290	      6152 ns/op	      6152 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  193318	      6156 ns/op	      6156 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  192772	      6162 ns/op	      6162 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  191557	      6153 ns/op	      6153 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  193944	      6132 ns/op	      6132 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  191374	      6134 ns/op	      6134 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  192520	      6162 ns/op	      6162 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  193225	      6135 ns/op	      6135 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1-10                      	  193482	      6139 ns/op	      6139 ns/value	      54 B/op	       2 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20184	     59573 ns/op	      5957 ns/value	     533 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20138	     59730 ns/op	      5973 ns/value	     533 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20146	     59686 ns/op	      5969 ns/value	     533 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20055	     59849 ns/op	      5985 ns/value	     535 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20124	     59747 ns/op	      5975 ns/value	     534 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20272	     59619 ns/op	      5962 ns/value	     531 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20120	     59828 ns/op	      5983 ns/value	     534 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20125	     59805 ns/op	      5980 ns/value	     534 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20088	     59643 ns/op	      5964 ns/value	     534 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=10-10                     	   20214	     59679 ns/op	      5968 ns/value	     532 B/op	      11 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1999	    593484 ns/op	      5935 ns/value	    5553 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1995	    591716 ns/op	      5917 ns/value	    5559 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    2001	    594094 ns/op	      5941 ns/value	    5550 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1988	    593590 ns/op	      5936 ns/value	    5570 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1974	    597025 ns/op	      5970 ns/value	    5591 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1993	    593191 ns/op	      5932 ns/value	    5562 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1984	    592936 ns/op	      5929 ns/value	    5576 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1995	    591722 ns/op	      5917 ns/value	    5559 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1992	    596181 ns/op	      5962 ns/value	    5563 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=100-10                    	    1998	    606714 ns/op	      6067 ns/value	    5554 B/op	     101 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     201	   5921828 ns/op	      5922 ns/value	   53831 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5926267 ns/op	      5926 ns/value	   53681 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     201	   5974063 ns/op	      5974 ns/value	   53831 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     201	   5924734 ns/op	      5925 ns/value	   53831 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5907363 ns/op	      5907 ns/value	   53681 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5912035 ns/op	      5912 ns/value	   53681 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5924186 ns/op	      5924 ns/value	   53682 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5937253 ns/op	      5937 ns/value	   53681 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     200	   5927070 ns/op	      5927 ns/value	   53981 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/person.firstName/n=1000-10                   	     202	   5919436 ns/op	      5919 ns/value	   53681 B/op	    1003 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32491	     45342 ns/op	     45342 ns/value	     229 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   31609	     36924 ns/op	     36924 ns/value	     234 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32502	     36742 ns/op	     36742 ns/value	     229 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32679	     36800 ns/op	     36800 ns/value	     228 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32758	     36748 ns/op	     36748 ns/value	     228 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32655	     36780 ns/op	     36780 ns/value	     228 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32796	     36691 ns/op	     36690 ns/value	     227 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32772	     36766 ns/op	     36766 ns/value	     227 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32816	     36790 ns/op	     36790 ns/value	     227 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1-10                        	   32692	     36730 ns/op	     36730 ns/value	     228 B/op	       2 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3230	    364928 ns/op	     36493 ns/value	    2306 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3238	    363919 ns/op	     36392 ns/value	    2302 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3204	    364228 ns/op	     36423 ns/value	    2322 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3242	    364195 ns/op	     36419 ns/value	    2299 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3234	    364177 ns/op	     36418 ns/value	    2304 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3248	    364335 ns/op	     36434 ns/value	    2296 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3236	    363617 ns/op	     36362 ns/value	    2303 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3247	    363229 ns/op	     36323 ns/value	    2297 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3232	    364036 ns/op	     36404 ns/value	    2305 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=10-10                       	    3232	    364986 ns/op	     36499 ns/value	    2305 B/op	      11 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     327	   3650438 ns/op	     36504 ns/value	   23031 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     330	   3644127 ns/op	     36441 ns/value	   22862 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     328	   3639534 ns/op	     36395 ns/value	   22974 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     327	   3641383 ns/op	     36414 ns/value	   23031 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     330	   3641381 ns/op	     36414 ns/value	   22862 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     328	   3644817 ns/op	     36448 ns/value	   22974 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     328	   3650564 ns/op	     36506 ns/value	   22974 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     327	   3641559 ns/op	     36416 ns/value	   23031 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     330	   3623314 ns/op	     36233 ns/value	   22862 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=100-10                      	     330	   3636896 ns/op	     36369 ns/value	   22862 B/op	     102 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      32	  36339402 ns/op	     36339 ns/value	  232825 B/op	    1016 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      32	  36301587 ns/op	     36302 ns/value	  232825 B/op	    1016 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36226273 ns/op	     36226 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36261468 ns/op	     36261 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36210590 ns/op	     36211 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36254208 ns/op	     36254 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      32	  36380974 ns/op	     36381 ns/value	  232825 B/op	    1016 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      32	  36260961 ns/op	     36261 ns/value	  232825 B/op	    1016 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36173289 ns/op	     36173 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/internet.email/n=1000-10                     	      31	  36214234 ns/op	     36214 ns/value	  238938 B/op	    1017 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   25041	     48007 ns/op	     48007 ns/value	     279 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24673	     48225 ns/op	     48225 ns/value	     283 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24819	     48565 ns/op	     48565 ns/value	     281 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24816	     48517 ns/op	     48516 ns/value	     281 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24982	     48667 ns/op	     48667 ns/value	     280 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24842	     48462 ns/op	     48462 ns/value	     281 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   25008	     48270 ns/op	     48270 ns/value	     279 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   25084	     48446 ns/op	     48446 ns/value	     279 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   25030	     48472 ns/op	     48472 ns/value	     279 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1-10                	   24850	     48536 ns/op	     48536 ns/value	     281 B/op	       2 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2440	    481391 ns/op	     48139 ns/value	    2858 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2467	    481620 ns/op	     48162 ns/value	    2831 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2446	    482282 ns/op	     48228 ns/value	    2852 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2436	    476623 ns/op	     47662 ns/value	    2862 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2484	    482492 ns/op	     48249 ns/value	    2814 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2425	    481592 ns/op	     48159 ns/value	    2873 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2421	    478233 ns/op	     47823 ns/value	    2877 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2437	    478216 ns/op	     47822 ns/value	    2861 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2442	    480285 ns/op	     48028 ns/value	    2856 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=10-10               	    2436	    481576 ns/op	     48158 ns/value	    2862 B/op	      11 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     249	   4817483 ns/op	     48175 ns/value	   28277 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     249	   4795116 ns/op	     47951 ns/value	   28277 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     250	   4783676 ns/op	     47837 ns/value	   28179 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     248	   4789938 ns/op	     47899 ns/value	   28375 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     250	   4758480 ns/op	     47585 ns/value	   28179 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     253	   4778288 ns/op	     47783 ns/value	   27892 B/op	     102 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     252	   4794777 ns/op	     47948 ns/value	   27987 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     249	   4801647 ns/op	     48016 ns/value	   28277 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     250	   4859473 ns/op	     48595 ns/value	   28179 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=100-10              	     243	   4798754 ns/op	     47988 ns/value	   28878 B/op	     103 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47979597 ns/op	     47980 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47962743 ns/op	     47963 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  48032167 ns/op	     48032 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47998087 ns/op	     47998 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47696491 ns/op	     47696 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47958653 ns/op	     47959 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  48011729 ns/op	     48012 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  48021434 ns/op	     48021 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  47948276 ns/op	     47948 ns/value	  290357 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/location.streetAddress/n=1000-10             	      24	  48247528 ns/op	     48247 ns/value	  290358 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112422 ns/op	    112422 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112592 ns/op	    112592 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112896 ns/op	    112896 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112531 ns/op	    112530 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112430 ns/op	    112430 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112415 ns/op	    112415 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112430 ns/op	    112430 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112408 ns/op	    112408 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112308 ns/op	    112308 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1-10                        	   10000	    112499 ns/op	    112498 ns/value	     677 B/op	       2 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1077	   1119837 ns/op	    111984 ns/value	    6342 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1075	   1122170 ns/op	    112217 ns/value	    6352 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1078	   1121599 ns/op	    112160 ns/value	    6336 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1071	   1122358 ns/op	    112236 ns/value	    6373 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1076	   1122036 ns/op	    112203 ns/value	    6347 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1081	   1121466 ns/op	    112146 ns/value	    6321 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1072	   1124064 ns/op	    112406 ns/value	    6368 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1076	   1122537 ns/op	    112254 ns/value	    6347 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1077	   1122561 ns/op	    112256 ns/value	    6342 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=10-10                       	    1074	   1121995 ns/op	    112199 ns/value	    6357 B/op	      11 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11169146 ns/op	    111691 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11194806 ns/op	    111948 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11172058 ns/op	    111721 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11207841 ns/op	    112078 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11168960 ns/op	    111690 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11176892 ns/op	    111769 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11191122 ns/op	    111911 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11177031 ns/op	    111770 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11180408 ns/op	    111804 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=100-10                      	     100	  11193433 ns/op	    111934 ns/value	   67939 B/op	     106 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 111854292 ns/op	    111854 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 112064954 ns/op	    112065 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	       9	 111905282 ns/op	    111905 ns/value	  745234 B/op	    1057 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 111963779 ns/op	    111964 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	       9	 111973935 ns/op	    111974 ns/value	  745234 B/op	    1057 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 111816158 ns/op	    111816 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 111850600 ns/op	    111850 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	      10	 111836158 ns/op	    111836 ns/value	  677854 B/op	    1051 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	       9	 111979644 ns/op	    111979 ns/value	  745234 B/op	    1057 allocs/op
+BenchmarkGenerateN/native/lorem.sentence/n=1000-10                     	       9	 112134120 ns/op	    112134 ns/value	  745234 B/op	    1057 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24343	     49406 ns/op	     49406 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24355	     49489 ns/op	     49489 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24226	     49539 ns/op	     49539 ns/value	     313 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24202	     49389 ns/op	     49389 ns/value	     314 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24409	     49346 ns/op	     49346 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24393	     49427 ns/op	     49427 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24280	     49507 ns/op	     49507 ns/value	     313 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24354	     49346 ns/op	     49346 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24337	     49511 ns/op	     49511 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1-10                           	   24373	     49465 ns/op	     49465 ns/value	     312 B/op	       2 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2390	    492059 ns/op	     49206 ns/value	    3174 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2403	    491358 ns/op	     49136 ns/value	    3160 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2416	    491975 ns/op	     49198 ns/value	    3146 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2409	    492062 ns/op	     49206 ns/value	    3154 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2413	    492486 ns/op	     49249 ns/value	    3149 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2394	    491897 ns/op	     49190 ns/value	    3169 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2409	    490931 ns/op	     49093 ns/value	    3154 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2408	    497584 ns/op	     49758 ns/value	    3155 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2408	    491621 ns/op	     49162 ns/value	    3155 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=10-10                          	    2406	    490666 ns/op	     49067 ns/value	    3157 B/op	      11 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4919867 ns/op	     49199 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4918021 ns/op	     49180 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4909351 ns/op	     49093 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4917780 ns/op	     49178 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4937610 ns/op	     49376 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4916625 ns/op	     49166 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     244	   4920470 ns/op	     49205 ns/value	   31413 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4925859 ns/op	     49259 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     243	   4911789 ns/op	     49118 ns/value	   31515 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=100-10                         	     244	   4907976 ns/op	     49080 ns/value	   31413 B/op	     103 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49019658 ns/op	     49020 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49079337 ns/op	     49079 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  48933531 ns/op	     48933 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49069080 ns/op	     49069 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      22	  48955403 ns/op	     48955 ns/value	  339678 B/op	    1023 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49172731 ns/op	     49173 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49058401 ns/op	     49058 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49036505 ns/op	     49036 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      22	  49118413 ns/op	     49118 ns/value	  339678 B/op	    1023 allocs/op
+BenchmarkGenerateN/native/string.uuid/n=1000-10                        	      24	  49041703 ns/op	     49042 ns/value	  316737 B/op	    1022 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  785097	      1470 ns/op	      1470 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  801092	      1478 ns/op	      1478 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  796964	      1487 ns/op	      1487 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  787030	      1489 ns/op	      1489 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  704013	      2281 ns/op	      2281 ns/value	      40 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  555954	      2075 ns/op	      2075 ns/value	      42 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  792748	      1485 ns/op	      1485 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  790432	      1478 ns/op	      1478 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  790491	      1480 ns/op	      1480 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=1-10                            	  788502	      1481 ns/op	      1481 ns/value	      39 B/op	       2 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90638	     13213 ns/op	      1321 ns/value	     386 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90313	     13146 ns/op	      1315 ns/value	     387 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90627	     13213 ns/op	      1321 ns/value	     386 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90538	     13199 ns/op	      1320 ns/value	     386 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90283	     13203 ns/op	      1320 ns/value	     387 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90159	     13163 ns/op	      1316 ns/value	     387 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90350	     13182 ns/op	      1318 ns/value	     387 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90487	     13175 ns/op	      1317 ns/value	     386 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90489	     13169 ns/op	      1317 ns/value	     386 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=10-10                           	   90258	     13184 ns/op	      1318 ns/value	     387 B/op	      11 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8883	    129643 ns/op	      1296 ns/value	    4073 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8966	    129689 ns/op	      1297 ns/value	    4067 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8808	    129692 ns/op	      1297 ns/value	    4079 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8961	    129784 ns/op	      1298 ns/value	    4067 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8953	    129871 ns/op	      1299 ns/value	    4068 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8967	    129713 ns/op	      1297 ns/value	    4067 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8962	    129681 ns/op	      1297 ns/value	    4067 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8938	    129856 ns/op	      1299 ns/value	    4069 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8928	    129836 ns/op	      1298 ns/value	    4070 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=100-10                          	    8964	    130084 ns/op	      1301 ns/value	    4067 B/op	     101 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     927	   1300320 ns/op	      1300 ns/value	   38917 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     922	   1291075 ns/op	      1291 ns/value	   38952 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     915	   1293233 ns/op	      1293 ns/value	   39003 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     920	   1295575 ns/op	      1296 ns/value	   38967 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     919	   1297947 ns/op	      1298 ns/value	   38974 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     920	   1294542 ns/op	      1295 ns/value	   38967 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     921	   1294873 ns/op	      1295 ns/value	   38959 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     919	   1292452 ns/op	      1292 ns/value	   38974 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     922	   1295433 ns/op	      1295 ns/value	   38952 B/op	    1001 allocs/op
+BenchmarkGenerateN/native/number.int/n=1000-10                         	     914	   1292400 ns/op	      1292 ns/value	   39010 B/op	    1001 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34059	     35137 ns/op	     35125 ns/value	  412137 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34156	     34910 ns/op	     34898 ns/value	  412132 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34107	     35154 ns/op	     35142 ns/value	  412134 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34168	     35338 ns/op	     35321 ns/value	  412133 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   33800	     35221 ns/op	     35207 ns/value	  412138 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34605	     34840 ns/op	     34828 ns/value	  412132 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34176	     35449 ns/op	     35437 ns/value	  412136 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34447	     35000 ns/op	     34987 ns/value	  412124 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   33436	     35084 ns/op	     35071 ns/value	  412132 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1-10                	   34269	     35220 ns/op	     35209 ns/value	  412130 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    7718	    139064 ns/op	     13901 ns/value	  412486 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    8214	    139253 ns/op	     13920 ns/value	  412487 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    8112	    138846 ns/op	     13879 ns/value	  412476 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    8020	    138148 ns/op	     13810 ns/value	  412477 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    7998	    139451 ns/op	     13940 ns/value	  412470 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    7990	    138981 ns/op	     13893 ns/value	  412473 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    8010	    139185 ns/op	     13913 ns/value	  412467 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    7880	    139095 ns/op	     13904 ns/value	  412472 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    7935	    139670 ns/op	     13962 ns/value	  412474 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=10-10               	    8059	    140181 ns/op	     14013 ns/value	  412487 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1022	   1157949 ns/op	     11575 ns/value	  418753 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1032	   1152325 ns/op	     11519 ns/value	  418743 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1023	   1155726 ns/op	     11553 ns/value	  418729 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1027	   1156014 ns/op	     11556 ns/value	  418749 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1030	   1158596 ns/op	     11582 ns/value	  418738 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1028	   1154603 ns/op	     11542 ns/value	  418744 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1030	   1156064 ns/op	     11556 ns/value	  418738 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1029	   1157884 ns/op	     11575 ns/value	  418749 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1016	   1153836 ns/op	     11534 ns/value	  418761 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=100-10              	    1028	   1158469 ns/op	     11580 ns/value	  418770 B/op	     208 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	     100	  11261273 ns/op	     11257 ns/value	  472758 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	     100	  11267033 ns/op	     11263 ns/value	  472758 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	     100	  11282343 ns/op	     11278 ns/value	  472758 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	     100	  11266388 ns/op	     11262 ns/value	  472759 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      94	  11254900 ns/op	     11250 ns/value	  472790 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      92	  11216730 ns/op	     11212 ns/value	  472798 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      97	  11248927 ns/op	     11245 ns/value	  472718 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      97	  11259552 ns/op	     11255 ns/value	  472774 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      92	  11232810 ns/op	     11228 ns/value	  472737 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/person.firstName/n=1000-10             	      94	  11282674 ns/op	     11278 ns/value	  472730 B/op	    1035 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9218	    111160 ns/op	    111113 ns/value	  674064 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9756	    112407 ns/op	    112356 ns/value	  674068 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9693	    111878 ns/op	    111835 ns/value	  674072 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9818	    111587 ns/op	    111543 ns/value	  674071 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9818	    111412 ns/op	    111369 ns/value	  674059 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9768	    111723 ns/op	    111678 ns/value	  674079 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9777	    111810 ns/op	    111762 ns/value	  674067 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9602	    111024 ns/op	    110978 ns/value	  674077 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9531	    110898 ns/op	    110850 ns/value	  674056 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1-10                  	    9717	    111036 ns/op	    110990 ns/value	  674069 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1528	    783414 ns/op	     78312 ns/value	  675236 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1537	    775794 ns/op	     77551 ns/value	  675234 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1514	    779729 ns/op	     77944 ns/value	  675222 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1513	    780599 ns/op	     78031 ns/value	  675233 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1519	    789512 ns/op	     78922 ns/value	  675200 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1502	    774172 ns/op	     77388 ns/value	  675240 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1521	    778103 ns/op	     77782 ns/value	  675273 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1503	    781945 ns/op	     78163 ns/value	  675237 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1514	    792157 ns/op	     79186 ns/value	  675226 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=10-10                 	    1470	    852510 ns/op	     85221 ns/value	  675229 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     158	   7590892 ns/op	     75883 ns/value	  686588 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     157	   7588163 ns/op	     75855 ns/value	  686719 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     159	   7610146 ns/op	     76076 ns/value	  686684 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     158	   7578277 ns/op	     75755 ns/value	  686654 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     157	   7577567 ns/op	     75749 ns/value	  686550 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     159	   7564562 ns/op	     75619 ns/value	  686684 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     158	   7586795 ns/op	     75842 ns/value	  686621 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     157	   7620424 ns/op	     76178 ns/value	  686618 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     158	   7568787 ns/op	     75660 ns/value	  686587 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=100-10                	     158	   7563702 ns/op	     75611 ns/value	  686620 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  74218633 ns/op	     74189 ns/value	  793187 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  73903819 ns/op	     73874 ns/value	  793187 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  74037625 ns/op	     74009 ns/value	  793194 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  74023458 ns/op	     73994 ns/value	  792833 B/op	    1121 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  73793172 ns/op	     73765 ns/value	  792431 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  73989428 ns/op	     73961 ns/value	  793181 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  74013064 ns/op	     73984 ns/value	  793187 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  73588814 ns/op	     73561 ns/value	  793188 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  73872094 ns/op	     73844 ns/value	  792833 B/op	    1121 allocs/op
+BenchmarkGenerateN/baseline-qjs/internet.email/n=1000-10               	      15	  74062178 ns/op	     74034 ns/value	  792833 B/op	    1121 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7292	    138500 ns/op	    138442 ns/value	  657649 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7672	    138215 ns/op	    138161 ns/value	  657637 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    8049	    138739 ns/op	    138688 ns/value	  657652 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7782	    138400 ns/op	    138346 ns/value	  657640 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7554	    138973 ns/op	    138917 ns/value	  657641 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7734	    139207 ns/op	    139154 ns/value	  657643 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7426	    137762 ns/op	    137707 ns/value	  657650 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7706	    137806 ns/op	    137752 ns/value	  657649 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    7717	    138053 ns/op	    137998 ns/value	  657631 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1-10          	    8060	    138560 ns/op	    138508 ns/value	  657647 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1128	   1039981 ns/op	    103961 ns/value	  658676 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1119	   1032989 ns/op	    103261 ns/value	  658654 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1119	   1043164 ns/op	    104279 ns/value	  658650 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1108	   1046921 ns/op	    104655 ns/value	  658657 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1100	   1042522 ns/op	    104213 ns/value	  658663 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1107	   1044912 ns/op	    104453 ns/value	  658653 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1101	   1039893 ns/op	    103949 ns/value	  658667 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1120	   1042919 ns/op	    104255 ns/value	  658679 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1122	   1034101 ns/op	    103373 ns/value	  658668 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=10-10         	    1118	   1038998 ns/op	    103863 ns/value	  658669 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10207178 ns/op	    102030 ns/value	  669093 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10227184 ns/op	    102231 ns/value	  668971 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10205528 ns/op	    102009 ns/value	  668988 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10179174 ns/op	    101751 ns/value	  668867 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10154890 ns/op	    101508 ns/value	  669041 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10295177 ns/op	    102910 ns/value	  668891 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10166380 ns/op	    101622 ns/value	  668934 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10123198 ns/op	    101192 ns/value	  668987 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10148236 ns/op	    101440 ns/value	  669012 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=100-10        	     100	  10210117 ns/op	    102059 ns/value	  668855 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  99374681 ns/op	     99339 ns/value	  760480 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98770490 ns/op	     98737 ns/value	  760496 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  99148278 ns/op	     99111 ns/value	  760932 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98575087 ns/op	     98541 ns/value	  760923 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98598948 ns/op	     98561 ns/value	  760924 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  99153104 ns/op	     99119 ns/value	  760924 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  99491590 ns/op	     99457 ns/value	  760924 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98778938 ns/op	     98744 ns/value	  760004 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98248816 ns/op	     98215 ns/value	  760480 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/location.streetAddress/n=1000-10       	      12	  98433427 ns/op	     98398 ns/value	  760488 B/op	    1122 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5364	    204221 ns/op	    204145 ns/value	  624951 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5674	    204331 ns/op	    204257 ns/value	  624949 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5589	    203999 ns/op	    203921 ns/value	  624940 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5670	    203568 ns/op	    203494 ns/value	  624946 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5612	    203534 ns/op	    203459 ns/value	  624935 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5461	    203494 ns/op	    203419 ns/value	  624946 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5560	    204042 ns/op	    203968 ns/value	  624942 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5636	    204482 ns/op	    204407 ns/value	  624931 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5564	    204109 ns/op	    204035 ns/value	  624951 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1-10                  	    5668	    204572 ns/op	    204498 ns/value	  624964 B/op	     111 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     681	   1758145 ns/op	    175751 ns/value	  626872 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     685	   1751431 ns/op	    175083 ns/value	  626883 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     679	   1756935 ns/op	    175626 ns/value	  626886 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     684	   1751218 ns/op	    175061 ns/value	  626853 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     684	   1750700 ns/op	    175008 ns/value	  626868 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     681	   1748522 ns/op	    174790 ns/value	  626826 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     686	   1753746 ns/op	    175314 ns/value	  626856 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     687	   1751271 ns/op	    175066 ns/value	  626867 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     684	   1749129 ns/op	    174853 ns/value	  626887 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=10-10                 	     684	   1751631 ns/op	    175101 ns/value	  626864 B/op	     124 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      69	  17461364 ns/op	    174552 ns/value	  646373 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      69	  17513945 ns/op	    175078 ns/value	  646296 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      66	  17486735 ns/op	    174804 ns/value	  646332 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      69	  17436546 ns/op	    174305 ns/value	  646164 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      68	  18301512 ns/op	    182952 ns/value	  646310 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      67	  19191011 ns/op	    191846 ns/value	  646371 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      69	  17450325 ns/op	    174442 ns/value	  646164 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      69	  17614760 ns/op	    176087 ns/value	  646298 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      68	  17499050 ns/op	    174929 ns/value	  646174 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=100-10                	      68	  17522154 ns/op	    175160 ns/value	  646231 B/op	     217 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172980285 ns/op	    172908 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172586896 ns/op	    172517 ns/value	  834658 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172772528 ns/op	    172705 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172780854 ns/op	    172713 ns/value	  834658 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172702597 ns/op	    172633 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172488604 ns/op	    172422 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172178792 ns/op	    172106 ns/value	  834658 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172554188 ns/op	    172486 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172437868 ns/op	    172368 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/lorem.sentence/n=1000-10               	       6	 172774938 ns/op	    172704 ns/value	  835700 B/op	    1123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    8817	    114210 ns/op	    114160 ns/value	  411809 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9363	    114221 ns/op	    114176 ns/value	  411810 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9932	    113438 ns/op	    113394 ns/value	  411807 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9798	    113708 ns/op	    113666 ns/value	  411826 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9723	    113777 ns/op	    113733 ns/value	  411806 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9651	    114767 ns/op	    114724 ns/value	  411811 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9842	    115008 ns/op	    114966 ns/value	  411818 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9336	    113895 ns/op	    113850 ns/value	  411806 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9447	    114430 ns/op	    114386 ns/value	  411807 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1-10                     	    9820	    114686 ns/op	    114641 ns/value	  411805 B/op	     110 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1232	    950966 ns/op	     95062 ns/value	  413456 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1243	    952503 ns/op	     95217 ns/value	  413456 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1246	    949346 ns/op	     94900 ns/value	  413469 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1242	    953689 ns/op	     95336 ns/value	  413456 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1257	    949516 ns/op	     94917 ns/value	  413455 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1250	    949314 ns/op	     94898 ns/value	  413451 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1254	    949648 ns/op	     94933 ns/value	  413433 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1243	    949287 ns/op	     94895 ns/value	  413469 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1256	    949623 ns/op	     94930 ns/value	  413469 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=10-10                    	    1249	    951941 ns/op	     95161 ns/value	  413426 B/op	     123 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9188918 ns/op	     91856 ns/value	  429381 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9198491 ns/op	     91951 ns/value	  429300 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9206738 ns/op	     92032 ns/value	  429299 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9193839 ns/op	     91906 ns/value	  429298 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     130	   9189662 ns/op	     91864 ns/value	  429376 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9185685 ns/op	     91825 ns/value	  429299 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     130	   9224190 ns/op	     92209 ns/value	  429336 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9193385 ns/op	     91901 ns/value	  429300 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9208258 ns/op	     92050 ns/value	  429298 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=100-10                   	     129	   9171815 ns/op	     91683 ns/value	  429340 B/op	     216 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91538746 ns/op	     91502 ns/value	  578716 B/op	    1118 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91572347 ns/op	     91536 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91457580 ns/op	     91423 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91323108 ns/op	     91288 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91454785 ns/op	     91420 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91512990 ns/op	     91479 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91459267 ns/op	     91424 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91150028 ns/op	     91114 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91037094 ns/op	     91003 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/string.uuid/n=1000-10                  	      12	  91211705 ns/op	     91177 ns/value	  579250 B/op	    1120 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   57840	     20348 ns/op	     20341 ns/value	  281407 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58350	     20144 ns/op	     20138 ns/value	  281398 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58254	     20205 ns/op	     20198 ns/value	  281399 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   57956	     20137 ns/op	     20129 ns/value	  281395 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58166	     20137 ns/op	     20129 ns/value	  281399 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58693	     20392 ns/op	     20385 ns/value	  281400 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58633	     20300 ns/op	     20292 ns/value	  281395 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58352	     20253 ns/op	     20246 ns/value	  281402 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   58868	     20457 ns/op	     20449 ns/value	  281391 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1-10                      	   59161	     20079 ns/op	     20072 ns/value	  281390 B/op	     109 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25503	     47437 ns/op	      4742 ns/value	  287038 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25388	     47087 ns/op	      4707 ns/value	  287048 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25438	     47465 ns/op	      4745 ns/value	  287041 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   24716	     47215 ns/op	      4720 ns/value	  287079 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25147	     48197 ns/op	      4818 ns/value	  287052 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25276	     47621 ns/op	      4761 ns/value	  287053 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25322	     47506 ns/op	      4749 ns/value	  287050 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25176	     47219 ns/op	      4720 ns/value	  287050 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25269	     47765 ns/op	      4775 ns/value	  287048 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=10-10                     	   25479	     47440 ns/op	      4742 ns/value	  287034 B/op	     122 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3642	    304390 ns/op	      3043 ns/value	  341391 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3721	    305182 ns/op	      3051 ns/value	  341206 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3808	    305549 ns/op	      3054 ns/value	  341012 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3728	    304245 ns/op	      3041 ns/value	  341170 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3849	    304667 ns/op	      3046 ns/value	  340902 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3843	    305843 ns/op	      3057 ns/value	  340937 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3766	    304975 ns/op	      3049 ns/value	  341117 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3769	    304388 ns/op	      3043 ns/value	  341104 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3866	    303852 ns/op	      3037 ns/value	  340890 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=100-10                    	    3752	    305427 ns/op	      3053 ns/value	  341124 B/op	     215 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2861796 ns/op	      2861 ns/value	  609317 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     416	   2859805 ns/op	      2859 ns/value	  609552 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     416	   2860753 ns/op	      2860 ns/value	  609564 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     416	   2856140 ns/op	      2855 ns/value	  609565 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     415	   2863226 ns/op	      2862 ns/value	  609814 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2860157 ns/op	      2859 ns/value	  609304 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2856917 ns/op	      2856 ns/value	  609304 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2861678 ns/op	      2861 ns/value	  609304 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2869601 ns/op	      2869 ns/value	  609278 B/op	    1119 allocs/op
+BenchmarkGenerateN/baseline-qjs/number.int/n=1000-10                   	     417	   2862784 ns/op	      2862 ns/value	  609329 B/op	    1119 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2397	    475360 ns/op	      2104 rows/s	    4380 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2421	    476015 ns/op	      2101 rows/s	    4354 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2446	    476188 ns/op	      2100 rows/s	    4329 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2434	    475677 ns/op	      2102 rows/s	    4341 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2419	    475314 ns/op	      2104 rows/s	    4357 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2445	    474398 ns/op	      2108 rows/s	    4330 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2442	    476398 ns/op	      2099 rows/s	    4333 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2431	    476921 ns/op	      2097 rows/s	    4344 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2439	    475368 ns/op	      2104 rows/s	    4335 B/op	      45 allocs/op
+BenchmarkRow20/native/percall-10                                       	    2426	    475767 ns/op	      2102 rows/s	    4349 B/op	      45 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2653	    452440 ns/op	      2210 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2638	    451952 ns/op	      2213 rows/s	    4148 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2631	    451692 ns/op	      2214 rows/s	    4155 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2630	    452252 ns/op	      2211 rows/s	    4164 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2641	    451872 ns/op	      2213 rows/s	    4156 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2648	    452386 ns/op	      2211 rows/s	    4148 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2656	    451952 ns/op	      2213 rows/s	    4136 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2650	    451298 ns/op	      2216 rows/s	    4145 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2655	    451022 ns/op	      2217 rows/s	    4139 B/op	      25 allocs/op
+BenchmarkRow20/native/batched-10                                       	    2659	    451772 ns/op	      2214 rows/s	    4139 B/op	      25 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     794	   1465433 ns/op	       682.6 rows/s	 9971929 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     804	   1479551 ns/op	       676.1 rows/s	 9972188 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     795	   1465245 ns/op	       682.7 rows/s	 9971986 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     798	   1465244 ns/op	       682.7 rows/s	 9971486 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     799	   1465050 ns/op	       682.8 rows/s	 9971681 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     799	   1476436 ns/op	       677.5 rows/s	 9971618 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     806	   1467345 ns/op	       681.7 rows/s	 9971950 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     802	   1474097 ns/op	       678.6 rows/s	 9971967 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     804	   1455050 ns/op	       687.5 rows/s	 9971908 B/op	    2214 allocs/op
+BenchmarkRow20/baseline-qjs/percall-10                                 	     789	   1463651 ns/op	       683.5 rows/s	 9971419 B/op	    2215 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1342	    834577 ns/op	      1199 rows/s	   18292 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1368	    838325 ns/op	      1193 rows/s	   18176 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1382	    835793 ns/op	      1197 rows/s	   17830 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1388	    838148 ns/op	      1194 rows/s	   17759 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1377	    838357 ns/op	      1193 rows/s	   17892 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1382	    837473 ns/op	      1195 rows/s	   17826 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1375	    838539 ns/op	      1193 rows/s	   17902 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1351	    836026 ns/op	      1197 rows/s	   18175 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1388	    852903 ns/op	      1173 rows/s	   17763 B/op	      23 allocs/op
+BenchmarkRow20/baseline-qjs/batched-10                                 	    1364	    862115 ns/op	      1160 rows/s	   18215 B/op	      23 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2463	    471940 ns/op	      2119 rows/s	    4302 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2504	    473663 ns/op	      2111 rows/s	    4261 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2509	    469886 ns/op	      2128 rows/s	    4256 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2523	    471079 ns/op	      2123 rows/s	    4242 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2532	    471603 ns/op	      2120 rows/s	    4234 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2523	    471340 ns/op	      2122 rows/s	    4243 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2516	    471888 ns/op	      2119 rows/s	    4250 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2538	    470798 ns/op	      2124 rows/s	    4229 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2529	    471338 ns/op	      2122 rows/s	    4237 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=1-10                        	    2523	    472048 ns/op	      2118 rows/s	    4242 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4226	    251243 ns/op	      3980 rows/s	    4713 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4220	    250026 ns/op	      4000 rows/s	    4717 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4240	    253710 ns/op	      3942 rows/s	    4704 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4239	    251646 ns/op	      3974 rows/s	    4705 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4227	    257899 ns/op	      3877 rows/s	    4713 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4214	    252556 ns/op	      3960 rows/s	    4721 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4201	    255767 ns/op	      3910 rows/s	    4730 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4209	    253595 ns/op	      3943 rows/s	    4724 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4166	    252623 ns/op	      3958 rows/s	    4755 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=2-10                        	    4201	    259354 ns/op	      3856 rows/s	    4730 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5773	    177216 ns/op	      5643 rows/s	    6045 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5847	    175400 ns/op	      5701 rows/s	    5990 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5696	    180682 ns/op	      5535 rows/s	    6100 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5715	    180069 ns/op	      5553 rows/s	    6086 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5755	    179343 ns/op	      5576 rows/s	    6058 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5754	    181107 ns/op	      5522 rows/s	    6058 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5714	    182333 ns/op	      5484 rows/s	    6087 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5653	    183638 ns/op	      5446 rows/s	    6133 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5672	    184138 ns/op	      5431 rows/s	    6119 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=4-10                        	    5637	    185972 ns/op	      5377 rows/s	    6145 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	   10366	    123544 ns/op	      8094 rows/s	    6520 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	   10094	    126982 ns/op	      7875 rows/s	    6646 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	   10242	    126277 ns/op	      7919 rows/s	    6576 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9886	    129571 ns/op	      7718 rows/s	    6746 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9855	    130661 ns/op	      7653 rows/s	    6762 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9961	    129641 ns/op	      7714 rows/s	    6709 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9856	    130022 ns/op	      7691 rows/s	    6761 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9970	    131001 ns/op	      7634 rows/s	    6704 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9505	    134145 ns/op	      7455 rows/s	    6942 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=8-10                        	    9835	    134900 ns/op	      7413 rows/s	    6771 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12830	    109310 ns/op	      9148 rows/s	    6569 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   13395	    106107 ns/op	      9424 rows/s	    6368 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   11869	    116289 ns/op	      8599 rows/s	    6949 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	    8570	    151871 ns/op	      6585 rows/s	    8204 B/op	      46 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   11720	    129467 ns/op	      7724 rows/s	    7016 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   13344	    108215 ns/op	      9241 rows/s	    6386 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12895	    108561 ns/op	      9211 rows/s	    6544 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   12727	    109113 ns/op	      9165 rows/s	    6605 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   13166	    107789 ns/op	      9277 rows/s	    6447 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/percall/pool=10-10                       	   13210	    105602 ns/op	      9470 rows/s	    6433 B/op	      45 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2376	    480142 ns/op	      2083 rows/s	    4403 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2475	    481555 ns/op	      2077 rows/s	    4300 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2433	    478997 ns/op	      2088 rows/s	    4349 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2534	    472071 ns/op	      2118 rows/s	    4243 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2485	    469229 ns/op	      2131 rows/s	    4292 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2662	    463001 ns/op	      2160 rows/s	    4127 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2670	    452201 ns/op	      2211 rows/s	    4117 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2659	    452914 ns/op	      2208 rows/s	    4133 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2665	    451910 ns/op	      2213 rows/s	    4124 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=1-10                        	    2661	    450731 ns/op	      2219 rows/s	    4131 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4892	    281690 ns/op	      3550 rows/s	    4328 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4192	    251156 ns/op	      3982 rows/s	    4743 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4924	    280774 ns/op	      3562 rows/s	    4317 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4984	    280412 ns/op	      3566 rows/s	    4285 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4110	    245541 ns/op	      4073 rows/s	    4800 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4137	    247859 ns/op	      4035 rows/s	    4780 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4118	    245000 ns/op	      4082 rows/s	    4795 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4093	    245799 ns/op	      4068 rows/s	    4811 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4321	    255114 ns/op	      3920 rows/s	    4654 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=2-10                        	    4130	    248197 ns/op	      4029 rows/s	    4788 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    7436	    137041 ns/op	      7297 rows/s	    5119 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    7215	    141461 ns/op	      7069 rows/s	    5216 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    7180	    142436 ns/op	      7021 rows/s	    5233 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    5989	    167922 ns/op	      5955 rows/s	    5903 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6060	    166495 ns/op	      6006 rows/s	    5856 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6127	    164927 ns/op	      6063 rows/s	    5811 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6178	    164043 ns/op	      6096 rows/s	    5779 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6096	    166436 ns/op	      6008 rows/s	    5832 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6036	    167374 ns/op	      5975 rows/s	    5874 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=4-10                        	    6187	    164251 ns/op	      6088 rows/s	    5774 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   11158	    111576 ns/op	      8963 rows/s	    6199 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   11016	    113398 ns/op	      8818 rows/s	    6256 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10910	    113522 ns/op	      8809 rows/s	    6302 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10826	    115330 ns/op	      8671 rows/s	    6336 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10785	    115998 ns/op	      8621 rows/s	    6350 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10808	    115678 ns/op	      8645 rows/s	    6341 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10965	    114223 ns/op	      8755 rows/s	    6277 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10652	    116472 ns/op	      8586 rows/s	    6406 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10866	    116311 ns/op	      8598 rows/s	    6316 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=8-10                        	   10519	    118832 ns/op	      8415 rows/s	    6466 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   12547	    105394 ns/op	      9488 rows/s	    6686 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   11010	    113278 ns/op	      8828 rows/s	    7359 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   11058	    115870 ns/op	      8630 rows/s	    7336 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   11060	    111926 ns/op	      8934 rows/s	    7335 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   10648	    116183 ns/op	      8607 rows/s	    7548 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   10509	     97446 ns/op	     10262 rows/s	    7622 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   10688	    102078 ns/op	      9796 rows/s	    7528 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   10988	    114196 ns/op	      8757 rows/s	    7371 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   11028	    114495 ns/op	      8734 rows/s	    7351 B/op	      25 allocs/op
+BenchmarkRow20Parallel/native/batched/pool=10-10                       	   11086	    112685 ns/op	      8874 rows/s	    7321 B/op	      25 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     828	   1467703 ns/op	       681.6 rows/s	 9973613 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     829	   1462066 ns/op	       684.2 rows/s	 9973770 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     812	   1471210 ns/op	       679.9 rows/s	 9973057 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     795	   1449968 ns/op	       689.9 rows/s	 9972699 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     808	   1477438 ns/op	       677.1 rows/s	 9973099 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     806	   1461352 ns/op	       684.5 rows/s	 9972909 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     804	   1457185 ns/op	       686.5 rows/s	 9972597 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     806	   1464759 ns/op	       682.9 rows/s	 9972781 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     830	   1459130 ns/op	       685.6 rows/s	 9974213 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=1-10                  	     826	   1445216 ns/op	       692.2 rows/s	 9973550 B/op	    2215 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     822	   1439829 ns/op	       695.0 rows/s	 9977777 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     810	   1443255 ns/op	       693.4 rows/s	 9976942 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     830	   1453036 ns/op	       688.7 rows/s	 9977204 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     798	   1445403 ns/op	       692.3 rows/s	 9977176 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     818	   1440574 ns/op	       694.6 rows/s	 9977308 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     802	   1432090 ns/op	       698.8 rows/s	 9977018 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     812	   1441280 ns/op	       694.3 rows/s	 9976945 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     802	   1441702 ns/op	       694.2 rows/s	 9977000 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     828	   1436588 ns/op	       696.6 rows/s	 9977430 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=2-10                  	     831	   1433192 ns/op	       698.2 rows/s	 9977267 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     828	   1422620 ns/op	       703.9 rows/s	 9970024 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     823	   1416115 ns/op	       707.1 rows/s	 9970035 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     816	   1429237 ns/op	       700.7 rows/s	 9970047 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     801	   1427786 ns/op	       701.3 rows/s	 9969138 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     816	   1419976 ns/op	       705.2 rows/s	 9970102 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     817	   1436619 ns/op	       697.0 rows/s	 9970131 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     802	   1424104 ns/op	       703.2 rows/s	 9969125 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     819	   1425581 ns/op	       702.4 rows/s	 9969977 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     798	   1445240 ns/op	       692.8 rows/s	 9969274 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=4-10                  	     820	   1437224 ns/op	       696.7 rows/s	 9970134 B/op	    2214 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     847	   1382659 ns/op	       725.2 rows/s	 9972457 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     828	   1382388 ns/op	       725.3 rows/s	 9972102 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     832	   1395452 ns/op	       718.7 rows/s	 9972251 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     860	   1388421 ns/op	       722.1 rows/s	 9972428 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     822	   1398985 ns/op	       716.8 rows/s	 9972029 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     842	   1396352 ns/op	       718.2 rows/s	 9975082 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     844	   1383419 ns/op	       724.7 rows/s	 9972350 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     817	   1410603 ns/op	       710.8 rows/s	 9972505 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     841	   1389698 ns/op	       721.5 rows/s	 9973099 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=8-10                  	     824	   1397430 ns/op	       717.5 rows/s	 9972103 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     811	   1396050 ns/op	       718.7 rows/s	 9975499 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     830	   1400438 ns/op	       716.5 rows/s	 9975682 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     840	   1393586 ns/op	       720.2 rows/s	 9975432 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     848	   1394273 ns/op	       719.6 rows/s	 9975000 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     811	   1399521 ns/op	       716.9 rows/s	 9971633 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     844	   1407453 ns/op	       712.7 rows/s	 9974989 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     838	   1394709 ns/op	       719.3 rows/s	 9975625 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     816	   1407631 ns/op	       713.0 rows/s	 9975460 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     844	   1403272 ns/op	       715.1 rows/s	 9974991 B/op	    2212 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/percall/pool=10-10                 	     825	   1395938 ns/op	       718.7 rows/s	 9975462 B/op	    2213 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1395	    840398 ns/op	      1190 rows/s	   17868 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1404	    839200 ns/op	      1192 rows/s	   17951 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1368	    841779 ns/op	      1188 rows/s	   18174 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1393	    837438 ns/op	      1195 rows/s	   17884 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1396	    836447 ns/op	      1196 rows/s	   17853 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1394	    833721 ns/op	      1200 rows/s	   18063 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1376	    830057 ns/op	      1205 rows/s	   18076 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1410	    830417 ns/op	      1205 rows/s	   17880 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1389	    832665 ns/op	      1201 rows/s	   18113 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=1-10                  	    1413	    834532 ns/op	      1199 rows/s	   17653 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2506	    516446 ns/op	      1938 rows/s	   15403 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2554	    515536 ns/op	      1941 rows/s	   15056 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2595	    528075 ns/op	      1895 rows/s	   14980 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    1843	    544699 ns/op	      1837 rows/s	   14265 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2800	    539442 ns/op	      1855 rows/s	   14043 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2235	    481388 ns/op	      2079 rows/s	   16803 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2809	    541017 ns/op	      1849 rows/s	   14001 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2625	    526089 ns/op	      1902 rows/s	   14929 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2559	    546596 ns/op	      1831 rows/s	   15034 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=2-10                  	    2232	    475388 ns/op	      2105 rows/s	   16822 B/op	      23 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    4321	    275657 ns/op	      3632 rows/s	   15058 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3531	    289068 ns/op	      3465 rows/s	   14763 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    2736	    387766 ns/op	      2583 rows/s	   14434 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    2708	    420201 ns/op	      2383 rows/s	   14558 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3568	    283350 ns/op	      3535 rows/s	   14556 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    2767	    430157 ns/op	      2328 rows/s	   14202 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    2724	    420648 ns/op	      2381 rows/s	   14387 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    4150	    272526 ns/op	      3675 rows/s	   15476 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    4713	    329080 ns/op	      3042 rows/s	   14054 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=4-10                  	    3530	    308871 ns/op	      3242 rows/s	   14765 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4713	    214595 ns/op	      4680 rows/s	   13896 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4239	    236428 ns/op	      4244 rows/s	   15148 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4669	    224496 ns/op	      4469 rows/s	   14064 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4729	    218361 ns/op	      4595 rows/s	   13904 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4758	    218985 ns/op	      4580 rows/s	   13943 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4612	    219721 ns/op	      4565 rows/s	   14267 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4690	    218475 ns/op	      4592 rows/s	   14012 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4582	    248800 ns/op	      4031 rows/s	   14270 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4624	    221769 ns/op	      4524 rows/s	   14172 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=8-10                  	    4632	    222968 ns/op	      4500 rows/s	   14160 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3525	    309798 ns/op	      3240 rows/s	   14649 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4638	    223361 ns/op	      4494 rows/s	   14154 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4635	    219679 ns/op	      4575 rows/s	   14162 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    3577	    309160 ns/op	      3246 rows/s	   14476 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4653	    217737 ns/op	      4612 rows/s	   14110 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4628	    220934 ns/op	      4545 rows/s	   14229 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4622	    221983 ns/op	      4524 rows/s	   14134 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4587	    221594 ns/op	      4532 rows/s	   14322 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4638	    220252 ns/op	      4559 rows/s	   14265 B/op	      22 allocs/op
+BenchmarkRow20Parallel/baseline-qjs/batched/pool=10-10                 	    4684	    218570 ns/op	      4595 rows/s	   14085 B/op	      22 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2240	    479890 ns/op	      2084 rows/s	    4556 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2432	    475277 ns/op	      2104 rows/s	    4343 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2444	    475106 ns/op	      2105 rows/s	    4331 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2434	    475011 ns/op	      2105 rows/s	    4341 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2426	    476707 ns/op	      2098 rows/s	    4349 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2438	    476705 ns/op	      2098 rows/s	    4336 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2445	    474943 ns/op	      2106 rows/s	    4330 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2438	    474986 ns/op	      2105 rows/s	    4336 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2437	    475333 ns/op	      2104 rows/s	    4338 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=1-10                                   	    2438	    475713 ns/op	      2102 rows/s	    4336 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4276	    257533 ns/op	      3883 rows/s	    4685 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4210	    251399 ns/op	      3978 rows/s	    4729 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4321	    257316 ns/op	      3886 rows/s	    4656 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4257	    254855 ns/op	      3924 rows/s	    4697 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4260	    254796 ns/op	      3925 rows/s	    4695 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4220	    253887 ns/op	      3939 rows/s	    4722 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4246	    254765 ns/op	      3925 rows/s	    4704 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4262	    254729 ns/op	      3926 rows/s	    4694 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4207	    254168 ns/op	      3934 rows/s	    4731 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=2-10                                   	    4273	    259944 ns/op	      3847 rows/s	    4687 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5859	    173056 ns/op	      5779 rows/s	    5981 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5749	    175539 ns/op	      5697 rows/s	    6062 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5754	    176694 ns/op	      5660 rows/s	    6056 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5732	    176944 ns/op	      5652 rows/s	    6074 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5810	    175322 ns/op	      5704 rows/s	    6017 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5732	    177282 ns/op	      5641 rows/s	    6074 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5660	    179791 ns/op	      5562 rows/s	    6129 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5726	    180197 ns/op	      5549 rows/s	    6079 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5716	    179983 ns/op	      5556 rows/s	    6087 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=4-10                                   	    5736	    179467 ns/op	      5572 rows/s	    6071 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10552	    119712 ns/op	      8353 rows/s	    6442 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10080	    125050 ns/op	      7997 rows/s	    6655 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	    8918	    172282 ns/op	      5804 rows/s	    7281 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	    8744	    167136 ns/op	      5983 rows/s	    7389 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	    9187	    135720 ns/op	      7368 rows/s	    7123 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10346	    124096 ns/op	      8058 rows/s	    6533 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10173	    124659 ns/op	      8022 rows/s	    6612 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10128	    125954 ns/op	      7939 rows/s	    6632 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10204	    124417 ns/op	      8037 rows/s	    6599 B/op	      45 allocs/op
+BenchmarkRow20Pool/percall/pool=8-10                                   	   10027	    126833 ns/op	      7884 rows/s	    6682 B/op	      45 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2482	    465923 ns/op	      2146 rows/s	    4299 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2539	    452332 ns/op	      2211 rows/s	    4242 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2629	    452401 ns/op	      2210 rows/s	    4163 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2640	    451124 ns/op	      2217 rows/s	    4156 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2652	    452558 ns/op	      2210 rows/s	    4141 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2655	    452006 ns/op	      2212 rows/s	    4139 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2654	    451757 ns/op	      2214 rows/s	    4140 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2649	    451623 ns/op	      2214 rows/s	    4145 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2649	    451500 ns/op	      2215 rows/s	    4145 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=1-10                                   	    2658	    451548 ns/op	      2215 rows/s	    4138 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4219	    243351 ns/op	      4109 rows/s	    4730 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    5010	    274392 ns/op	      3644 rows/s	    4270 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4237	    243386 ns/op	      4109 rows/s	    4716 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4201	    246574 ns/op	      4056 rows/s	    4740 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4183	    240302 ns/op	      4161 rows/s	    4752 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4183	    241906 ns/op	      4134 rows/s	    4750 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4237	    247591 ns/op	      4039 rows/s	    4717 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4212	    241875 ns/op	      4134 rows/s	    4732 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    5006	    281380 ns/op	      3554 rows/s	    4273 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=2-10                                   	    4224	    245083 ns/op	      4080 rows/s	    4726 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    8025	    126544 ns/op	      7902 rows/s	    4876 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7596	    132932 ns/op	      7523 rows/s	    5045 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7461	    134687 ns/op	      7425 rows/s	    5109 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7527	    134518 ns/op	      7434 rows/s	    5075 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7468	    136154 ns/op	      7345 rows/s	    5101 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7351	    138257 ns/op	      7233 rows/s	    5156 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7272	    139785 ns/op	      7154 rows/s	    5189 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7338	    138901 ns/op	      7199 rows/s	    5162 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    7008	    144366 ns/op	      6927 rows/s	    5314 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=4-10                                   	    6082	    167045 ns/op	      5986 rows/s	    5840 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11550	    106617 ns/op	      9379 rows/s	    6053 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11306	    108860 ns/op	      9186 rows/s	    6142 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11071	    111865 ns/op	      8939 rows/s	    6232 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11251	    110084 ns/op	      9084 rows/s	    6164 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11053	    112392 ns/op	      8897 rows/s	    6240 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11196	    110725 ns/op	      9031 rows/s	    6185 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10934	    112686 ns/op	      8874 rows/s	    6290 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11106	    112107 ns/op	      8920 rows/s	    6219 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   11023	    113505 ns/op	      8810 rows/s	    6253 B/op	      25 allocs/op
+BenchmarkRow20Pool/batched/pool=8-10                                   	   10932	    113225 ns/op	      8832 rows/s	    6289 B/op	      25 allocs/op
+PASS
+ok  	github.com/iamramtin/go-fakerjs/bench	1586.167s
+?   	github.com/iamramtin/go-fakerjs/bench/cmd/empty	[no test files]
+?   	github.com/iamramtin/go-fakerjs/bench/cmd/native	[no test files]
+?   	github.com/iamramtin/go-fakerjs/bench/cmd/qjs	[no test files]
+?   	github.com/iamramtin/go-fakerjs/bench/qjsbase	[no test files]
