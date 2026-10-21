@@ -105,7 +105,7 @@ func TestLeak(t *testing.T) {
 	e := fakerjs.NewEngine(42, fakerjs.WithRefDate(time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)))
 	defer e.Close()
 
-	goroutines := runtime.NumGoroutine()
+	goroutines := settledGoroutines()
 
 	var warm uint64
 
@@ -136,9 +136,28 @@ func TestLeak(t *testing.T) {
 		t.Errorf("post-GC HeapAlloc grew from %d KiB to %d KiB (> +%d KiB)", warm>>10, end>>10, leakSlack>>10)
 	}
 
-	if g := runtime.NumGoroutine(); g != goroutines {
+	if g := settledGoroutines(); g != goroutines {
 		t.Errorf("goroutines: %d before, %d after", goroutines, g)
 	}
+}
+
+// settledGoroutines returns the goroutine count once two reads 10 ms apart agree. A goroutine from an earlier
+// test that is still exiting would otherwise be counted in one read and not in the next.
+func settledGoroutines() int {
+	n := runtime.NumGoroutine()
+
+	for range 100 {
+		time.Sleep(10 * time.Millisecond)
+
+		m := runtime.NumGoroutine()
+		if m == n {
+			return n
+		}
+
+		n = m
+	}
+
+	return n
 }
 
 // heapAlloc returns the bytes of live and not-yet-swept heap objects. Call it after settle for the post-GC value.
