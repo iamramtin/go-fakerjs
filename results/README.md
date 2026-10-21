@@ -59,6 +59,17 @@ Mac, to the folder of the run it belongs to.
 | `fuzz-smoke-60s.txt` | The CI fuzz smoke test | `make test-fuzz FUZZTIME=60s` |
 | `wall-times.txt` | Wall times of the replication steps on an idle VM | the commands it lists |
 
+## `2026-10-19-apple-m3-local/`: macOS host, darwin/arm64, Apple M3
+
+MacBook Air (Mac15,13), 8 cores, 16 GB, macOS 26.5.2. These numbers aren't used for the published tables. The machine
+is fanless, so expect more variance than in the M5 run.
+
+| File | What it is | How it was produced |
+|---|---|---|
+| `bench-all.txt`, `bench-v8go.txt`, `benchstat-all.txt`, `benchstat-v8go.txt` | Same as the M5 run | `scripts/host/bench-all.sh` |
+| [`ratios.md`](2026-10-19-apple-m3-local/ratios.md) | Medians and the native-to-v8go ratios | `scripts/bench-ratios.py bench-all.txt bench-v8go.txt` |
+| `hardware.txt`, `golden-dump-darwin-arm64.sha256` | Machine details and the golden dump hash, which matches the linux/arm64 hash | `scripts/host/hardware.sh`, `scripts/host/golden-hash.sh` |
+
 ## Re-running
 
 On the Mac (published numbers):
