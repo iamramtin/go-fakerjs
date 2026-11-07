@@ -144,7 +144,7 @@ scripts/host/bench-all.sh     # make bench, make bench-v8go, hardware.txt, bench
 ```
 
 It refuses to run anywhere but darwin/arm64 and writes everything to `results/<date>-apple-m5/`. The tables in
-README.md and FINDINGS.md are then regenerated with `scripts/tables.py bench <dir>` and
+docs/performance.md and FINDINGS.md are then regenerated with `scripts/tables.py bench <dir>` and
 `scripts/bench-ratios.py`.
 
 ## Do not weaken tests

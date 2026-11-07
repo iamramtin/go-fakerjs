@@ -1,6 +1,15 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/brand/go-fakerjs-dark.svg">
+    <img src="docs/brand/go-fakerjs.svg" width="112" alt="go-fakerjs icon: rows of generated records, the first one started by a seed">
+  </picture>
+</p>
+
 # go-fakerjs
 
-go-fakerjs runs the Faker.js package inside a JavaScript interpreter that is compiled into your Go binary, so you can generate seed-reproducible fake data in Go. It doesn't need cgo, a Wasm runtime, or any third-party dependency, and its output is byte-identical to Faker.js on V8 across the [tested surface](FINDINGS.md#51-conformance).
+*Faker.js, byte for byte, in a Go binary.*
+
+go-fakerjs runs Faker.js inside a Go program, so Go code can generate the same fake data that Faker.js generates from the same seed, value for value. Faker.js and the QuickJS-NG interpreter are compiled to WebAssembly and then translated into Go source, so the package builds with `CGO_ENABLED=0`, needs no Wasm runtime, and imports nothing outside the standard library.
 
 [![CI](https://github.com/iamramtin/go-fakerjs/actions/workflows/ci.yml/badge.svg)](https://github.com/iamramtin/go-fakerjs/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/iamramtin/go-fakerjs.svg)](https://pkg.go.dev/github.com/iamramtin/go-fakerjs)
@@ -8,17 +17,15 @@ go-fakerjs runs the Faker.js package inside a JavaScript interpreter that is com
 
 ## Why it exists
 
-I wanted seed-reproducible fake data in Go that matches Faker.js exactly, without cgo. Reimplementing Faker in Go wouldn't match its output byte for byte, and embedding V8 needs cgo and a prebuilt library for each platform, so go-fakerjs runs Faker.js itself, translated to Go.
+I built it to get Faker.js output in Go, exact to the byte and reproducible from a seed, without cgo. A Go reimplementation of Faker can't match its output value for value, and each bridge in use today has a cost: v8go needs cgo and a prebuilt V8 library for every platform, wazero with QuickJS adds a third-party module and evaluates the Faker.js bundle every time an engine starts, and calling out to Node needs Node installed wherever the Go program runs. go-fakerjs replaces them with one Go module that runs Faker.js itself.
 
-## Install
+## Quick start
+
+Requires Go 1.27.1 or later. The generated code is committed, so `go get` needs no toolchain or build step.
 
 ```sh
 go get github.com/iamramtin/go-fakerjs
 ```
-
-Requires Go 1.27.1 or later (`go.mod`). The generated code is committed, so no build step or toolchain is needed.
-
-## Quickstart
 
 ```go
 package main
@@ -32,163 +39,195 @@ import (
 )
 
 func main() {
-	// A fixed seed and reference date make the output reproducible, including date methods.
+	// A fixed seed and reference date make every value below reproducible, dates included.
 	e := fakerjs.NewEngine(42, fakerjs.WithRefDate(time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)))
 	defer e.Close()
 
-	name, err := e.Generate("person.firstName", nil) // nil calls the method with no argument
+	calls := []struct {
+		method string
+		arg    any // nil calls the method with no argument; anything else is sent as JSON
+	}{
+		{"person.fullName", nil},
+		{"number.int", map[string]any{"max": 100}},
+		{"datatype.boolean", nil},
+		{"date.recent", nil},
+		{"helpers.arrayElements", []string{"red", "green", "blue"}},
+		{"airline.airline", nil},
+	}
+	for _, c := range calls {
+		v, err := e.Generate(c.method, c.arg)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("%-22s %s\n", c.method, v)
+	}
+
+	codes, err := e.GenerateN("string.alpha", map[string]any{"length": 8}, 3)
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Printf("%-22s %q\n", "string.alpha x3", codes)
 
-	codes, err := e.GenerateN("string.alpha", map[string]any{"length": 8}, 3) // the argument is JSON-encoded
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(name, codes)
+	_, err = e.Generate("person.nickname", nil)
+	fmt.Printf("%-22s %v\n", "person.nickname", err)
 }
 ```
 
-- `NewEngine(seed, opts...)` starts lazily on the first call. Seed `0` leaves Faker on its own random seed.
-- `GenerateN` returns the same values as `n` calls to `Generate`, in one call into the engine.
-- `NewPool(size, seed, opts...)` runs engines in parallel; engine `i` is seeded with `DeriveSeed(seed, i)`.
-- `WithTimeout` (default 30 s) and `WithMaxArgBytes` (default 4 MiB) bound each call. Unknown methods fail with
-  `ClassUnknownMethod`.
+```
+person.fullName        Nikita Crist
+number.int             5
+datatype.boolean       false
+date.recent            Wed Dec 31 2025 14:25:35 GMT+0000 (Coordinated Universal Time)
+helpers.arrayElements  blue,green,red
+airline.airline        [object Object]
+string.alpha x3        ["ljjpBwpF" "hptxOkAE" "cFidXYQp"]
+person.nickname        unknown faker method "person.nickname"
+```
 
-More: [usage examples](example_test.go) and the [package documentation](https://pkg.go.dev/github.com/iamramtin/go-fakerjs).
+Faker.js on Node 22, seeded with `faker.seed(42)` and given the same reference date, prints the same values in the same order under `TZ=UTC`.
 
-## Compatibility
+- **Results.** Every result is a Go `string`, converted the way JavaScript's `String()` converts it. Numbers and booleans become their text, a `Date` becomes its `Date#toString` text, an array is joined with commas, and an object becomes `[object Object]`. Seven methods return objects: `airline.airline`, `airline.airplane`, `airline.airport`, `finance.currency`, `location.language`, `science.chemicalElement`, and `science.unit`.
+- **Arguments.** `nil` calls the method with no argument. Any other value is encoded with `encoding/json` and passed as the method's only argument.
+- **Batches.** `GenerateN(method, arg, n)` returns the same `n` values as `n` calls to `Generate`, in one call into the engine.
+
+Every error is a `*fakerjs.Error` with one of six classes. `fakerjs.IsClass(err, class)` tests the class, and `errors.Is` matches the sentinel errors (`ErrUnknownMethod`, `ErrDeadline`, `ErrOutOfMemory`, `ErrResultTooLarge`, `ErrArgTooLarge`, `ErrPoisoned`, and `ErrClosed`). Each message below is real output:
+
+| Class | Call | `err.Error()` |
+| --- | --- | --- |
+| `ClassInvalidMethod` | `Generate("person", nil)` | `invalid faker method format: "person" (expected format: module.method)` |
+| `ClassUnknownMethod` | `Generate("person.nickname", nil)` | `unknown faker method "person.nickname"` |
+| `ClassJSException` | `Generate("internet.jwt", nil)` | `failed to execute faker.internet.jwt: ReferenceError: TextEncoder is not defined` |
+| `ClassInvalidArgument` | `Generate("string.alpha", make(chan int))` | `failed to marshal faker argument: json: unsupported type: chan int` |
+| `ClassResource` | `Generate("string.nanoid", map[string]any{"length": 5})` with `WithTimeout(100 * time.Millisecond)` | `faker call exceeded its deadline` |
+| `ClassEngine` | any call after `Close` | `engine is closed` |
+
+`string.nanoid` with `length: 5` never returns in Faker.js itself, which makes it a convenient deadline test. A call is bounded by `WithTimeout` (default 30 s) and its JSON argument by `WithMaxArgBytes` (default 4 MiB). An engine stays usable after a resource-limit error; the [limits](FINDINGS.md#52-robustness) list the memory bounds.
+
+## Who it's for
+
+- **Test fixtures.** `Engine.Generate` with a fixed seed gives the same values on every run, and the same values on linux/amd64, linux/arm64, darwin/arm64, and windows/amd64, which CI compares.
+- **Seeded, reproducible data.** `NewEngine(seed, WithRefDate(t))` reproduces the Faker.js sequence for that seed, date methods included.
+- **Seeding databases.** `Engine.GenerateN` returns a column of values in one call into the engine.
+- **Load tests.** `NewPool(size, seed)` runs engines in parallel, each seeded with `DeriveSeed(seed, i)`. Throughput is in [performance](docs/performance.md).
+- **Demos.** `NewEngine(0)` leaves Faker.js on a random seed, so each new engine gives new values.
+
+## Coverage
+
+Every module and method that Faker.js's en instance exposes is callable: 27 modules and 262 methods, enumerated from Faker.js itself into [`golden/api.json`](golden/api.json). The 262 methods are tested over 448 argument variants, each with 5 seeds and 200 calls per seed, against Faker.js on Node 22.23.3 (V8 12.4) under `TZ=UTC`, with Node's web-platform globals removed so that Faker.js sees the same bare environment as the engine (Linux VM, [conformance results](FINDINGS.md#51-conformance)).
+
+| Module | Methods | Cases | Exact | Differences from Faker.js |
+| --- | ---: | ---: | ---: | --- |
+| `airline` | 7 | 55 | 55 | `airline`, `airplane`, and `airport` return `[object Object]` |
+| `animal` | 16 | 80 | 80 | |
+| `book` | 6 | 30 | 30 | |
+| `color` | 11 | 105 | 105 | |
+| `commerce` | 9 | 65 | 65 | |
+| `company` | 9 | 45 | 45 | |
+| `database` | 5 | 25 | 25 | |
+| `datatype` | 1 | 15 | 15 | |
+| `date` | 11 | 135 | 135 | `Date` text always names UTC; on Node it names the host's time zone |
+| `finance` | 20 | 150 | 145 | `amount` with `autoFormat: true` gives `$20.55` for `$20.550`, because there's no `Intl` (5 cases); `currency` returns `[object Object]` |
+| `food` | 9 | 45 | 45 | |
+| `git` | 5 | 40 | 40 | |
+| `hacker` | 6 | 30 | 30 | |
+| `helpers` | 18 | 195 | 195 | One argument per call, so the second parameter of `arrayElements`, `mustache`, and `uniqueArray` can't be given; no function arguments, so `multiple` and `maybe` can't take a callback |
+| `image` | 7 | 65 | 65 | `dataUri` throws `ReferenceError: TextEncoder is not defined` for `type: 'svg-base64'`, and with no argument whenever Faker picks that type; stock Node returns a base64 URI |
+| `internet` | 21 | 175 | 175 | `jwt` throws `ReferenceError: TextEncoder is not defined`; stock Node returns a token |
+| `location` | 20 | 160 | 160 | `language` returns `[object Object]` |
+| `lorem` | 9 | 120 | 120 | |
+| `music` | 4 | 20 | 20 | |
+| `number` | 7 | 115 | 115 | |
+| `person` | 15 | 125 | 125 | |
+| `phone` | 2 | 25 | 25 | |
+| `science` | 2 | 10 | 10 | `chemicalElement` and `unit` return `[object Object]` |
+| `string` | 12 | 165 | 165 | |
+| `system` | 12 | 85 | 85 | |
+| `vehicle` | 9 | 45 | 45 | |
+| `word` | 9 | 115 | 115 | |
+| **Total** | **262** | **2,240** | **2,235** | |
+
+The `image.dataUri` and `internet.jwt` cases count as exact because the oracle lacks the same globals; they differ from Faker.js on a stock Node process, which provides them.
+
+**Locales.** en only, from `@faker-js/faker/locale/en`, one of the 76 locales in the pinned Faker.js package. There is no option to select another.
+
+## Determinism and compatibility
 
 | go-fakerjs | Faker.js | Oracle |
-|---|---|---|
-| v0.1.0 | 10.6.0 (en locale) | Node 22.23.3 (V8 12.4), `TZ=UTC` |
+| --- | --- | --- |
+| v0.1.0 | 10.6.0 (en locale) | Node 22.23.3 (V8 12.4), `TZ=UTC`, web-platform globals removed |
 
-The Faker.js version has one [source of truth](tools.versions), and `make check-versions` fails
-if any other statement of it disagrees.
+[`tools.versions`](tools.versions) is the single source of the Faker.js version, and `make check-versions` fails if any other statement of it disagrees.
 
-- **Identical output** to Faker.js on V8 for the tested surface when run with `TZ=UTC`: 262 methods, with
-  [2,235 of 2,240 per-method cases exact](FINDINGS.md#51-conformance), and all 220 workload cases and all 3
-  interleaved sequences exact.
-- **Known divergences:** one method, `finance.amount` with `autoFormat`, which needs `Intl`. Every divergence and
-  its root cause is listed in the [divergence catalogue](golden/known_divergences.yaml).
-- **Time zone:** dates print the UTC zone name. Under any other `TZ`, V8's text differs.
-- **Locales:** en only. Locale selection isn't built.
+- **Seeds.** A non-zero `int64` seed is passed to `faker.seed(n)` after conversion to `float64` with round-to-nearest-even, which is what V8 does with `faker.seed(<int64 literal>)`. Seeds above 2^53 that round to the same `float64` give the same sequence, as they do in Faker.js.
+- **Seed 0.** `faker.seed()` is called with no argument, after 32 bytes from `crypto/rand` are mixed into `Math.random`, so two seed-0 engines give different sequences.
+- **Reference date.** Without `WithRefDate`, `date.recent`, `date.past`, `date.future`, and the other relative date methods count from the wall clock and change from day to day under a fixed seed.
+- **One sequence per engine.** Each engine owns its sequence, and calls on one engine are serialised. Values are reproducible when one logical stream uses each engine. `Close` is final, so a sequence never restarts silently.
+- **Pools.** Engine `i` of `NewPool(size, seed)` is seeded with `DeriveSeed(seed, i)`. A poisoned engine is replaced with a fresh one whose sequence starts again, so a pool is reproducible only while no engine is poisoned.
+- **Order.** Three 5,000-call sequences that interleave the 22 workload methods with 40 other method and argument pairs match Faker.js exactly, which shows that the engine consumes the PRNG in Faker's order.
+
+The engine differs from Faker.js where QuickJS-NG differs from V8 and Node:
+
+- **`Intl`.** QuickJS-NG has none, so `finance.amount` with `autoFormat` drops trailing zeros. This is the only catalogued divergence, in [`golden/known_divergences.yaml`](golden/known_divergences.yaml); the tests fail on any divergence that isn't listed there.
+- **Web-platform globals.** The engine has none of the globals Node adds, such as `TextEncoder`, so `internet.jwt` and base64 `image.dataUri` throw. The oracle removes the same globals before it runs Faker.js ([`golden/gen.mjs`](golden/gen.mjs)), so these cases match the oracle and differ from a stock Node process.
+- **Time zone.** The engine always prints `Date` text in UTC and appends ` (Coordinated Universal Time)`, so its output is the same under any host `TZ`. V8 prints the host's zone, so the two agree only under `TZ=UTC`.
+- **Latent differences.** Of 73 probes run in both engines, 22 differ. Two reach golden data (the `Date` text, which the engine corrects, and `toLocaleString` with options). The others are `Array#sort` with an inconsistent comparator, the locale-formatted `Date` methods, the last digits of one trigonometry result, and error message text, where the error classes still match ([probes](FINDINGS.md#51-conformance)).
+
+[Determinism](docs/determinism.md) covers each rule in detail.
+
+## Design notes
+
+- **Faker.js itself.** go-fakerjs runs the published Faker.js bundle and doesn't reimplement it, so equality with Faker.js is tested rather than approximated, and a new Faker.js release is adopted by rebuilding the snapshot, with [`make faker-upgrade`](CONTRIBUTING.md#fakerjs-upgrades), instead of porting code. The cost is throughput: QuickJS-NG interprets the JavaScript, where V8 compiles it.
+- **Initialised at build time.** Wizer evaluates the Faker.js bundle once while the snapshot is built and saves the resulting memory, so `NewEngine` costs 0.31 ms on an Apple M5, against 23.4 ms for wazero with QuickJS, which evaluates the bundle at start-up, and 4.75 ms for v8go.
+- **Private engines.** Each engine runs its own copy of the translated module, about 4.6 MB resident (Linux VM, development build). Calls on one engine are serialised by a mutex, so parallel work needs more engines, which `Pool` provides.
+- **An allowlist of methods.** The module lists Faker.js's 262 methods when the snapshot is built and rejects any other name before JavaScript runs, so `constructor`, `__proto__`, and `faker` are refused. Arguments are parsed as JSON and never evaluated as code.
+- **Bounded calls.** A deadline interrupts a call from inside the module, and a call that exceeds the memory limits fails with an error. A trap or panic poisons the engine, and later calls return `ErrPoisoned` instead of running on unknown state.
+- **Committed generated code.** `internal/wasm/snapshot_en.go` (6,395,677 bytes) and `snapshot_en.dat` (3,465,429 bytes) are in the repository. The snapshot adds 10.2 MB to a stripped binary, and a cold build takes 8.9 s and peaks at about 1.9 GB of RSS (Linux VM, [sizes](FINDINGS.md#53-build-and-reproducibility)).
+
+go-fakerjs deliberately does not:
+
+- **Evaluate caller code.** Only allowlisted `module.method` names run, with JSON arguments.
+- **Give the module a host surface.** QuickJS-NG's `std` and `os` modules aren't compiled in, so the module has no filesystem, process, network, or timer access. Its only imports are clocks and the stdio calls libc needs ([module imports](wasm/README.md#sources-and-build)).
+- **Restart a closed engine.** Every call after `Close` fails with `ErrClosed`, instead of starting a fresh engine whose sequence would begin again from the seed.
+- **Compress the embedded data.** Go module zips are already deflated, so gzip would save almost nothing on download and would add a decompression step to the first engine of every process.
+- **Adopt a major Faker.js release automatically.** `make faker-upgrade` refuses major versions, which are upgraded by hand.
+
+It also doesn't select a locale other than en, return typed Go values, take more than one argument or a function argument per call, or provide `Intl`.
+
+[How it works](docs/how-it-works.md) describes the build pipeline and a call from Go into the module.
 
 ## Performance
 
-The trade-off is throughput. QuickJS interprets Faker's JavaScript, whereas V8 compiles it, so each call is
-slower than on V8.
+Apple M5, darwin/arm64, medians of 10 runs, 20-column rows with one call per value. v8go builds a script per call.
 
-| | v8go | go-fakerjs | wazero + QuickJS |
-|---|---|---|---|
-| How the JavaScript runs | V8 with its JIT, through cgo | QuickJS-NG bytecode interpreter, compiled to Wasm and translated to Go | QuickJS-NG compiled to Wasm, run by the wazero runtime |
-| Engine startup (first value included) | 4.75 ms | 0.31 ms | 23.4 ms |
-| Average time per fake value (20-column row, one call per value) | 1.97 µs | 23.8 µs | 73.8 µs |
-| Rows/s, 20 fake columns, 1 engine | 25,339 | 2,100 | 677 |
-| Rows/s, 20 fake columns, 10 engines | 111,128 | 9,652 | 727 |
-| Output identical to Faker.js | V8 itself; not run through the golden suite here | yes on the tested surface, 5 `Intl` divergences | 2,135 of 2,240 per-method cases exact; dates differ |
-| cgo / platform limits | cgo; prebuilt V8 for linux and darwin (amd64, arm64) and android | none: pure Go | none: pure Go |
+| | go-fakerjs | v8go | wazero with QuickJS |
+| --- | ---: | ---: | ---: |
+| Engine start-up, first value included | 0.31 ms | 4.75 ms | 23.4 ms |
+| Rows/s, 1 engine | 2,100 | 25,339 | 677 |
+| Rows/s, 10 engines | 9,652 | 111,128 | 727 |
 
-Apple M5, darwin/arm64, [medians of 10 runs](FINDINGS.md#54-performance); v8go builds a script per call. These
-figures come from the [final build](results/README.md), measured on 2026-10-20 with the same pinned Faker.js and toolchain as v0.1.0. Per call, go-fakerjs is 1.3× to 55× slower than v8go depending on
-the method, the 20-column row is 12.1× slower, and startup is 15.2× faster. Baseline conformance was measured on a
-Linux VM.
+Per call, go-fakerjs is 1.3× (`number.int`) to 55× (`lorem.sentence`) slower than v8go. [Performance](docs/performance.md) has the figures per method and their sources.
 
-**Use it** for tests, fixtures, and tools that need exact, reproducible Faker.js output, a cgo-free build, or many
-short-lived engines. **Do not use it** for bulk generation where throughput per core matters; use V8 there.
+## More
 
-## How it works
-
-The snapshot is built once per Faker.js release with `make snapshot`, and the generated files are committed:
-
-- **Bundle.** esbuild packs the pinned `@faker-js/faker` and an entry file into one IIFE, targeting ES2020, with
-  `_`-prefixed properties mangled.
-- **Module.** QuickJS-NG and a C harness are compiled with wasi-sdk to a `wasm32-wasip1` reactor, which `wasm-opt
-  -O2` then optimises. Wizer runs the module's initialisation once, evaluating the bundle, and saves the resulting
-  memory as a snapshot.
-- **Translation.** wasm2go converts the snapshot into Go source, `internal/wasm/snapshot_en.go`, with the data
-  segments in `snapshot_en.dat`. The package builds with `CGO_ENABLED=0` and needs no separate Wasm runtime.
-- **Engine.** A `fakerjs.Engine` calls into its own copy of the snapshot for each method call, and a
-  `fakerjs.Pool` hands out engines for concurrent use.
-- **Verification.** Golden outputs come from three oracles: the npm package, the bundle under Node's `vm`, and
-  one evaluation per call. Every method and seed must match, unless the difference is listed in the
-  [divergence catalogue](golden/known_divergences.yaml) with its root cause.
-
-```mermaid
-flowchart LR
-  npm["@faker-js/faker<br/>pinned npm release"] -->|esbuild| bundle["faker.en.min.js"]
-  subgraph snapshot ["make snapshot"]
-    direction LR
-    clang["wasi-sdk clang<br/>QuickJS-NG + harness.c"] --> opt["wasm-opt -O2"]
-    opt --> wizer["Wizer<br/>evaluates the bundle once"]
-    wizer --> w2g["wasm2go"]
-  end
-  bundle --> clang
-  w2g --> gen["internal/wasm/snapshot_en.go<br/>+ snapshot_en.dat"]
-```
-
-At run time each call crosses from Go into the translated module once:
-
-```mermaid
-sequenceDiagram
-  participant App as Your code
-  participant E as fakerjs.Engine
-  participant G as Translated module (QuickJS-NG)
-  App->>E: Generate("person.firstName", nil)
-  E->>E: check the method name, encode the argument as JSON
-  E->>E: lock, start the module on first use, set the deadline
-  E->>G: call(method, argument, n)
-  G->>G: reject names outside the allowlist
-  G->>G: parse the argument, run the Faker method, String() the result
-  G-->>E: n strings, or a status and message
-  E-->>App: string, or *fakerjs.Error
-```
-
-The findings explain [why each stage exists](FINDINGS.md#32-why-each-stage-exists).
-
-## Updating Faker.js
-
-Upgrade to the latest minor or patch release, or rehearse an upgrade to a given version without committing
-anything:
-
-```sh
-make faker-upgrade
-make faker-upgrade FAKER=10.5.0
-```
-
-The upgrade works in a temporary git worktree. It pins the new version, rebuilds the bundle, the golden data,
-and the snapshot, runs the test suites, and requires two clean builds to be byte-identical. It stops at the first
-failure. A normal run commits the result on a `faker-upgrade/<version>` branch and pushes nothing, and a dry run
-prints the commit message it would use, with the API diff and the conformance counts.
-
-- **Major versions** are refused. Upgrade them by hand.
-- **New divergences** from Faker.js fail the tests unless they are listed in the
-  [divergence catalogue](golden/known_divergences.yaml) with a reason.
-- **No newer version** exits with a message and changes nothing.
-
-The [upgrade guide](CONTRIBUTING.md#fakerjs-upgrades) lists every step and the weekly workflow that runs it.
-
-## Documentation
-
-- [Findings](FINDINGS.md): the method, results, analysis, and replication steps.
-- [Contributing](CONTRIBUTING.md): toolchain, regeneration, tests, and
-  [Faker.js upgrades](CONTRIBUTING.md#fakerjs-upgrades) (the weekly automation and `make faker-upgrade`).
+- [How it works](docs/how-it-works.md): the build pipeline, a call from Go into the module, and how a Faker.js release is adopted.
+- [Determinism](docs/determinism.md): seeds, reference dates, pools, and every difference from Faker.js.
+- [Performance](docs/performance.md): start-up, per-call, and parallel figures against v8go and wazero.
+- [Findings](FINDINGS.md): method, results, analysis, threats to validity, and replication.
+- [Results](results/README.md): the raw output behind every published figure, by date and machine.
+- [Contributing](CONTRIBUTING.md): toolchain, regeneration, tests, and [Faker.js upgrades](CONTRIBUTING.md#fakerjs-upgrades).
 - [Security](SECURITY.md): threat model and how to report a vulnerability.
 - [Changelog](CHANGELOG.md): release notes.
-- [Third-party notices](THIRD_PARTY_NOTICES.md): bundled components, tools, and their licences.
 - [C harness and Wasm build](wasm/README.md): what the module contains and how it is built.
+- [Third-party notices](THIRD_PARTY_NOTICES.md): bundled components, tools, and their licences.
 
 ## AI assistance
 
-Designed and tested with the [help](FINDINGS.md#13-ai-assistance) of Claude Opus 5.5.
+Claude models were used for variation testing and measurements. [Findings](FINDINGS.md#13-ai-assistance) records which models and what each did.
 
 ## Credits
 
-Faker.js (MIT), QuickJS-NG (MIT; QuickJS by Fabrice Bellard and Charlie Gordon), wasm2go, Wizer, Binaryen,
-wasi-sdk, and esbuild. [Versions and licences](THIRD_PARTY_NOTICES.md) are listed in full.
+Faker.js (MIT), QuickJS-NG (MIT; QuickJS by Fabrice Bellard and Charlie Gordon), wasm2go, Wizer, Binaryen, wasi-sdk, and esbuild. [Versions and licences](THIRD_PARTY_NOTICES.md) are listed in full.
 
 ## Licence
 
-Released under the [MIT licence](LICENSE). The generated snapshot also contains code under the licences listed in
-[third-party notices](THIRD_PARTY_NOTICES.md).
+Released under the [MIT licence](LICENSE). The generated snapshot also contains code under the licences listed in [third-party notices](THIRD_PARTY_NOTICES.md).
