@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" role="img" aria-label="go-fakerjs social card">
+  <rect width="1280" height="640" fill="#f3faf8"/>
+  <rect x="0" y="616" width="1280" height="24" fill="#0e7c72"/>
+  <image href="go-fakerjs.svg" x="96" y="176" width="256" height="256"/>
+  <text x="424" y="252" font-family="Instrument Sans, Helvetica, Arial, sans-serif" font-size="84" font-weight="700" fill="#0d2a27" letter-spacing="-1">go-fakerjs</text>
+  <text x="428" y="318" font-family="Instrument Sans, Helvetica, Arial, sans-serif" font-size="32" fill="#4d6964">runs Faker.js inside a Go program, so Go code</text><text x="428" y="362" font-family="Instrument Sans, Helvetica, Arial, sans-serif" font-size="32" fill="#4d6964">can generate the same fake data from the same</text><text x="428" y="406" font-family="Instrument Sans, Helvetica, Arial, sans-serif" font-size="32" fill="#4d6964">seed, value for value.</text>
+  <line x1="428" y1="478" x2="1184" y2="478" stroke="#d3e6e2" stroke-width="2"/>
+  <text x="428" y="524" font-family="JetBrains Mono, Menlo, monospace" font-size="24" fill="#0e7c72">CGO_ENABLED=0 · standard library only · MIT</text>
+  <text x="96" y="96" font-family="JetBrains Mono, Menlo, monospace" font-size="24" fill="#4d6964">github.com/iamramtin/go-fakerjs</text>
+</svg>
