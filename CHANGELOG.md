@@ -9,14 +9,17 @@ Still Faker.js 10.6.0, en locale. The API and the generated output are unchanged
 ### Added
 
 - The project icon, in light and dark variants, and the social card, in `docs/brand/`.
+- A README FAQ that answers common questions directly, a Discussions link for questions and feedback, and an
+  issue template configuration that points questions to Discussions and vulnerabilities to private reporting.
 - `make cover` and a CI `coverage` job that uploads the report to Codecov, with tests for the WASI shim, `Error`
   messages, and `Pool.Size`. Coverage of the package and the WASI shim across every suite is 90.7%.
 
 ### Changed
 
 - The README is rewritten around a quick start for a new module, every result shape and error class from real
-  runs, a coverage table of all 27 modules, and determinism and compatibility. Detail moved to
+  runs, a table of all 27 modules with their differences from Faker.js, and determinism and compatibility. Detail moved to
   `docs/how-it-works.md`, `docs/determinism.md`, and `docs/performance.md`, with every figure kept.
+- The package documentation summarises what go-fakerjs does and how to call it, for pkg.go.dev.
 - CI installs Node 22.23.3, the version the golden data records, instead of the latest Node 22 release, which
   had made the `regenerate` check fail on the recorded version alone.
 

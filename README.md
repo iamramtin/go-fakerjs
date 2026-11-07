@@ -220,6 +220,20 @@ Apple M5, darwin/arm64, medians of 10 runs, 20-column rows with one call per val
 
 Per call, go-fakerjs is 1.3× (`number.int`) to 55× (`lorem.sentence`) slower than v8go. [Performance](docs/performance.md) has the figures per method and their sources.
 
+## FAQ
+
+**How to use Faker.js in Go (golang)?** Add go-fakerjs with `go get github.com/iamramtin/go-fakerjs@latest`, create an engine with `fakerjs.NewEngine(seed)`, and call any Faker.js method by name, as in `e.Generate("person.fullName", nil)`. The [quick start](#quick-start) is a complete program with its output.
+
+**Is go-fakerjs a Go port of Faker.js?** No. It runs the published Faker.js bundle itself, in the QuickJS-NG interpreter, compiled to WebAssembly and translated into Go source. Nothing is reimplemented, so the values are Faker.js's own, and a new Faker.js release is adopted by rebuilding the snapshot rather than by porting code.
+
+**Does go-fakerjs give the same values as Faker.js for the same seed?** Yes, on the tested surface: 2,235 of 2,240 test cases across all 262 methods match Faker.js byte for byte under `TZ=UTC`. The other 5 are `finance.amount` with `autoFormat`, which needs `Intl`. `internet.jwt` and base64 `image.dataUri` throw, because they need `TextEncoder`, which Node provides and the interpreter doesn't ([determinism and compatibility](#determinism-and-compatibility)).
+
+**Does it need cgo, Node, or a Wasm runtime?** No. It builds with `CGO_ENABLED=0` and imports only the standard library. Cross-compiled test binaries for linux/amd64, linux/arm64, and windows/amd64 link no dynamic libraries, and CI checks that the engine's output over the whole golden set is identical on linux/amd64, linux/arm64, darwin/arm64, and windows/amd64 ([portability](FINDINGS.md#53-build-and-reproducibility)).
+
+**How fast is it?** On an Apple M5, an engine starts in 0.31 ms, against 4.75 ms for v8go, and produces about 2,100 20-column rows per second, against 25,339 for v8go. Per call it is 1.3× to 55× slower than v8go, because QuickJS-NG interprets the JavaScript that V8 compiles ([performance](docs/performance.md)).
+
+**How does it compare with gofakeit?** [gofakeit](https://github.com/brianvoe/gofakeit) is written in Go with its own generators and data, so its values are its own. go-fakerjs runs Faker.js, so its values are Faker.js's, which matters when Go and JavaScript code must produce the same fixtures from one seed.
+
 ## More
 
 - [How it works](docs/how-it-works.md): the build pipeline, a call from Go into the module, and how a Faker.js release is adopted.
@@ -228,6 +242,7 @@ Per call, go-fakerjs is 1.3× (`number.int`) to 55× (`lorem.sentence`) slower t
 - [Findings](FINDINGS.md): method, results, analysis, threats to validity, and replication.
 - [Results](results/README.md): the raw output behind every published figure, by date and machine.
 - [Contributing](CONTRIBUTING.md): toolchain, regeneration, tests, and [Faker.js upgrades](CONTRIBUTING.md#fakerjs-upgrades).
+- [Discussions](https://github.com/iamramtin/go-fakerjs/discussions): questions, ideas, and feedback. Bugs go in [issues](https://github.com/iamramtin/go-fakerjs/issues).
 - [Security](SECURITY.md): threat model and how to report a vulnerability.
 - [Changelog](CHANGELOG.md): release notes.
 - [C harness and Wasm build](wasm/README.md): what the module contains and how it is built.
