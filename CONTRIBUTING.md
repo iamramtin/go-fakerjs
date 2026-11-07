@@ -29,6 +29,7 @@ make bundle          # the Faker.js bundle; conformance tests read it
 make test            # vet, unit, conformance, contract and stress tests, check-versions
 make test-stress     # GOGC=1, gccheckmark and -race variants
 make test-fuzz       # fuzz targets (FUZZTIME=60s for a smoke run)
+make cover           # coverage of the package and the WASI shim across every suite, into coverage.out
 make check-links     # internal links and anchors in every Markdown file
 make bench-smoke     # every benchmark once; checks they compile, not for published numbers
 make help            # every target with its description

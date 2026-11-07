@@ -80,6 +80,29 @@ jobs:
       - name: Tests of the bench module (benchmarks compile; memory test runs)
         run: cd bench && go test -count=1 -timeout 30m ./...
 
+  coverage:
+    # Not a required check: the upload depends on Codecov, so a Codecov outage never blocks a merge.
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write # Codecov's OIDC upload, so no token secret is stored
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.23.3'
+      - name: Coverage of the package and the WASI shim across every suite
+        run: make cover
+      - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        with:
+          files: coverage.out
+          disable_search: true
+          use_oidc: true
+          fail_ci_if_error: false
+
   race:
     runs-on: ubuntu-24.04
     timeout-minutes: 120

@@ -22,3 +22,5 @@ node_modules/
 
 # Python bytecode from the helper scripts.
 __pycache__/
+# Coverage profile from make cover.
+coverage.out
