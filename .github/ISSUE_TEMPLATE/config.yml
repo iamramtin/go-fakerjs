@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions, ideas, and feedback
+    url: https://github.com/iamramtin/go-fakerjs/discussions
+    about: Ask a question or share feedback in Discussions. Issues are for bugs and concrete changes.
+  - name: Security vulnerability
+    url: https://github.com/iamramtin/go-fakerjs/security/policy
+    about: Report a vulnerability privately, as SECURITY.md describes.

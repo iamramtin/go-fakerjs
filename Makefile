@@ -31,7 +31,7 @@ lint_variants = for v in $(LINT_VARIANTS); do \
 .PHONY: help tools doctor lint-tools clean \
         bundle snapshot golden-update \
         fmt vet lint lint-fix check-lint-version check \
-        test test-stress test-fuzz golden-verify snapshot-repro portability check-versions check-links vuln \
+        test cover test-stress test-fuzz golden-verify snapshot-repro portability check-versions check-links vuln \
         bench bench-v8go bench-baselines bench-smoke \
         faker-upgrade golden
 
@@ -102,6 +102,13 @@ test: ## vet both modules, run the root module tests, and run the version check
 	cd bench && go vet ./...
 	$(GOTEST) ./...
 	./scripts/check-versions.sh
+
+# The public package and the WASI shim; the generated snapshot is excluded, since no test targets it directly.
+COVERPKG := github.com/iamramtin/go-fakerjs,github.com/iamramtin/go-fakerjs/internal/wasi
+
+cover: bundle ## measure coverage of the package and the WASI shim across every suite, into coverage.out
+	$(GOTEST) -short -coverpkg=$(COVERPKG) -coverprofile=coverage.out . ./internal/wasi ./contract ./conformance ./stress
+	go tool cover -func=coverage.out | tail -1
 
 test-stress: ## run the robustness tests under GOGC=1, gccheckmark and -race
 	GOGC=1 $(GOTEST) ./stress ./contract ./conformance

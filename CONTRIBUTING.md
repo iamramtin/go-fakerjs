@@ -29,6 +29,7 @@ make bundle          # the Faker.js bundle; conformance tests read it
 make test            # vet, unit, conformance, contract and stress tests, check-versions
 make test-stress     # GOGC=1, gccheckmark and -race variants
 make test-fuzz       # fuzz targets (FUZZTIME=60s for a smoke run)
+make cover           # coverage of the package and the WASI shim across every suite, into coverage.out
 make check-links     # internal links and anchors in every Markdown file
 make bench-smoke     # every benchmark once; checks they compile, not for published numbers
 make help            # every target with its description
@@ -144,7 +145,7 @@ scripts/host/bench-all.sh     # make bench, make bench-v8go, hardware.txt, bench
 ```
 
 It refuses to run anywhere but darwin/arm64 and writes everything to `results/<date>-apple-m5/`. The tables in
-README.md and FINDINGS.md are then regenerated with `scripts/tables.py bench <dir>` and
+docs/performance.md and FINDINGS.md are then regenerated with `scripts/tables.py bench <dir>` and
 `scripts/bench-ratios.py`.
 
 ## Do not weaken tests

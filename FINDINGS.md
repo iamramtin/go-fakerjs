@@ -34,7 +34,8 @@ go-fakerjs runs the real Faker.js from Go. Faker.js and QuickJS-NG are compiled 
 with Wizer so the Faker data is already loaded, and translated to Go source by wasm2go. Each `Engine` runs its own
 private copy of the translated program. The package needs no cgo, no Wasm runtime, and no third-party module.
 
-On the tested surface the output is byte-identical to Faker.js on V8 under `TZ=UTC`. Of 2,240 per-method cases
+On the tested surface the output is byte-identical to Faker.js on V8 under `TZ=UTC`, in a V8 environment without
+the web-platform globals Node adds ([section 4.1](#41-three-oracles)). Of 2,240 per-method cases
 (262 methods), 2,235 match exactly; the other 5 share one cause, the missing `Intl` (Linux VM). All 220 cases of
 a 22-path workload match, and so do three 5,000-call interleaved sequences, which shows that the PRNG is consumed
 in Faker's order.
@@ -117,7 +118,10 @@ code.
 ### 4.1 Three oracles
 
 - **O1, the npm package.** `@faker-js/faker` run on Node 22.23.3, `TZ=UTC`, reference date 2026-01-01 UTC. This is
-  the reference behaviour.
+  the reference behaviour. Before loading Faker.js, `golden/gen.mjs` deletes the globals Node adds to V8 (`btoa`,
+  `atob`, `TextEncoder`, `TextDecoder`, `structuredClone`, `URL`, `URLSearchParams`, `Buffer`, and `crypto`), so O1
+  sees the same bare environment as a V8 embedding and as QuickJS-NG. The methods that need those globals
+  therefore throw in O1 too, while they return values in a stock Node process ([section 5.1](#51-conformance)).
 - **O2, the bundle.** The minified bundle the module embeds, run in a clean `vm` context. O1 equals O2 on every case
   (`meta.json`: `o1EqualsO2`), so bundling changed no behaviour.
 - **O3, eval per call.** Textual evaluation of `faker.<method>(<JSON arg>)` in a `vm` context, as an embedding that
@@ -251,7 +255,9 @@ differs (error classes match).
 **Host APIs the bundle uses.** `TestNoIntlDependence` counts them in the en bundle: `toLocale*` once
 (`finance.amount`), `TextEncoder` once (`internet.jwt`), `btoa` once (`image.dataUri`), `Buffer` six times
 (guarded). No `Intl`, `Temporal`, `localeCompare`, `atob` or `structuredClone`. `internet.jwt` and the base64 form
-of `image.dataUri` throw under a bare V8 context too, and are recorded as expected errors.
+of `image.dataUri` throw `ReferenceError: TextEncoder is not defined` in the engine and in a bare V8 context, and
+are recorded as expected errors. In a stock Node process, which provides `TextEncoder`, both return values, so
+for these two methods the engine matches bare V8 and differs from Faker.js on Node.
 
 ### 5.2 Robustness
 
@@ -584,13 +590,18 @@ counts references and traces from its own roots, and the [module GC stress](#52-
 
 - **One machine for performance.** Every published performance figure comes from one Apple M5. Other CPUs will
   move the ratios.
-- **Development build.** The performance figures were measured before v0.1.0. The engine code and snapshot are
-  the same, but the measurement has not yet been repeated on the [final build](#54-performance).
+- **Development-build memory figures.** The resident memory per engine and per pool (section 5.4) was measured on
+  the development build that preceded v0.1.0, on the Linux VM. Every other performance figure comes from the
+  [final build](#54-performance).
 - **The UTC shim.** Output matches V8 only under `TZ=UTC`.
 - **Node versus v8go.** The oracle is Node's V8 (12.4); v8go v0.34.0 bundles its own V8 build. The two can differ in
   ways the tests do not cover.
 - **Workload representativeness.** The 22-path workload is one fixed schema. Column mixes differ.
-- **Cross-architecture.** Only linux/arm64 has computed the [golden dump](#53-build-and-reproducibility) so far.
+- **Cross-architecture.** The [golden dump](#53-build-and-reproducibility) is compared on linux/amd64,
+  linux/arm64, darwin/arm64, and windows/amd64. Other platforms are not tested.
+- **Oracle environment.** The oracle runs Faker.js without Node's web-platform globals
+  ([section 4.1](#41-three-oracles)). Agreement is with that environment; methods that need those globals differ
+  from Faker.js on stock Node.
 - **[Profiles on V8](#62-per-method-causes-profiled-on-v8), not the module.**
 - **One reviewer.** The design and the findings have been reviewed by one person.
 
@@ -668,8 +679,9 @@ and nothing else is affected.
 The [upgrade script](CONTRIBUTING.md#fakerjs-upgrades) automates the upgrade. Its steps were replayed for Faker.js 10.5.0
 in a scratch copy on the Linux VM: every step passed, the bundle shrank from 416,501 to 415,672 bytes, the golden
 data and the snapshot were regenerated from 10.5.0, and the suite passed (raw file
-`results/2026-10-18-linux-arm64-vm/upgrade-drill-10.5.0.txt`). The script's own worktree run needs a commit to
-start from, so it has not run yet.
+`results/2026-10-18-linux-arm64-vm/upgrade-drill-10.5.0.txt`). The weekly workflow ran the script on 2026-10-19,
+2026-10-26, and 2026-11-02; each run found no newer release (`up to date (Faker.js 10.6.0; latest published is
+10.6.0)`), so the worktree path has not yet run end to end.
 
 ## 11. Raw data index
 
@@ -697,4 +709,4 @@ Designed and tested with the help of Claude Opus 5.5. AI wrote most of the bench
 - **Models.** The development plan was created with `claude-opus-5-5` based on an initial spike I had done. The v0.1.0 port was started in a session running `claude-haiku-5-5` and reviewed and adjusted with the help of `claude-opus-5-5`.
 - **What the AI did.** Test, benchmark design, the Linux VM runs, and the first drafts of these documents.
 - **What I did.** Initial spike and code stub, direction and decisions, the benchmark runs on the macOS host, review/audit of the results, and finalisation of the documents.
-- **Checking.** Every figure here names a raw file or a command. What could not be produced in the VM (macOS performance on the final build, the darwin golden hash, the CI matrix) is marked as pending.
+- **Checking.** Every figure here names a raw file or a command. What could not be produced in the VM (macOS performance on the final build, the darwin golden hash, the CI matrix) was produced afterwards on the macOS host and in CI.

@@ -1,6 +1,6 @@
 # Results
 
-Raw output behind the figures in [README.md](../README.md) and [FINDINGS.md](../FINDINGS.md). Each folder is named
+Raw output behind the figures in [README.md](../README.md), [docs/performance.md](../docs/performance.md), and [FINDINGS.md](../FINDINGS.md). Each folder is named
 after the date and the machine. Files are copied unchanged from the run, except that nothing in them may name a
 local path, host or user (none did).
 
