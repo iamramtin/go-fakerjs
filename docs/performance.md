@@ -13,23 +13,25 @@ Every figure on this page comes from an Apple M5 (darwin/arm64, 10 cores), with 
 | Average time per fake value (20-column row, one call per value) | 1.97 µs | 23.8 µs | 73.8 µs |
 | Rows/s, 20 fake columns, 1 engine | 25,339 | 2,100 | 677 |
 | Rows/s, 20 fake columns, 10 engines | 111,128 | 9,652 | 727 |
-| Output identical to Faker.js | V8 itself; not run through the golden suite here | yes on the tested surface, 5 `Intl` divergences | 2,135 of 2,240 per-method cases exact; dates differ |
+| Output identical to Faker.js | V8 itself; not run through the golden suite here | 2,235 of 2,240 per-method cases exact; the other 5 are the `Intl` divergence | 2,135 of 2,240 per-method cases exact; dates differ |
 | cgo and platform limits | cgo; prebuilt V8 for linux and darwin (amd64, arm64) and android | none: pure Go | none: pure Go |
 
 v8go is tommie/v8go v0.34.0, building a script per call. The wazero baseline's conformance was measured on the Linux VM.
 
 ## Per method
 
-One `Generate` call, ns/op:
+One `Generate` call, ns/op. The ratio compares go-fakerjs with v8go building a script per call:
 
-| Method | go-fakerjs | v8go, script per call | Ratio |
-| --- | ---: | ---: | ---: |
-| `number.int` | 1,474 | 1,154 | 1.3× |
-| `person.firstName` | 6,138 | 1,071 | 5.7× |
-| `internet.email` | 36,423 | 3,402 | 10.7× |
-| `location.streetAddress` | 47,754 | 3,837 | 12.4× |
-| `string.uuid` | 48,984 | 3,067 | 16.0× |
-| `lorem.sentence` | 112,520 | 2,052 | 54.8× |
+| Method | go-fakerjs | v8go, script per call | v8go, precompiled | Ratio |
+| --- | ---: | ---: | ---: | ---: |
+| `number.int` | 1,474 | 1,154 | 926 | 1.3× |
+| `person.firstName` | 6,138 | 1,071 | 816 | 5.7× |
+| `internet.email` | 36,423 | 3,402 | 2,646 | 10.7× |
+| `location.streetAddress` | 47,754 | 3,837 | 3,076 | 12.4× |
+| `string.uuid` | 48,984 | 3,067 | 2,806 | 16.0× |
+| `lorem.sentence` | 112,520 | 2,052 | 1,779 | 54.8× |
+
+On the 20-column row, v8go with precompiled scripts makes 29,984 rows/s with 1 engine and 134,194 with 10.
 
 The call boundary costs about the same as v8go's: `number.int`, which does little JavaScript work, is 1.3× slower. Methods that run more JavaScript show the interpreter's cost, and parallel engines don't close the gap: with 10 engines, v8go is still 11.5× ahead on the 20-column row ([analysis](../FINDINGS.md#61-the-call-boundary-is-close-to-v8gos-the-gap-is-the-interpreter)).
 

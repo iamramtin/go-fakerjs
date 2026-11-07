@@ -9,10 +9,11 @@
 
 *Faker.js, byte for byte, in a Go binary.*
 
-go-fakerjs runs Faker.js inside a Go program, so Go code can generate the same fake data that Faker.js generates from the same seed, value for value. Faker.js and the QuickJS-NG interpreter are compiled to WebAssembly and then translated into Go source, so the package builds with `CGO_ENABLED=0`, needs no Wasm runtime, and imports nothing outside the standard library.
+go-fakerjs runs Faker.js inside a Go program, so Go code can generate the same fake data that Faker.js generates from the same seed, value for value. Faker.js and the QuickJS-NG interpreter are compiled to WebAssembly and then translated into Go source, so the package builds with `CGO_ENABLED=0`, needs no Wasm runtime, and imports nothing outside the standard library. Of 2,240 test cases across all 262 Faker.js methods, 2,235 match Faker.js byte for byte; the other 5 need `Intl`, which the interpreter doesn't have.
 
 [![CI](https://github.com/iamramtin/go-fakerjs/actions/workflows/ci.yml/badge.svg)](https://github.com/iamramtin/go-fakerjs/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/iamramtin/go-fakerjs.svg)](https://pkg.go.dev/github.com/iamramtin/go-fakerjs)
+[![Coverage](https://codecov.io/gh/iamramtin/go-fakerjs/graph/badge.svg)](https://codecov.io/gh/iamramtin/go-fakerjs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Why it exists
@@ -21,11 +22,15 @@ I built it to get Faker.js output in Go, exact to the byte and reproducible from
 
 ## Quick start
 
-Requires Go 1.27.1 or later. The generated code is committed, so `go get` needs no toolchain or build step.
+Requires Go 1.27.1 or later. Create a module and add go-fakerjs to it:
 
 ```sh
-go get github.com/iamramtin/go-fakerjs
+mkdir fakerdemo && cd fakerdemo
+go mod init fakerdemo
+go get github.com/iamramtin/go-fakerjs@latest
 ```
+
+Save this as `main.go`:
 
 ```go
 package main
@@ -39,38 +44,41 @@ import (
 )
 
 func main() {
-	// A fixed seed and reference date make every value below reproducible, dates included.
+	// The same seed and reference date give the same values on every run.
 	e := fakerjs.NewEngine(42, fakerjs.WithRefDate(time.Date(2026, 1, 1, 0, 0, 0, 0, time.UTC)))
 	defer e.Close()
 
-	calls := []struct {
-		method string
-		arg    any // nil calls the method with no argument; anything else is sent as JSON
-	}{
-		{"person.fullName", nil},
-		{"number.int", map[string]any{"max": 100}},
-		{"datatype.boolean", nil},
-		{"date.recent", nil},
-		{"helpers.arrayElements", []string{"red", "green", "blue"}},
-		{"airline.airline", nil},
-	}
-	for _, c := range calls {
-		v, err := e.Generate(c.method, c.arg)
+	// show calls one Faker.js method. arg is nil for no argument, or any value encoding/json accepts.
+	show := func(method string, arg any) {
+		v, err := e.Generate(method, arg)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Printf("%-22s error: %v\n", method, err)
+			return
 		}
-		fmt.Printf("%-22s %s\n", c.method, v)
+		fmt.Printf("%-22s %s\n", method, v)
 	}
 
+	show("person.fullName", nil)                                    // text
+	show("number.int", map[string]any{"max": 100})                  // a number
+	show("datatype.boolean", nil)                                   // a boolean
+	show("date.recent", nil)                                        // a Date
+	show("helpers.arrayElements", []string{"red", "green", "blue"}) // an array
+	show("airline.airline", nil)                                    // an object
+	show("person.nickname", nil)                                    // not a Faker.js method
+
+	// GenerateN returns several values from one call into the engine.
 	codes, err := e.GenerateN("string.alpha", map[string]any{"length": 8}, 3)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%-22s %q\n", "string.alpha x3", codes)
-
-	_, err = e.Generate("person.nickname", nil)
-	fmt.Printf("%-22s %v\n", "person.nickname", err)
+	fmt.Println(codes)
 }
+```
+
+Run it:
+
+```sh
+go run .
 ```
 
 ```
@@ -80,17 +88,22 @@ datatype.boolean       false
 date.recent            Wed Dec 31 2025 14:25:35 GMT+0000 (Coordinated Universal Time)
 helpers.arrayElements  blue,green,red
 airline.airline        [object Object]
-string.alpha x3        ["ljjpBwpF" "hptxOkAE" "cFidXYQp"]
-person.nickname        unknown faker method "person.nickname"
+person.nickname        error: unknown faker method "person.nickname"
+[ljjpBwpF hptxOkAE cFidXYQp]
 ```
 
-Faker.js on Node 22, seeded with `faker.seed(42)` and given the same reference date, prints the same values in the same order under `TZ=UTC`.
+These are the values Faker.js prints on Node 22 with `faker.seed(42)` and the same reference date, under `TZ=UTC`, and the program prints them on every run. The first build compiles the generated Go that contains Faker.js, which took 9 s and peaked at 2.1 GB of memory on an Apple M5 with an empty build cache; later builds come from Go's build cache.
 
-- **Results.** Every result is a Go `string`, converted the way JavaScript's `String()` converts it. Numbers and booleans become their text, a `Date` becomes its `Date#toString` text, an array is joined with commas, and an object becomes `[object Object]`. Seven methods return objects: `airline.airline`, `airline.airplane`, `airline.airport`, `finance.currency`, `location.language`, `science.chemicalElement`, and `science.unit`.
-- **Arguments.** `nil` calls the method with no argument. Any other value is encoded with `encoding/json` and passed as the method's only argument.
+### Results
+
+- **Text.** Every result is a Go `string`, converted the way JavaScript's `String()` converts it. Numbers and booleans become their text, a `Date` becomes its `Date#toString` text, an array is joined with commas, and an object becomes `[object Object]`. Seven methods return objects: `airline.airline`, `airline.airplane`, `airline.airport`, `finance.currency`, `location.language`, `science.chemicalElement`, and `science.unit`.
+- **Arguments.** `nil` calls the method with no argument. Any other value is encoded with `encoding/json` and passed as the method's only argument, so a Go map, a slice, or a struct whose JSON field names match the Faker.js options all work.
 - **Batches.** `GenerateN(method, arg, n)` returns the same `n` values as `n` calls to `Generate`, in one call into the engine.
+- **Methods.** A method is named `module.method`, as in the [Faker.js API reference](https://fakerjs.dev/api/); every one of the 262 is listed in [`golden/api.json`](golden/api.json).
 
-Every error is a `*fakerjs.Error` with one of six classes. `fakerjs.IsClass(err, class)` tests the class, and `errors.Is` matches the sentinel errors (`ErrUnknownMethod`, `ErrDeadline`, `ErrOutOfMemory`, `ErrResultTooLarge`, `ErrArgTooLarge`, `ErrPoisoned`, and `ErrClosed`). Each message below is real output:
+### Errors
+
+`Generate` and `GenerateN` return a `*fakerjs.Error` with one of six classes, except that `GenerateN` with a negative count returns a plain error. `fakerjs.IsClass(err, class)` tests the class, and `errors.Is` matches the sentinel errors (`ErrUnknownMethod`, `ErrDeadline`, `ErrOutOfMemory`, `ErrResultTooLarge`, `ErrArgTooLarge`, `ErrPoisoned`, and `ErrClosed`). Each message below is real output:
 
 | Class | Call | `err.Error()` |
 | --- | --- | --- |
@@ -101,7 +114,7 @@ Every error is a `*fakerjs.Error` with one of six classes. `fakerjs.IsClass(err,
 | `ClassResource` | `Generate("string.nanoid", map[string]any{"length": 5})` with `WithTimeout(100 * time.Millisecond)` | `faker call exceeded its deadline` |
 | `ClassEngine` | any call after `Close` | `engine is closed` |
 
-`string.nanoid` with `length: 5` never returns in Faker.js itself, which makes it a convenient deadline test. A call is bounded by `WithTimeout` (default 30 s) and its JSON argument by `WithMaxArgBytes` (default 4 MiB). An engine stays usable after a resource-limit error; the [limits](FINDINGS.md#52-robustness) list the memory bounds.
+`string.nanoid` with `length: 5` never returns in Faker.js itself, which makes it a convenient deadline test. Each call is bounded by `WithTimeout` (default 30 s), and its JSON argument by `WithMaxArgBytes` (default 4 MiB). An engine stays usable after a resource-limit error, but one that hit a memory limit keeps the memory it grew until it is closed ([limits](FINDINGS.md#52-robustness)).
 
 ## Who it's for
 
@@ -111,9 +124,9 @@ Every error is a `*fakerjs.Error` with one of six classes. `fakerjs.IsClass(err,
 - **Load tests.** `NewPool(size, seed)` runs engines in parallel, each seeded with `DeriveSeed(seed, i)`. Throughput is in [performance](docs/performance.md).
 - **Demos.** `NewEngine(0)` leaves Faker.js on a random seed, so each new engine gives new values.
 
-## Coverage
+## What it covers
 
-Every module and method that Faker.js's en instance exposes is callable: 27 modules and 262 methods, enumerated from Faker.js itself into [`golden/api.json`](golden/api.json). The 262 methods are tested over 448 argument variants, each with 5 seeds and 200 calls per seed, against Faker.js on Node 22.23.3 (V8 12.4) under `TZ=UTC`, with Node's web-platform globals removed so that Faker.js sees the same bare environment as the engine (Linux VM, [conformance results](FINDINGS.md#51-conformance)).
+Every module and method that Faker.js's en instance exposes is callable: 27 modules and 262 methods, enumerated from Faker.js itself into [`golden/api.json`](golden/api.json). The methods are tested with 448 argument variants, each run with 5 seeds and 200 calls per seed. The reference is Faker.js on Node 22.23.3 (V8 12.4) under `TZ=UTC`, with Node's web-platform globals removed so that Faker.js sees the same bare environment as the engine (Linux VM, [conformance results](FINDINGS.md#51-conformance)).
 
 | Module | Methods | Cases | Exact | Differences from Faker.js |
 | --- | ---: | ---: | ---: | --- |
@@ -197,7 +210,7 @@ It also doesn't select a locale other than en, return typed Go values, take more
 
 ## Performance
 
-Apple M5, darwin/arm64, medians of 10 runs, 20-column rows with one call per value. v8go builds a script per call.
+Apple M5, darwin/arm64, medians of 10 runs, 20-column rows with one call per value. The v8go column builds a script per call; [performance](docs/performance.md) also has v8go with precompiled scripts.
 
 | | go-fakerjs | v8go | wazero with QuickJS |
 | --- | ---: | ---: | ---: |
